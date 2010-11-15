@@ -1,0 +1,3 @@
+<?php
+
+include_once('sws_blog.features.inc');

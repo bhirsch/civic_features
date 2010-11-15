@@ -1,0 +1,79 @@
+<?php
+/** 
+ * @file slides.install
+ */
+
+/**
+ * Implementation of hook_install().
+ */
+function slides_install() {
+  // Taxonomy:
+  // Add slide node type to Keywords vocabulary.
+  $vocabs = taxonomy_get_vocabularies();
+  _slides_install_keywords($vocabs);
+}
+
+/**
+ * Implementation of hook_uninstall(). 
+ */
+function slides_uninstall() {
+  // Taxonomy: 
+  // Remove slide node type from Keywords vocabulary.
+  // Delete Resource Categories vocabulary.
+  _slides_uninstall_taxonomoy();
+}
+
+//------------------------
+// Internal functions
+//------------------------
+
+/**
+ * Add slide node type to Keywords vocabulary.
+ * 
+ * @param
+ *  $vocabs, array, vocab objects returned by taxonomy_get_vocabularies()
+ */
+function _slides_install_keywords($vocabs) {
+  foreach($vocabs as $vocab) { 
+    // Add slide node type to Keywords vocabulary.
+    if ($vocab->name == 'Keywords') {
+      $vocab->nodes['slide'] = 'slide';
+      foreach($vocab->nodes as $type) {
+        $types[$type]  = 1;
+      }
+      $vocab->nodes = $types;
+      $vocab = (array)$vocab;
+      $status = taxonomy_save_vocabulary($vocab);
+      if ($status == 2) {
+        drupal_set_message(t('Slides have been enabled to be tagged with Keywords.'));
+      } else {
+        drupal_set_message(t('Slides have not been enabled to be tagged with Keywords. Please notify an administrator.'));
+      }
+    }
+  }
+}
+
+
+/**
+ * Remove slide node type from Keywords vocabulary.
+ */
+function _slides_uninstall_taxonomoy() {
+  $vocabs = taxonomy_get_vocabularies();
+  foreach($vocabs as $vocab) { 
+    // Remove slide node type from Keywords vocabulary.
+    if ($vocab->name == 'Keywords') {
+      foreach($vocab->nodes as $type) {
+        $types[$type]  = 1;
+      }
+      $vocab->nodes = $types;
+      $vocab = (array)$vocab;
+      unset($vocab['nodes']['slide']);
+      $keyword_status = taxonomy_save_vocabulary($vocab);
+      if ($keyword_status == 2) {
+        drupal_set_message(t('Slide Keyword tagging has been disabled.'));
+      } else {
+        drupal_set_message(t('Slide keyword tagging could not be disabled. Please notify an administrator.'));
+      }
+    }
+  }
+}

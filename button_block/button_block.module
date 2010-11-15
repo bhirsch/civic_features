@@ -1,0 +1,328 @@
+<?php
+
+include_once('button_block.features.inc');
+
+/**
+ * Everything below here is custom code, 
+ * added manually by BH, not Features module.
+ */
+
+/**
+ * hook_field_formatter_info()
+ */
+function button_block_field_formatter_info() {
+  return array(
+    'bb_button' => array(
+      'label' => 'Button',
+      'field types' => array('text'),
+    ),
+  );
+}
+
+/**
+ * Implementation of hook_theme().
+ */
+function button_block_theme() {
+  // Include preprocess functions
+  $path = drupal_get_path('module', 'button_block') .'/theme';
+  require_once "./$path/theme.inc";
+  // Include custom css (this file gets written and updated when users create buttons)
+  $file_path = file_directory_path() .'/button_block/bb_buttons.css';
+  drupal_add_css($file_path);
+  // Template file
+  return array(
+    'button_block_formatter_bb_button' => array(
+      'template' => 'bb-button',
+      'file' => 'theme.inc',
+      'arguments' => array('element' => NULL), 
+      'path' => $path,
+    ), 
+  );
+}
+
+/** 
+ * @param
+ *   $title, title of the button, for which we are creating an id attribute
+ *   $nid, node id
+ * @return 
+ *   E.g. A button titled "Sign Up" gets the id "sign-up-nid" (nid is a number).
+ */
+function button_block_id($title, $nid) {
+  $id = check_plain($title);
+  $id = trim($id);
+  $id = strtolower($id);  $id = str_replace(' ', '-', $id);
+  $id .= '-'. $nid; // Include nid in case there are two buttons with same title.
+  return $id;
+}
+
+/**
+ * Implementation of hook_init().
+ */
+function button_block_init(){
+  // Include custom css (this file gets written and updated when users create buttons)
+  $file_path = file_directory_path() .'/button_block/bb_buttons.css';
+  drupal_add_css($file_path);
+}
+
+/**
+ * Implementation of hook_nodeapi().
+ */
+function button_block_nodeapi(&$node, $op, $a3 = NULL, $a4 = NULL) {
+  if ($node->type == 'button') {
+    switch ($op) {
+      case 'presave': 
+        // Write custom CSS for button just created 
+        $css = _button_block_css($node);
+        _button_block_write_css($css);
+        break;
+      case 'view': 
+        // body stores HTML for widgets
+        unset($node->content['body']);
+        // TODO sws_body should be replaced with finer grain handling.
+        //  when it is, delete this next line.
+        unset($node->content['sws_body']);
+        break;
+    }
+  }
+}
+
+/**
+ * @param
+ *   $node object of node being presaved
+ * @return
+ *   contents of new custom css file including 
+ *   newest version of node being saved 
+ */
+function _button_block_css($node) {
+  $css = '';
+  // Compose CSS for button node that's about to be saved.
+  $css .= _button_block_compose_css($node);
+  // Compose CSS for button nodes that have already been saved.
+  // (This is easier than parsing the CSS file and modifying it.)
+  $results = db_query("SELECT nid FROM {node} WHERE type = 'button' AND nid != %d", $node->nid);
+  while ($row = db_fetch_object($results)) {
+    $node = node_load($row->nid);
+    $css .= _button_block_compose_css($node);
+  }
+  // Create space between buttons.
+  // TODO Space between buttons should really be a user-defined setting.
+  $css .= "\n.view-button-block div.views-row \n{\n";
+  $css .= "padding: 0;\n"; 
+  $css .= "margin: 0;\n";  
+  $css .= "}"; 
+
+  return $css;
+}
+
+/**
+ * @param
+ *   $node object
+ * @return
+ *   CSS for this button/node to write to custom CSS file.
+ */
+function _button_block_compose_css($node) {
+  $css = '';
+
+  // TODO Temporary fix.
+  // On node/add, this is running before the node is saved,
+  // so there is no nid. This is a quick fix. It would be better
+  // to do a form alter and replace the submit button with our own submit 
+  // function after the first submit function runs. WHen we do this, 
+  // we should probably get rid of submitagain too, and handle this ourselves.
+  $nid = $node->nid;
+  if (!$nid) {
+    $nid = db_result(db_query("SELECT MAX(nid) FROM {node} LIMIT 1")) + 1; 
+  }
+  
+  // #button-id 
+  // {
+  $id = button_block_id($node->title, $nid);
+  $css .= '#'. $id ."\n{\n";
+
+  // Button background.
+  // Get button size/preset name
+  $preset_name = check_plain($node->field_button_size[0]['value']);
+  $display_title = $node->field_button_display_title[0]['value']; 
+  $image = $node->field_button_image[0]['filename'];
+  if ($image && $display_title) { 
+    // background-image: url(___________); 
+    //
+    // follow this pattern from imagecache: files/imagecache/preset-name/files/image-name.jpg
+    $file_path = file_directory_path();
+    $path = url("$base_url" . "$file_path/imagecache/$preset_name/$image");
+    $css .= 'background-image: url('. $path .");\n";
+    $css .= "background-repeat: no-repeat;\n";
+    
+  } else if ($node->field_button_bgd_color[0]['value']) {
+    // if no image, user can set background color
+
+    // background-color: X; 
+    $color = check_plain($node->field_button_bgd_color[0]['value']);
+    $css .= "background-color:  $color;\n";
+  } else { // no background image, no background color
+    // use the same color selected for text to make a border
+    $color = check_plain($node->field_button_txt_color[0]['value']);
+    $css .= "border-color: $color;\n";
+    $css .= "border-style: solid;\n";
+    $css .= "border-width: 5px;\n";
+    $border = TRUE; 
+  }
+
+    // width: X; 
+    // height: Y;
+    // 
+    // grab width and height from preset (naming convention: button_WIDTHxHEIGHT, 
+    // e.g button_256x36)
+    $width_height = substr($preset_name, 7); // grab substring beginning after "button_"
+    $width_height = explode('x', $width_height);
+    $width = $width_height[0];
+    $height = $width_height[1];
+    if ($border) {
+      // resize width and height to account for size of border
+      $width = (int)$width;
+      $height = (int)$height;
+      $width = $width - 10;
+      $height = $height - 10;  
+      $width = (string)$width;
+      $height = (string)$height;
+    }
+    $css .= "width: $width" . "px;\n";
+    $css .= "height: $height" . "px;\n";
+
+  // } 
+  // 
+  $css .= "}\n\n";
+
+  // If title is being displayed (not included in button image)
+  // set margins, etc. for link.
+  if ($display_title) {
+  // #button-id a
+  // {
+  $css .= "#$id-link a:active, #$id-link a:visited, #$id-link a:link, #$id a \n{\n";
+    // position: absolute;
+    $css .= "position: absolute;\n";
+    // font-size: 18px;
+    $font_size = check_plain($node->field_button_font_size[0]['value']);
+    $css .= ($font_size) ? "font-size: $font_size;\n" : '';
+    // margin-left: 75px;
+    $margin_left = check_plain($node->field_button_margin_lft[0]['value']);
+    $css .= ($margin_left) ? "margin-left: $margin_left;\n" : '';
+    // margin-top: 7px;
+    $margin_top = check_plain($node->field_button_margin_top[0]['value']);
+    $css .= ($margin_top) ? "margin-top: $margin_top;\n" : '';
+    // color: #ffffff;
+    $color = check_plain($node->field_button_txt_color[0]['value']);
+    $css .= ($color) ? "color: $color;\n" : '';
+    // font-weight: bold;
+    $font_weight = check_plain($node->field_button_font_weight[0]['value']);
+    $css .= ($font_weight) ? "font-weight: $font_weight;\n" : '';
+    // font-family: 
+    $font_family = filter_xss($node->field_button_font_family[0]['value']);
+    $css .= ($font_family) ? "font-family: $font_family;\n" : '';
+    // }
+    $css .= "}\n\n";
+  }
+
+  return $css;
+}
+
+function _button_block_write_css($css) {
+  // Set the location of the custom bb_buttons.css file
+  $file_path = file_directory_path() .'/button_block/bb_buttons.css';
+
+  // If the directory doesn't exist, create it
+  file_check_directory(dirname($file_path), FILE_CREATE_DIRECTORY);
+
+  // Generate the CSS
+  $file_contents = $css; 
+  
+  // Notify user about new CSS 
+  $txt = t('This CSS file includes settings '
+          .'for each of your custom buttons and has been updated '
+          .'to reflect your most recent changes: !file. You may '
+          .'need to clear your cache for changes to take effect. ',
+          array('!file' => l($file_path, $file_path)));
+
+  file_save_data($file_contents, $file_path, FILE_EXISTS_REPLACE);
+
+  drupal_set_message($txt);
+
+  // TODO clear cache to show updated buttons on node savew 
+}
+
+/**
+ *  Implementation of MODULE_preprocess_HOOK().
+ * 
+ * @see theme()
+ */
+function button_block_preprocess_node(&$variables) {
+  if ($variables['type'] == 'button') {
+    unset($variables['title']);
+  }
+}
+
+/**
+ * Implementation of hook_form_alter().
+ */
+function button_block_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'button_node_form') {
+    $body = $form['body_field'];
+    unset($form['body_field']);
+    $form['advanced'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Advanced (HTML Widget)'),
+      '#collapsible' => TRUE,
+      '#collapsed' => TRUE,
+    );
+    $form['advanced']['body_field'] = $body;
+  }
+}
+
+
+/**
+ * TODO The theme directory gets blown away when recreating features. I though calling the theme function, rather than preprocessing would be a way to bake theme/theme.inc and theme/button_block.tpl.php into the .module file, but it's not working. I'm not sure why. Revisit this.
+ *
+ */
+/*
+function theme_button_block_formatter_bb_button($element) {
+// This stuff belongs in a preprocess function.
+// TODO When the features module export respects including other directories move this into theme/theme.inc. 
+  $node = $variables['element']['#node'];
+  $url = $node->field_button_link[0]['safe'];
+  $id = button_block_id($node->title, $node->nid);
+  $display_title = check_plain($node->field_button_display_title[0]['value']);
+
+  // imagecache image
+  $preset_name = check_plain($node->field_button_size[0]['value']);
+  $preset_name = strip_tags($preset_name);
+  $preset_name = trim($preset_name);
+  $button_image = $node->field_button_image[0];
+  $image_filepath = $button_image['filepath'];
+  $alt = $button_image['data']['alt'];
+  $title = $button_image['data']['title'];
+  $attributes = ''; // TODO handle attributes
+
+  $image = theme('imagecache', $preset_name, $image_filepath, $alt, $title, $attributes);
+//  $variables['url'] = $url;
+//  $variables['id'] = $id; 
+  $title = $node->title; //  $variables['title'] = $node->title;
+//  $variables['display_title'] = $display_title;
+//  $variables['image'] = $image;
+
+// End preprocess function here. 
+
+// This part belongs in a template file.
+// TODO When the features module export respects including other directories move this into theme/bb-button.tpl.php. 
+// For now, this does the same thing as theme/bb-block.tpl.php:
+  $output = '';
+  $output .= "<div id='$id' class='bb-button'>";
+  if ($display_title) {
+    $output .= "<a id='$id-link' href='$url'>$title</a>";
+  } else {
+    $output .= "<a href='$url'>$image</a>";
+  }
+  $output .= '</div>';
+  return $output;
+}
+// */
+

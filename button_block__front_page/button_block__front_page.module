@@ -1,0 +1,3 @@
+<?php
+
+include_once('button_block__front_page.features.inc');
