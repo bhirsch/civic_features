@@ -17,6 +17,24 @@ function slideshow_panoramic_3_views_default_views() {
   $view->api_version = 2;
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
   $handler = $view->new_display('default', 'Defaults', 'default');
+  $handler->override_option('relationships', array(
+    'nodequeue_rel' => array(
+      'label' => 'queue',
+      'required' => 1,
+      'limit' => 1,
+      'qids' => array(
+        '6' => 6,
+        '1' => 0,
+        '2' => 0,
+        '3' => 0,
+        '4' => 0,
+      ),
+      'id' => 'nodequeue_rel',
+      'table' => 'node',
+      'field' => 'nodequeue_rel',
+      'relationship' => 'none',
+    ),
+  ));
   $handler->override_option('fields', array(
     'field_slide_link_value_1' => array(
       'label' => '',
@@ -62,7 +80,7 @@ function slideshow_panoramic_3_views_default_views() {
     'field_slide_pic_fid' => array(
       'label' => '',
       'alter' => array(
-        'alter_text' => 1,
+        'alter_text' => 0,
         'text' => '<div style="height:240px;">[field_slide_pic_fid]</div>',
         'make_link' => 1,
         'path' => '[field_slide_link_value_1]',
@@ -84,48 +102,7 @@ function slideshow_panoramic_3_views_default_views() {
       'empty_zero' => 0,
       'link_to_node' => 0,
       'label_type' => 'none',
-      'format' => 'scale_and_crop_720x240_default',
-      'multiple' => array(
-        'group' => TRUE,
-        'multiple_number' => '',
-        'multiple_from' => '',
-        'multiple_reversed' => FALSE,
-      ),
-      'exclude' => 0,
-      'id' => 'field_slide_pic_fid',
-      'table' => 'node_data_field_slide_pic',
-      'field' => 'field_slide_pic_fid',
-      'relationship' => 'none',
-      'override' => array(
-        'button' => 'Override',
-      ),
-    ),
-    'field_slide_link_value' => array(
-      'label' => 'Link (URL)',
-      'alter' => array(
-        'alter_text' => 1,
-        'text' => 'Read more',
-        'make_link' => 1,
-        'path' => '[field_slide_link_value]',
-        'link_class' => '',
-        'alt' => '',
-        'prefix' => '',
-        'suffix' => '',
-        'target' => '',
-        'help' => '',
-        'trim' => 0,
-        'max_length' => '',
-        'word_boundary' => 1,
-        'ellipsis' => 1,
-        'html' => 0,
-        'strip_tags' => 0,
-      ),
-      'empty' => '',
-      'hide_empty' => 1,
-      'empty_zero' => 0,
-      'link_to_node' => 0,
-      'label_type' => 'widget',
-      'format' => 'default',
+      'format' => 'slideshow_784x297_default',
       'multiple' => array(
         'group' => TRUE,
         'multiple_number' => '',
@@ -133,9 +110,9 @@ function slideshow_panoramic_3_views_default_views() {
         'multiple_reversed' => FALSE,
       ),
       'exclude' => 1,
-      'id' => 'field_slide_link_value',
-      'table' => 'node_data_field_slide_link',
-      'field' => 'field_slide_link_value',
+      'id' => 'field_slide_pic_fid',
+      'table' => 'node_data_field_slide_pic',
+      'field' => 'field_slide_pic_fid',
       'relationship' => 'none',
       'override' => array(
         'button' => 'Override',
@@ -158,8 +135,8 @@ function slideshow_panoramic_3_views_default_views() {
         'max_length' => '',
         'word_boundary' => 1,
         'ellipsis' => 1,
-        'strip_tags' => 0,
         'html' => 0,
+        'strip_tags' => 0,
       ),
       'empty' => '',
       'hide_empty' => 0,
@@ -170,14 +147,21 @@ function slideshow_panoramic_3_views_default_views() {
       'table' => 'node',
       'field' => 'title',
       'relationship' => 'none',
+      'override' => array(
+        'button' => 'Override',
+      ),
     ),
     'body' => array(
       'label' => '',
       'alter' => array(
         'alter_text' => 1,
-        'text' => '<div id="slide-transparency"></div>
-  <div id="slide-content"> 
-  <div class="slide-title">[title]</div>
+        'text' => '<div class="slide">
+  <div class="slide-shadow"></div>
+  <div class="slide-pic">[field_slide_pic_fid]</div>
+  <div class="slide-description">
+    <div class="slide-title">[title]</div>
+    <div class="slide-body">[body]</div>
+  </div>
 </div>',
         'make_link' => 0,
         'path' => '',
@@ -202,9 +186,16 @@ function slideshow_panoramic_3_views_default_views() {
       'table' => 'node_revisions',
       'field' => 'body',
       'relationship' => 'none',
-      'override' => array(
-        'button' => 'Override',
-      ),
+    ),
+  ));
+  $handler->override_option('sorts', array(
+    'timestamp' => array(
+      'order' => 'DESC',
+      'granularity' => 'second',
+      'id' => 'timestamp',
+      'table' => 'nodequeue_nodes',
+      'field' => 'timestamp',
+      'relationship' => 'nodequeue_rel',
     ),
   ));
   $handler->override_option('filters', array(
@@ -273,7 +264,7 @@ function slideshow_panoramic_3_views_default_views() {
     'hide_empty' => 0,
   ));
   $handler = $view->new_display('block', 'Block: Pano w Title', 'block_3');
-  $handler->override_option('block_description', '');
+  $handler->override_option('block_description', 'slideshow_panoramic_3: Pano w Title');
   $handler->override_option('block_caching', -1);
 
   $views[$view->name] = $view;

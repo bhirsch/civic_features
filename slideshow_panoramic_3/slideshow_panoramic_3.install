@@ -1,0 +1,26 @@
+<?php
+/**
+ * @file slideshow_panoramic_4_nav.install
+ */
+
+/**
+ * Implementation of hook_install().
+ * 
+ * TODO Add error handling. Check for nodequeue 6 before running this. Prompt user to handle results of check. 
+ */
+function slideshow_panoramic_3_install() {
+  // Create Front Page Slideshow (Panoramic 3) nodequeue
+  db_query("INSERT INTO {nodequeue_queue} "
+          ."VALUES (6,'Front Page Slideshow (Panoramic 3)','',6,'','','slideshow_panoramic_4_nav',1,1,0,'0',0,1)");
+  db_query("INSERT INTO {nodequeue_roles} VALUES (6,4),(6,6)");
+  db_query("INSERT INTO {nodequeue_subqueue} VALUES (6,6,'6','Front Page Slideshow (Panoramic 3)') ");
+  db_query("INSERT INTO {nodequeue_types} VALUES (6,'slide') ");
+}
+
+/**
+ * Implementation of hook_uninstall().
+ */
+function slideshow_panoramic_4_nav_uninstall() {
+  $qid = 6;
+  nodequeue_delete($qid);
+}
