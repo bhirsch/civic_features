@@ -1,0 +1,3 @@
+<?php
+
+include_once('featuredvideo_fontpage.features.inc');
