@@ -55,6 +55,7 @@
     width: 680px;
     height: 309px;
     background-image: url(images/carousel1_background_3.jpg);
+    overflow: hidden;
   }
 
   div.carousel1 span.accent
