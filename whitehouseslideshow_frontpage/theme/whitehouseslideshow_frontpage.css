@@ -134,6 +134,7 @@
     width: 996px;
     height: 30px;
     background-image: url(images/rotor1_background.jpg);
+    overflow: hidden; 
   }
 
   .rotor-tab 
