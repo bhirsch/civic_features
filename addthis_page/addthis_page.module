@@ -1,0 +1,3 @@
+<?php
+
+include_once('addthis_page.features.inc');

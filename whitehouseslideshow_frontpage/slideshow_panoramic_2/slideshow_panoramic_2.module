@@ -1,0 +1,3 @@
+<?php
+
+include_once('slideshow_panoramic_2.features.inc');

@@ -1,0 +1,3 @@
+<?php
+
+include_once('relatedposts_page.features.inc');

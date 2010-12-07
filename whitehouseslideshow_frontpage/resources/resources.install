@@ -1,0 +1,219 @@
+<?php
+/** 
+ * @file resources.install
+ */
+
+/**
+ * Implementation of hook_install().
+ */
+function resources_install() {
+  // Taxonomy:
+  // Add resource node type to Keywords vocabulary.
+  $vocabs = taxonomy_get_vocabularies();
+  _resources_install_keywords($vocabs);
+  // Create Resource Categories vocabulary.
+  _resources_install_vocabulary($vocabs );
+
+  // Permissions: 
+  // Grant Site Manager and Content Manager roles
+  // permission to create, update, and delete resource node types.
+  _resources_install_permissions();
+
+  // Nodequeue:
+  // Add resource to Featured Posts, Front Page Slideshow, Featured Video
+  _resources_install_nodequeue();
+}
+
+/**
+ * Implementation of hook_uninstall(). 
+ */
+function resources_uninstall() {
+  // Taxonomy: 
+  // Remove resource node type from Keywords vocabulary.
+  // Delete Resource Categories vocabulary.
+  _resources_uninstall_taxonomoy();
+
+}
+
+//------------------------
+// Internal functions
+//------------------------
+
+/**
+ * Add resource to Featured Posts, Front Page Slideshow, Featured Video
+ */
+function _resources_install_nodequeue() {
+  db_query("INSERT INTO {nodequeue_types} "
+          ."VALUES "
+          // 1 Front Page Slideshow
+          ."(1,'resource'),"
+          // 2 Featured Posts
+          ."(2,'resource'),"
+          // 3 Featured Video
+          ."(3,'resource') ");
+          // 4 Front Page Main
+          // todo add here when all field handling has been move from sws to sws_fields / CCK formatters
+}
+
+/**
+ * Add resource node type to Keywords vocabulary.
+ * 
+ * @param
+ *  $vocabs, array, vocab objects returned by taxonomy_get_vocabularies()
+ */
+function _resources_install_keywords($vocabs) {
+  foreach($vocabs as $vocab) { 
+    // Add resource node type to Keywords vocabulary.
+    if ($vocab->name == 'Keywords') {
+      $vocab->nodes['resource'] = 'resource';
+      foreach($vocab->nodes as $type) {
+        $types[$type]  = 1;
+      }
+      $vocab->nodes = $types;
+      $vocab = (array)$vocab;
+      $status = taxonomy_save_vocabulary($vocab);
+    }
+  }
+}
+
+/**
+ * Create Resource Categories vocabulary.
+ * 
+ * @param
+ *  $vocabs, array, vocab objects returned by taxonomy_get_vocabularies()
+ */
+function _resources_install_vocabulary($vocabs) {
+  foreach($vocabs as $vocab) { 
+    // Check if Resource Categories vocabulay already exists.
+    if ($vocab->name == 'Resource Categories') {
+      $rc_exists = TRUE; 
+    }
+    // vid 3 is reserved for 'Resource Categories'
+    // @see owh README.txt
+    if ($vocab->vid == 3) {
+      $vid3_name = $vocab->name;
+    }
+  }
+
+  // Configure resource categories vocabulary
+  $rc_vocab = _resources_rc_vocab(); 
+
+  // Create Resource Categories vocabulary.
+  if (!$rc_exists || !$vid3_name) {
+    $status = taxonomy_save_vocabulary($rc_vocab);
+    if ($status == 1) {
+      drupal_set_message(t('Resource Categories has been created.'));
+    } else if ($status == 2) {
+      // Taxonomy_save_vocabulary returns status 2 when it tries to update
+      // an existing record. But if Resource Categories existed before, and 
+      // then got deleted with an uninstall, the update fails. 
+      // "UPDATE vocabulary SET xxx WHERE vid = 3" doesn't update 
+      // anything when vid 3 does not exist.
+      $result = db_result(db_query("SELECT vid FROM vocabulary WHERE vid = 3"));
+      if ($result != 3) {
+        db_query("INSERT INTO vocabulary (vid) VALUES (3) ");
+        $status = taxonomy_save_vocabulary($rc_vocab);
+        if ($status == 2) {
+          drupal_set_message(t('Resource Categories has been created.'));
+        } else {
+          drupal_set_message(t('Resource Categories was not created. '
+          .'taxonomy_save_vocabulary returned status: '. $status 
+          .'. please notify an administrator.'));
+        }
+      }
+    } else {
+      drupal_set_message(t('Resource Categories was not created. '
+        .'taxonomy_save_vocabulary returned status: '. $status 
+        .'. please notify an administrator.'));
+    }
+  // Error handling: 
+  } else if ($rc_exists && $vid3_name != 'Resource Categories') {
+    drupal_set_message(t('Resource Categories already exists, but it '
+      .'is not configured properly (the vid does not equal 3). Please '
+      .'contact an administrator.'));
+  } else if (!$rc_exists && $vid3_name) {
+    drupal_set_message(t('Resource Categories could not be created. '
+      .'%vocab is squatting in vid 3. Please contact a site administrator.'));
+  }
+}
+
+/**
+ * @return
+ *  array, resource categories vocabulary configuration 
+ */
+function _resources_rc_vocab() {
+  // Create Resource Categories freetagging vocab 
+  $rc_vocab = ''; 
+  $rc_vocab = array(
+    'vid' => '3',
+    'name' => 'Resource Categories',
+    'multiple' => 0,
+    'required' => 0,
+    'hierarchy' => 0,
+    'relations' => 0,
+    'weight' => 1,
+    'nodes' => array('resource' => 1), 
+    'tags' => TRUE,
+    'help' => t('Help site visitors find what they\'re looking for in the ' 
+             .'resources listing. '
+             .'Enter a comma separated list of category names here. '
+             .'Visitors can filter the resources list for selected categories '
+             .'and email customized lists to their friends. And you can '
+             .'create links to filtered lists, for particular audiences.'),
+  );  
+  return $rc_vocab;
+}
+
+/**
+ * Remove resource node type from Keywords vocabulary.
+ * Delete Resource Categories vocabulary.
+ */
+function _resources_uninstall_taxonomoy() {
+  $vocabs = taxonomy_get_vocabularies();
+  foreach($vocabs as $vocab) { 
+    // Remove resource node type from Keywords vocabulary.
+    if ($vocab->name == 'Keywords') {
+      foreach($vocab->nodes as $type) {
+        $types[$type]  = 1;
+      }
+      $vocab->nodes = $types;
+      $vocab = (array)$vocab;
+      unset($vocab['nodes']['resource']);
+      $keyword_status = taxonomy_save_vocabulary($vocab);
+    }
+    // Delete Resource Categories vocabulary.
+    // TODO confirm that re-installs (changing vids) don't break Views
+    if ($vocab->name == 'Resource Categories') {
+      $rc_vocab = TRUE; 
+      $vid = $vocab->vid;
+      $rc_status = taxonomy_del_vocabulary($vid);
+    }
+  }
+  if ($rc_status == 3 && $rc_vocab) {
+    drupal_set_message(t('Resource Categories has been deleted.'));
+  } else {
+    drupal_set_message(t('There are no vocabularies named "Resource '
+     .'Categories. No vocabularies have been deleted. Please notify '
+     .'a site administrator.'));
+  }
+}
+
+/**
+ * Grant Site Manager and Content Manager roles
+ * permission to create, update, and delete resource node types.
+ */
+function _resources_install_permissions() {
+  // Enable permission module if it hasn't been enabled  yet.
+  module_enable(array('permission'));
+
+  // Update permissions.
+  $perm = array(
+    'create resource content',
+    'delete any resource content',
+    'delete own resource content',
+    'edit any resource content',
+    'edit own resource content',
+  );
+  permission_update_perm('Site Manager', $perm);
+  permission_update_perm('Content Manager', $perm);
+}

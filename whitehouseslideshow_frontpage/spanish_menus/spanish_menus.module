@@ -1,0 +1,79 @@
+<?php
+
+include_once('spanish_menus.features.inc');
+
+/**
+ * Implementation of hook_enable().
+ */
+function spanish_menus_enable() {
+  $txt = t('Visit !menu to set menu items to Spanish, or other relavant language.', 
+            array(
+              '!menu' => l('admin/build/menu', 'admin/build/menu')
+            )
+          );
+  drupal_set_message($txt, 'warning');
+}
+
+/**
+ * Implementation of hook_init().
+ */
+function spanish_menus_init() {
+  $file_path = drupal_get_path('module', 'spanish_menus') .'/spanish_menus.css';
+  drupal_add_css($file_path);
+}
+
+/**
+ * Implementation of hook_menu().
+ */
+/*
+function spanish_menus_menu() {
+  $items = array();
+
+  $items['spanish_menus/set_language'] = array(
+    'title' => 'spanish menus, set language',
+    'page callback' => 'spanish_menus_set_language',
+    'access arguments' => array('manage features'),
+    'type' => MENU_CALLBACK,
+  );
+
+  return $items;
+}
+// */
+
+/**
+ * Set menu items included in this module to Spanish.
+ * 
+ * Todo Figure out why this doesn't work. The settings don't stick.
+ * They show up on the menu edit page right after running this. But
+ * then they seem to go back to 'all languages'.
+ */
+/*
+// Include this so menu items ca be accessed by spanish_menus_set_language.
+// require_once('spanish_menus.defaults.inc');
+function spanish_menus_set_language() {
+  $items = _spanish_menus_menu_default_items();
+  foreach ($items as $item) {
+    $path[] = $item['path'];
+  }  
+  $features = menu_tree_all_data('features');
+  foreach($features as $menu) {
+    //todo revisit this. @see owhtranslate_menu_to_english().
+    // check for menus in spanish_menu feature module.
+    $link_path = $menu['link']['link_path'];
+    $mlid = $menu['link']['mlid'];
+    if (in_array($link_path, $path)) {
+      $mlid = $menu['link']['mlid'];
+      owhtranslate_menu_lang($mlid, 'es'); 
+    }
+  }
+
+  // message
+  $txt = t('Go to !menu to double check menu items and set language '
+          .'settings manually where needed.', 
+            array( '!menu' => l('admin/build/menu', 'admin/build/menu')));
+  drupal_set_message($txt, 'warning');
+  $path = 'admin/build/features';
+  drupal_goto($path);
+}
+// */
+

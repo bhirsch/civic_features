@@ -1,0 +1,3 @@
+<?php
+
+include_once('recent_blog_posts__front_page.features.inc');

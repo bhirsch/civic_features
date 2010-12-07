@@ -1,0 +1,3 @@
+<?php
+
+include_once('featuredposts_page.features.inc');

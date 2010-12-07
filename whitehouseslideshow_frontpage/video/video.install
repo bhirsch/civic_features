@@ -1,0 +1,219 @@
+<?php
+/** 
+ * @file video.install
+ */
+
+/**
+ * Implementation of hook_install().
+ */
+function video_install() {
+  // Taxonomy:
+  // Add video node type to Keywords vocabulary.
+  $vocabs = taxonomy_get_vocabularies();
+  _video_install_keywords($vocabs);
+  // Create Resource Categories vocabulary.
+  _video_install_vocabulary($vocabs );
+
+  // Permissions: 
+  // Grant Site Manager and Content Manager roles
+  // permission to create, update, and delete video node types.
+  _video_install_permissions();
+
+  // Nodequeue:
+  // Add video to Featured Posts, Front Page Slideshow, Featured Video
+  _video_install_nodequeue();
+}
+
+/**
+ * Implementation of hook_uninstall(). 
+ */
+function video_uninstall() {
+  // Taxonomy: 
+  // Remove video node type from Keywords vocabulary.
+  // Delete Resource Categories vocabulary.
+  _video_uninstall_taxonomoy();
+
+}
+
+//------------------------
+// Internal functions
+//------------------------
+
+/**
+ * Add video to Featured Posts, Front Page Slideshow, Featured Video
+ */
+function _video_install_nodequeue() {
+  db_query("INSERT INTO {nodequeue_types} "
+          ."VALUES "
+          // 2 Featured Posts
+          ."(2,'video'),"
+          // 3 Featured Video
+          ."(3,'video') ");
+          // 4 Front Page Main
+          // todo add here when all field handling has been move from sws to sws_fields / CCK formatters
+}
+
+/**
+ * Add video node type to Keywords vocabulary.
+ * 
+ * @param
+ *  $vocabs, array, vocab objects returned by taxonomy_get_vocabularies()
+ */
+function _video_install_keywords($vocabs) {
+  foreach($vocabs as $vocab) { 
+    // Add video node type to Keywords vocabulary.
+    if ($vocab->name == 'Keywords') {
+      $vocab->nodes['video'] = 'video';
+      foreach($vocab->nodes as $type) {
+        $types[$type]  = 1;
+      }
+      $vocab->nodes = $types;
+      $vocab = (array)$vocab;
+      $status = taxonomy_save_vocabulary($vocab);
+    }
+  }
+}
+
+/**
+ * Create Video Categories vocabulary.
+ * 
+ * @param
+ *  $vocabs, array, vocab objects returned by taxonomy_get_vocabularies()
+ */
+function _video_install_vocabulary($vocabs) {
+  foreach($vocabs as $vocab) { 
+    // Check if Video Categories vocabulay already exists.
+    if ($vocab->name == 'Video Categories') {
+      $vocab_exists = TRUE; 
+    } else {
+      $vocab_exists = FALSE;
+    }
+    // vid 4 is reserved for 'Video Categories'
+    // @see owh TAXONOMY.txt
+    if ($vocab->vid == 4) {
+      $vocab_name = $vocab->name;
+    }
+  }
+
+  // Configure video categories vocabulary
+  $new_vocab = _video_vocab(); 
+
+  // Create Resource Categories vocabulary.
+  if (!$vocab_exists || !$vocab_name) {
+    $status = taxonomy_save_vocabulary($new_vocab);
+    if ($status == 1) {
+      drupal_set_message(t('Video Categories vocabulary has been created.'));
+    } else if ($status == 2) {
+      // Taxonomy_save_vocabulary returns status 2 when it tries to update
+      // an existing record. But if Video Categories existed before, and 
+      // then got deleted with an uninstall, the update fails. 
+      // "UPDATE vocabulary SET xxx WHERE vid = 4" doesn't update 
+      // anything when vid 4 does not exist.
+      $result = db_result(db_query("SELECT vid FROM vocabulary WHERE vid = 4"));
+      if ($result != 4) {
+        db_query("INSERT INTO vocabulary (vid) VALUES (4) ");
+        $status = taxonomy_save_vocabulary($new_vocab);
+        if ($status == 2) {
+          drupal_set_message(t('Video Categories has been created.'));
+        } else {
+          drupal_set_message(t('Video Categories was not created. '
+          .'taxonomy_save_vocabulary returned status: '. $status 
+          .'. please notify an administrator.'));
+        }
+      }
+    } else {
+      drupal_set_message(t('Video Categories was not created. '
+        .'taxonomy_save_vocabulary returned status: '. $status 
+        .'. please notify an administrator.'));
+    }
+  // Error handling: 
+  } else if ($vocab_exists && $vocab_name != 'Video Categories') {
+    drupal_set_message(t('Video Categories already exists, but it '
+      .'is not configured properly (the vid does not equal 4). Please '
+      .'contact an administrator.'));
+  } else if (!$vocab_exists && $vocab_name) {
+    drupal_set_message(t('Video Categories could not be created. '
+      .'%vocab is squatting in vid 4. Please contact a site administrator.'), 
+      array('%vocab' => $vocab_name));
+  }
+}
+
+/**
+ * @return
+ *  array, video categories vocabulary configuration 
+ */
+function _video_vocab() {
+  // Create Video Categories freetagging vocab 
+  $new_vocab = ''; 
+  $new_vocab = array(
+    'vid' => '4',
+    'name' => 'Video Categories',
+    'multiple' => 0,
+    'required' => 0,
+    'hierarchy' => 0,
+    'relations' => 0,
+    'weight' => 1,
+    'nodes' => array('video' => 1), 
+    'tags' => TRUE,
+    'help' => t('Help site visitors find what they\'re looking for in the ' 
+             .'video listing. '
+             .'Enter a comma separated list of category names here. '
+             .'Visitors can filter the video list for selected categories '
+             .'and email customized lists to their friends. And you can '
+             .'create links to filtered lists, for particular audiences.'),
+  );  
+  return $new_vocab;
+}
+
+/**
+ * Remove video node type from Keywords vocabulary.
+ * Delete Resource Categories vocabulary.
+ */
+function _video_uninstall_taxonomoy() {
+  $vocabs = taxonomy_get_vocabularies();
+  foreach($vocabs as $vocab) { 
+    // Remove video node type from Keywords vocabulary.
+    if ($vocab->name == 'Keywords') {
+      foreach($vocab->nodes as $type) {
+        $types[$type]  = 1;
+      }
+      $vocab->nodes = $types;
+      $vocab = (array)$vocab;
+      unset($vocab['nodes']['video']);
+      $keyword_status = taxonomy_save_vocabulary($vocab);
+    }
+    // Delete Video Categories vocabulary.
+    if ($vocab->name == 'Video Categories') {
+      $vocab_deleted = TRUE; 
+      $vid = $vocab->vid;
+      $status = taxonomy_del_vocabulary($vid);
+    }
+  }
+  if ($status == 3 && $vocab_deleted) {
+    drupal_set_message(t('Video Categories has been deleted.'));
+  } else {
+    drupal_set_message(t('There are no vocabularies named "Video '
+     .'Categories. No vocabularies have been deleted. Please notify '
+     .'a site administrator.'));
+  }
+}
+
+/**
+ * Grant Site Manager and Content Manager roles
+ * permission to create, update, and delete video node types.
+ */
+function _video_install_permissions() {
+  // Enable permission module if it hasn't been enabled  yet.
+  module_enable(array('permission'));
+
+  // Update permissions.
+  $perm = array(
+    'create video content',
+    'delete any video content',
+    'delete own video content',
+    'edit any video content',
+    'edit own video content',
+  );
+  permission_update_perm('Site Manager', $perm);
+  permission_update_perm('Content Manager', $perm);
+}
