@@ -20,7 +20,7 @@ function slideshow_panoramic_3_install() {
 /**
  * Implementation of hook_uninstall().
  */
-function slideshow_panoramic_4_nav_uninstall() {
+function slideshow_panoramic_3_nav_uninstall() {
   $qid = 6;
   nodequeue_delete($qid);
 }
