@@ -36,14 +36,19 @@
 }
 
 #views_slideshow_singleframe_main_slideshow_panoramic_3-block_3 
-.slide-title
+.slide-title 
 {
   font-family: "Arial";
   font-weight: lighter;
   letter-spacing: 1.5px;
   font-size: 24px;
-  color: white;
   padding: 10px;
+}
+
+#views_slideshow_singleframe_main_slideshow_panoramic_3-block_3 
+.slide-title a
+{
+  color: white;
 }
 
 #views_slideshow_singleframe_main_slideshow_panoramic_3-block_3 

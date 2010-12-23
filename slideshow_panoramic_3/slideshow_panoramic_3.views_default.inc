@@ -123,8 +123,8 @@ function slideshow_panoramic_3_views_default_views() {
       'alter' => array(
         'alter_text' => 0,
         'text' => '',
-        'make_link' => 0,
-        'path' => '',
+        'make_link' => 1,
+        'path' => '[field_slide_link_value_1] ',
         'link_class' => '',
         'alt' => '',
         'prefix' => '',
@@ -156,7 +156,6 @@ function slideshow_panoramic_3_views_default_views() {
       'alter' => array(
         'alter_text' => 1,
         'text' => '<div class="slide">
-  <div class="slide-shadow"></div>
   <div class="slide-pic">[field_slide_pic_fid]</div>
   <div class="slide-description">
     <div class="slide-title">[title]</div>
@@ -186,6 +185,9 @@ function slideshow_panoramic_3_views_default_views() {
       'table' => 'node_revisions',
       'field' => 'body',
       'relationship' => 'none',
+      'override' => array(
+        'button' => 'Override',
+      ),
     ),
   ));
   $handler->override_option('sorts', array(
