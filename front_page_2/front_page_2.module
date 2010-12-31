@@ -90,6 +90,13 @@ function _front_page_2_carousel1($form) {
     '#title' => t('Teaser Text Align'),
     '#default_value' => variable_get('subtheme_class--carousel1-teaser_text-align', NULL),
   );
+  // div.carousel1-title a {color: X ; }
+  $transform = 'subtheme_element--div---class--carousel1-title----element--a_color';
+  $form['background']['carousel1'][$transform] = array(
+    '#type' => 'textfield',
+    '#title' => t('Title Text Color'),
+    '#default_value' => variable_get($transform, NULL),
+  );
   // div.carousel1-title a {border-bottom: X ; }
   $borderbottom = 'subtheme_class--carousel1-title----element--a_border-bottom';
   $form['background']['carousel1'][$borderbottom] = array(
