@@ -1,6 +1,4 @@
 core = "6.x"
-dependencies[] = "addthis"
-dependencies[] = "button_block"
 dependencies[] = "context"
 dependencies[] = "features"
 dependencies[] = "fieldgroup"
