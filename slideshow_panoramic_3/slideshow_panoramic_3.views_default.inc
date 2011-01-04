@@ -155,11 +155,11 @@ function slideshow_panoramic_3_views_default_views() {
       'label' => '',
       'alter' => array(
         'alter_text' => 1,
-        'text' => '<div class="slide">
-  <div class="slide-pic">[field_slide_pic_fid]</div>
-  <div class="slide-description">
-    <div class="slide-title">[title]</div>
-    <div class="slide-body">[body]</div>
+        'text' => '<div  id="slideshow-panoramic-3" class="slide">
+  <div id="slideshow-panoramic-3-pic" class="slide-pic">[field_slide_pic_fid]</div>
+  <div id="slideshow-panoramic-3-description" class="slide-description">
+    <div id="slideshow-panoramic-3-title" class="slide-title">[title]</div>
+    <div id="slideshow-panoramic-3-body" class="slide-body">[body]</div>
   </div>
 </div>',
         'make_link' => 0,
@@ -215,6 +215,20 @@ function slideshow_panoramic_3_views_default_views() {
       'id' => 'type',
       'table' => 'node',
       'field' => 'type',
+      'relationship' => 'none',
+    ),
+    'status' => array(
+      'operator' => '=',
+      'value' => '1',
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'id' => 'status',
+      'table' => 'node',
+      'field' => 'status',
       'relationship' => 'none',
     ),
   ));
