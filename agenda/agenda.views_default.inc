@@ -200,6 +200,7 @@ function agenda_views_default_views() {
     'title' => '',
     'description' => '',
     'weight' => 0,
+    'name' => 'navigation',
   ));
   $handler = $view->new_display('feed', 'Feed: Agenda List', 'feed_1');
   $handler->override_option('sorts', array(
@@ -238,6 +239,7 @@ function agenda_views_default_views() {
     'title' => '',
     'description' => '',
     'weight' => 0,
+    'name' => 'navigation',
   ));
   $handler->override_option('displays', array(
     'page_1' => 'page_1',

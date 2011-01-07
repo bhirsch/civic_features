@@ -12,11 +12,6 @@ function agenda_install() {
   $vocabs = taxonomy_get_vocabularies();
   _agenda_install_keywords($vocabs);
 
-  // Permissions: 
-  // Grant Site Manager and Content Manager roles
-  // permission to create, update, and delete agenda_item node types.
-  _agenda_install_permissions();
-
   // Nodequeue:
   // Add agenda_item to Featured Posts, Front Page Slideshow, Featured Video
   _agenda_install_nodequeue();
@@ -113,22 +108,4 @@ function _agenda_uninstall_taxonomoy() {
   }
 }
 
-/**
- * Grant Site Manager and Content Manager roles
- * permission to create, update, and delete agenda_item node types.
- */
-function _agenda_install_permissions() {
-  // Enable permission module if it hasn't been enabled  yet.
-  module_enable(array('permission'));
 
-  // Update permissions.
-  $perm = array(
-    'create agenda_item content',
-    'delete any agenda_item content',
-    'delete own agenda_item content',
-    'edit any agenda_item content',
-    'edit own agenda_item content',
-  );
-  permission_update_perm('Site Manager', $perm);
-  permission_update_perm('Content Manager', $perm);
-}
