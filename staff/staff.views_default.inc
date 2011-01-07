@@ -273,6 +273,7 @@ function staff_views_default_views() {
     'title' => '',
     'description' => '',
     'weight' => 0,
+    'name' => 'navigation',
   ));
   $handler = $view->new_display('page', 'Page: Personal', 'page_2');
   $handler->override_option('filters', array(
@@ -341,6 +342,7 @@ function staff_views_default_views() {
     'title' => '',
     'description' => '',
     'weight' => 0,
+    'name' => 'navigation',
   ));
 
   $views[$view->name] = $view;
