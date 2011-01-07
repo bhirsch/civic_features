@@ -14,11 +14,6 @@ function resources_install() {
   // Create Resource Categories vocabulary.
   _resources_install_vocabulary($vocabs );
 
-  // Permissions: 
-  // Grant Site Manager and Content Manager roles
-  // permission to create, update, and delete resource node types.
-  _resources_install_permissions();
-
   // Nodequeue:
   // Add resource to Featured Posts, Front Page Slideshow, Featured Video
   _resources_install_nodequeue();
@@ -196,24 +191,4 @@ function _resources_uninstall_taxonomoy() {
      .'Categories. No vocabularies have been deleted. Please notify '
      .'a site administrator.'));
   }
-}
-
-/**
- * Grant Site Manager and Content Manager roles
- * permission to create, update, and delete resource node types.
- */
-function _resources_install_permissions() {
-  // Enable permission module if it hasn't been enabled  yet.
-  module_enable(array('permission'));
-
-  // Update permissions.
-  $perm = array(
-    'create resource content',
-    'delete any resource content',
-    'delete own resource content',
-    'edit any resource content',
-    'edit own resource content',
-  );
-  permission_update_perm('Site Manager', $perm);
-  permission_update_perm('Content Manager', $perm);
 }
