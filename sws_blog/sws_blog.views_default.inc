@@ -182,6 +182,8 @@ function sws_blog_views_default_views() {
     'output_lifespan' => '3600',
   ));
   $handler->override_option('title', 'Blog');
+  $handler->override_option('empty', '<h1>Coming soon...</h2>');
+  $handler->override_option('empty_format', '2');
   $handler->override_option('items_per_page', 15);
   $handler->override_option('use_pager', '1');
   $handler->override_option('use_more', 1);
@@ -205,8 +207,7 @@ function sws_blog_views_default_views() {
     'weight' => 0,
     'name' => 'navigation',
   ));
-  $handler = $view->new_display('feed', 'Feed: Stars with Stripes Blog', 'feed_1');
-  $handler->override_option('title', 'Stars with Stripes Blog');
+  $handler = $view->new_display('feed', 'Feed: Blog', 'feed_1');
   $handler->override_option('style_plugin', 'rss');
   $handler->override_option('style_options', array(
     'mission_description' => FALSE,
