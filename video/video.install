@@ -14,12 +14,7 @@ function video_install() {
   // Create Resource Categories vocabulary.
   _video_install_vocabulary($vocabs );
 
-  // Permissions: 
-  // Grant Site Manager and Content Manager roles
-  // permission to create, update, and delete video node types.
-  _video_install_permissions();
-
-  // Nodequeue:
+ // Nodequeue:
   // Add video to Featured Posts, Front Page Slideshow, Featured Video
   _video_install_nodequeue();
 }
@@ -196,24 +191,4 @@ function _video_uninstall_taxonomoy() {
      .'Categories. No vocabularies have been deleted. Please notify '
      .'a site administrator.'));
   }
-}
-
-/**
- * Grant Site Manager and Content Manager roles
- * permission to create, update, and delete video node types.
- */
-function _video_install_permissions() {
-  // Enable permission module if it hasn't been enabled  yet.
-  module_enable(array('permission'));
-
-  // Update permissions.
-  $perm = array(
-    'create video content',
-    'delete any video content',
-    'delete own video content',
-    'edit any video content',
-    'edit own video content',
-  );
-  permission_update_perm('Site Manager', $perm);
-  permission_update_perm('Content Manager', $perm);
 }
