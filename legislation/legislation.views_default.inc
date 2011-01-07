@@ -202,16 +202,7 @@ function legislation_views_default_views() {
     'type' => 'none',
   ));
   $handler->override_option('title', 'Legislation');
-  $handler->override_option('empty', '<div class="messages status">
-<p><strong>Getting Started: Posting Legislation</strong></p>
-<ol>
-<li><a href="/user">Log into your website.</a></li>
-<li>Click the <strong>Admin</strong> tab. (When you log in, an Admin tab appears in the upper left corner of the screen, a black tab with a white wrench icon.)</li>
-<li>Next click <strong>Create content</strong> on the Admin Toolbar.</li>
-<li>Then click <strong>Legislation</strong> to post a new legislation page on your website. Legislation will automatically appear in a list on this Legislation page.</li>
-</ol>
-<a href="http://starswithstripes.org/legislation">Learn more about Legislation.</a>
-</div>');
+  $handler->override_option('empty', '<h1>Coming soon...</h1>');
   $handler->override_option('empty_format', '2');
   $handler->override_option('use_pager', '1');
   $handler->override_option('use_more', 1);

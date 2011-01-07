@@ -210,6 +210,7 @@ function video_views_default_views() {
     'type' => 'none',
   ));
   $handler->override_option('title', 'Video');
+  $handler->override_option('empty', '<h1>Coming soon...</h1>');
   $handler->override_option('empty_format', '2');
   $handler->override_option('use_pager', '1');
   $handler->override_option('use_more', 1);
