@@ -24,9 +24,10 @@ function news_clips_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'content_extra_weights_news_organization';
   $strongarm->value = array(
-    'title' => '-5',
+    'title' => '-1000',
     'revision_information' => '2',
-    'comment_settings' => '4',
+    'author' => '20',
+    'options' => '25',
     'menu' => '1',
     'path' => '3',
   );

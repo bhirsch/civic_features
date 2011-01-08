@@ -362,19 +362,7 @@ function news_clips_views_default_views() {
     'type' => 'none',
   ));
   $handler->override_option('title', 'News Clips');
-  $handler->override_option('empty', '<div class="messages status">
-<p><strong>Getting Started: Posting News Clips</strong></p>
-<ol>
-<li><a href="/user">Log into your website.</a></li>
-<li>Click the Admin tab. (When you log in, an Admin tab appears in the upper left corner of the screen, a black tab with a white wrench icon.)</li>
-<li>Next click "Create content" on the Admin Toolbar.</li>
-<li>Then click "News Clip" to post a news clip on your website. (News clip posts will automatically appear in a list on this "News Clips" page.)</li>
-<li>The first time you create a news clip from any particular news organization (newspaper, radio program, TV station, blog, etc.), click the link below the "News Organization" box that says "Add another news organization." This lets you add media outlets to the autocomplete news organizations list.</li>
-<li>To set up a standard footer for all your news clips, go to the <strong>Admin</strong> toolbar. Click <strong>Site Management</strong>, then click <strong>Header/Footer Settings</strong>. Select <strong>News Clip Footer</strong> and enter text to be used in footers below news clips.</li>
-</ol>
-<a href="http://starswithstripes.org/news-clips">Learn more about News Clips.</a>
-<object width="400" height="300"><param name="allowfullscreen" value="true" /><param name="allowscriptaccess" value="always" /><param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=11835570&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=00adef&amp;fullscreen=1" /><embed src="http://vimeo.com/moogaloop.swf?clip_id=11835570&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=00adef&amp;fullscreen=1" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="400" height="300"></embed></object><p><a href="http://vimeo.com/11835570">Getting Started: News Clips</a> from <a href="http://vimeo.com/user3340835">starswithstripes.org</a> on <a href="http://vimeo.com">Vimeo</a>.</p><p>Welcome to your new Stars with Stripes website. This video shows you how to create news clips for your website\'s News Clips page.<br /><br />www.starswithstripes.org</p>
-</div>');
+  $handler->override_option('empty', '<h1>Coming soon...</h1>');
   $handler->override_option('empty_format', '2');
   $handler->override_option('use_pager', '1');
   $handler->override_option('use_more', 1);

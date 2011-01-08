@@ -310,17 +310,7 @@ function events_views_default_views() {
   $handler->override_option('title', 'Events');
   $handler->override_option('header_format', '2');
   $handler->override_option('header_empty', 0);
-  $handler->override_option('empty', '<div class="messages status">
-<p><strong>Getting Started: Posting Events</strong></p>
-<ol>
-<li><a href="/user">Log into your website.</a></li>
-<li>Click the <strong>Admin</strong> tab. (When you log in, an Admin tab appears in the upper left corner of the screen, a black tab with a white wrench icon.)</li>
-<li>Next click <strong>Create content</strong> on the Admin Toolbar.</li>
-<li>Then click <strong>Event</strong> to post a new event page on your website. Events will automatically appear in a list on this Events page and in the Upcoming Events sidebar block.</li>
-</ol>
-<a href="http://starswithstripes.org/events">Learn more about Events.</a>
-<object width="400" height="300"><param name="allowfullscreen" value="true" /><param name="allowscriptaccess" value="always" /><param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=11839528&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=00adef&amp;fullscreen=1" /><embed src="http://vimeo.com/moogaloop.swf?clip_id=11839528&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=00adef&amp;fullscreen=1" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="400" height="300"></embed></object><p><a href="http://vimeo.com/11839528">Getting Started: Events</a> from <a href="http://vimeo.com/user3340835">starswithstripes.org</a> on <a href="http://vimeo.com">Vimeo</a>.</p><p>Welcome to your new Stars with Stripes website. This video shows you how to create events for your website\'s Events page.<br /><br />www.starswithstripes.org</p>
-</div>');
+  $handler->override_option('empty', '<h1>Coming soon...</h1>');
   $handler->override_option('empty_format', '2');
   $handler->override_option('use_pager', '1');
   $handler->override_option('use_more', 1);
