@@ -6,6 +6,6 @@ description = "Display recent blog posts in Blog blog, left sidebar (front page)
 features[context][] = "blog--front_page"
 features[ctools][] = "context:context:3"
 name = "Recent Blog Posts (Front Page)"
-package = "Features"
+package = "Front Page"
 project = "recent_blog_posts__front_page"
 version = "6.x-1.0-alpha1"
