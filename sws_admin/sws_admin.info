@@ -5,6 +5,6 @@ description = "Admin tools. (This will should be combined with sws_mgmt, the Sit
 features[views][] = "admin_content_manage"
 features[views_api][] = "api:2"
 name = "SWS Admin"
-package = "Features"
+package = "Administration"
 project = "sws_admin"
 version = "6.x-1.0-beta1"
