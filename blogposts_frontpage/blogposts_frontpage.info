@@ -1,0 +1,6 @@
+core = "6.x"
+dependencies[] = "sws_blog"
+features[context][] = "blog-posts--front_page"
+features[ctools][] = "context:context:3"
+name = "blogposts_frontpage"
+package = "Front Page"
