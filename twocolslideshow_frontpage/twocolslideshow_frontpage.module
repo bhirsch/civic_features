@@ -90,6 +90,27 @@ function _twocolslideshow_frontpage_carousel1($form) {
     '#title' => t('Teaser Text Align'),
     '#default_value' => variable_get('subtheme_class--carousel1-teaser_text-align', NULL),
   );
+  // .carousel1-teaser { width: X ; }
+  $form['background']['carousel1']['subtheme_class--carousel1-teaser_width'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Teaser Area Width'),
+    '#default_value' => variable_get('subtheme_class--carousel1-teaser_width', '227px'),
+    '#description'=> t('Default value: 227px'),
+  );
+  // .carousel1-teaser { padding: X ; }
+  $form['background']['carousel1']['subtheme_class--carousel1-teaser_padding'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Teaser Area Padding'),
+    '#default_value' => variable_get('subtheme_class--carousel1-teaser_padding', '0 0 0 5px'),
+    '#description'=> t('Default value: 0 0 0 5px  (top, right, bottom, left)'),
+  );
+  // .carousel1-teaser { margin: X ; }
+  $form['background']['carousel1']['subtheme_class--carousel1-teaser_margin'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Teaser Area Margin'),
+    '#default_value' => variable_get('subtheme_class--carousel1-teaser_margin', '0 0 0 0'),
+    '#description'=> t('Default value: 0 0 0 0  (top, right, bottom, left)'),
+  );
   // div.carousel1-title a {color: X ; }
   $transform = 'subtheme_element--div---class--carousel1-title----element--a_color';
   $form['background']['carousel1'][$transform] = array(
