@@ -9,13 +9,19 @@ function sws_blog_user_default_permissions() {
   // Exported permission: create blog content
   $permissions['create blog content'] = array(
     'name' => 'create blog content',
-    'roles' => array(),
+    'roles' => array(
+      '0' => 'content manager',
+      '1' => 'site manager',
+    ),
   );
 
   // Exported permission: delete any blog content
   $permissions['delete any blog content'] = array(
     'name' => 'delete any blog content',
-    'roles' => array(),
+    'roles' => array(
+      '0' => 'content manager',
+      '1' => 'site manager',
+    ),
   );
 
   // Exported permission: delete own blog content
