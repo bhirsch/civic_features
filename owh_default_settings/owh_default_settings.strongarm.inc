@@ -48,7 +48,7 @@ function owh_default_settings_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'allowed_html_1';
-  $strongarm->value = '<a> <em> <strong> <cite> <code> <ul> <ol> <li> <dl> <dt> <dd> <u><table><th><td><tr>';
+  $strongarm->value = '<a> <em> <strong> <cite> <code> <ul> <ol> <li> <dl> <dt> <dd> <u><table><th><td><tr><p>';
 
   $export['allowed_html_1'] = $strongarm;
   $strongarm = new stdClass;
