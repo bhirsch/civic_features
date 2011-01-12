@@ -18,11 +18,11 @@ function sws_blog_content_default_fields() {
       ),
       'teaser' => array(
         'format' => 'default',
-        'exclude' => 0,
+        'exclude' => 1,
       ),
       'full' => array(
         'format' => 'plain',
-        'exclude' => 0,
+        'exclude' => 1,
       ),
       'token' => array(
         'format' => 'plain',
@@ -90,11 +90,11 @@ function sws_blog_content_default_fields() {
       ),
       'teaser' => array(
         'format' => 'default',
-        'exclude' => 0,
+        'exclude' => 1,
       ),
       'full' => array(
         'format' => 'medium',
-        'exclude' => 0,
+        'exclude' => 1,
       ),
       'token' => array(
         'format' => 'default',
@@ -159,7 +159,7 @@ function sws_blog_content_default_fields() {
     'type_name' => 'blog',
     'display_settings' => array(
       'weight' => '-99',
-      'parent' => 'group_map',
+      'parent' => '',
       'label' => array(
         'format' => 'hidden',
       ),
@@ -216,7 +216,7 @@ function sws_blog_content_default_fields() {
     'type_name' => 'blog',
     'display_settings' => array(
       'weight' => '-98',
-      'parent' => 'group_map',
+      'parent' => '',
       'label' => array(
         'format' => 'above',
       ),
@@ -277,7 +277,7 @@ bottom',
     'type_name' => 'blog',
     'display_settings' => array(
       'weight' => '-69',
-      'parent' => 'group_pics',
+      'parent' => '',
       'label' => array(
         'format' => 'hidden',
       ),
@@ -344,7 +344,7 @@ bottom',
     'type_name' => 'blog',
     'display_settings' => array(
       'weight' => '-67',
-      'parent' => 'group_pics',
+      'parent' => '',
       'label' => array(
         'format' => 'above',
       ),
@@ -406,7 +406,7 @@ alternate',
     'type_name' => 'blog',
     'display_settings' => array(
       'weight' => '-68',
-      'parent' => 'group_pics',
+      'parent' => '',
       'label' => array(
         'format' => 'above',
       ),
@@ -554,7 +554,7 @@ return $size;',
     'type_name' => 'blog',
     'display_settings' => array(
       'weight' => '-59',
-      'parent' => 'group_teaser',
+      'parent' => '',
       'label' => array(
         'format' => 'above',
       ),
@@ -619,7 +619,7 @@ return $size;',
     'type_name' => 'blog',
     'display_settings' => array(
       'weight' => '-58',
-      'parent' => 'group_teaser',
+      'parent' => '',
       'label' => array(
         'format' => 'above',
       ),
@@ -682,7 +682,7 @@ return $size;',
     'type_name' => 'blog',
     'display_settings' => array(
       'weight' => '-77',
-      'parent' => 'group_video',
+      'parent' => '',
       'label' => array(
         'format' => 'above',
       ),
@@ -744,7 +744,7 @@ right',
     'type_name' => 'blog',
     'display_settings' => array(
       'weight' => '-76',
-      'parent' => 'group_video',
+      'parent' => '',
       'label' => array(
         'format' => 'above',
       ),
@@ -807,7 +807,7 @@ right',
     'type_name' => 'blog',
     'display_settings' => array(
       'weight' => '-78',
-      'parent' => 'group_video',
+      'parent' => '',
       'label' => array(
         'format' => 'above',
       ),
@@ -869,7 +869,7 @@ width:205 height:167',
     'type_name' => 'blog',
     'display_settings' => array(
       'weight' => '-79',
-      'parent' => 'group_video',
+      'parent' => '',
       'label' => array(
         'format' => 'hidden',
       ),
