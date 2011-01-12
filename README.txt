@@ -16,6 +16,6 @@ Block Weights
 30    Related Posts
 40    Upcoming Events
 50    Featured Posts
-60 Recent Blog Posts
-70 Twitter 
-80 Recent Posts
+60    Recent Blog Posts
+70    Twitter 
+80    Recent Posts
