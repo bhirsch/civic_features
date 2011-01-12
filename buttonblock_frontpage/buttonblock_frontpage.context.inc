@@ -25,7 +25,7 @@ function buttonblock_frontpage_context_default_contexts() {
           'module' => 'views',
           'delta' => 'button_block-block_1',
           'region' => 'right',
-          'weight' => -10,
+          'weight' => 10,
         ),
       ),
     ),

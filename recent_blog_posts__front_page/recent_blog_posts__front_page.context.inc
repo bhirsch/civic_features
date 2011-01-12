@@ -25,7 +25,7 @@ function recent_blog_posts__front_page_context_default_contexts() {
           'module' => 'views',
           'delta' => 'recent_blog_posts-block_1',
           'region' => 'left',
-          'weight' => 0,
+          'weight' => 60,
         ),
       ),
     ),

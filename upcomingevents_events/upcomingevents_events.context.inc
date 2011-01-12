@@ -33,7 +33,7 @@ function upcomingevents_events_context_default_contexts() {
           'module' => 'views',
           'delta' => 'events_upcoming-block_1',
           'region' => 'right',
-          'weight' => 0,
+          'weight' => 40,
         ),
       ),
     ),

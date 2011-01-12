@@ -33,7 +33,7 @@ function featuredposts_issues_context_default_contexts() {
           'module' => 'views',
           'delta' => 'featured_posts-block',
           'region' => 'right',
-          'weight' => 0,
+          'weight' => 50,
         ),
       ),
     ),

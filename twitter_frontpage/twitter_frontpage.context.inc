@@ -25,7 +25,7 @@ function twitter_frontpage_context_default_contexts() {
           'module' => 'views',
           'delta' => 'twitter-block_1',
           'region' => 'content_bottom',
-          'weight' => 5,
+          'weight' => 70,
         ),
       ),
     ),

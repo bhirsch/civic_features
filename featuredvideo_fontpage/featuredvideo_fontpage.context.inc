@@ -25,7 +25,7 @@ function featuredvideo_fontpage_context_default_contexts() {
           'module' => 'views',
           'delta' => 'featured_video-block',
           'region' => 'right',
-          'weight' => 5,
+          'weight' => 25,
         ),
       ),
     ),

@@ -25,7 +25,7 @@ function upcomingevents_frontpage_context_default_contexts() {
           'module' => 'views',
           'delta' => 'events_upcoming-block_1',
           'region' => 'right',
-          'weight' => 10,
+          'weight' => 40,
         ),
       ),
     ),

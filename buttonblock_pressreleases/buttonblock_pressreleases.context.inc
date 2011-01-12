@@ -33,7 +33,7 @@ function buttonblock_pressreleases_context_default_contexts() {
           'module' => 'views',
           'delta' => 'button_block-block_1',
           'region' => 'right',
-          'weight' => 0,
+          'weight' => 10,
         ),
       ),
     ),

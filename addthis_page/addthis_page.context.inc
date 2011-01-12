@@ -28,7 +28,7 @@ function addthis_page_context_default_contexts() {
           'module' => 'addthis',
           'delta' => 0,
           'region' => 'right',
-          'weight' => 0,
+          'weight' => 20,
         ),
       ),
     ),

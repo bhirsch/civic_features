@@ -28,7 +28,7 @@ function relatedposts_events_context_default_contexts() {
           'module' => 'related_posts',
           'delta' => 0,
           'region' => 'right',
-          'weight' => 0,
+          'weight' => 30,
         ),
       ),
     ),

@@ -25,7 +25,7 @@ function recentposts_frontpage_context_default_contexts() {
           'module' => 'views',
           'delta' => 'recent_posts-block_1',
           'region' => 'content_bottom',
-          'weight' => 10,
+          'weight' => 80,
         ),
       ),
     ),
