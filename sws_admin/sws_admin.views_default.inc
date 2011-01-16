@@ -337,6 +337,7 @@ function sws_admin_views_default_views() {
         'press_release' => 'press_release',
         'resource' => 'resource',
         'bio' => 'bio',
+        'blog' => 'blog',
         'tweet' => 'tweet',
         'twitter_feed' => 'twitter_feed',
         'video' => 'video',
@@ -451,6 +452,7 @@ function sws_admin_views_default_views() {
     'title' => '',
     'description' => '',
     'weight' => 0,
+    'name' => 'navigation',
   ));
 
   $views[$view->name] = $view;
