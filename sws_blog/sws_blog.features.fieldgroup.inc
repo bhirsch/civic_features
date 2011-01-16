@@ -6,19 +6,20 @@
 function sws_blog_fieldgroup_default_groups() {
   $groups = array();
 
-  // Exported group: group_map
-  $groups['blog-group_map'] = array(
+  // Exported group: group_blog_map
+  $groups['blog-group_blog_map'] = array(
     'group_type' => 'standard',
     'type_name' => 'blog',
-    'group_name' => 'group_map',
+    'group_name' => 'group_blog_map',
     'label' => 'Map',
     'settings' => array(
       'form' => array(
-        'style' => 'fieldset_collapsed',
+        'style' => 'fieldset',
         'description' => '',
       ),
       'display' => array(
         'description' => '',
+        'label' => 'above',
         'teaser' => array(
           'format' => 'fieldset',
           'exclude' => 0,
@@ -43,7 +44,6 @@ function sws_blog_fieldgroup_default_groups() {
           'format' => 'fieldset',
           'exclude' => 0,
         ),
-        'label' => 'above',
       ),
     ),
     'weight' => '-100',
@@ -53,19 +53,20 @@ function sws_blog_fieldgroup_default_groups() {
     ),
   );
 
-  // Exported group: group_pics
-  $groups['blog-group_pics'] = array(
+  // Exported group: group_blog_pictures
+  $groups['blog-group_blog_pictures'] = array(
     'group_type' => 'standard',
     'type_name' => 'blog',
-    'group_name' => 'group_pics',
+    'group_name' => 'group_blog_pictures',
     'label' => 'Pictures',
     'settings' => array(
       'form' => array(
-        'style' => 'fieldset_collapsed',
+        'style' => 'fieldset',
         'description' => '',
       ),
       'display' => array(
         'description' => '',
+        'label' => 'above',
         'teaser' => array(
           'format' => 'fieldset',
           'exclude' => 0,
@@ -90,7 +91,6 @@ function sws_blog_fieldgroup_default_groups() {
           'format' => 'fieldset',
           'exclude' => 0,
         ),
-        'label' => 'above',
       ),
     ),
     'weight' => '-70',
@@ -101,19 +101,20 @@ function sws_blog_fieldgroup_default_groups() {
     ),
   );
 
-  // Exported group: group_teaser
-  $groups['blog-group_teaser'] = array(
+  // Exported group: group_blog_teaser
+  $groups['blog-group_blog_teaser'] = array(
     'group_type' => 'standard',
     'type_name' => 'blog',
-    'group_name' => 'group_teaser',
+    'group_name' => 'group_blog_teaser',
     'label' => 'Teaser',
     'settings' => array(
       'form' => array(
-        'style' => 'fieldset_collapsed',
+        'style' => 'fieldset',
         'description' => '',
       ),
       'display' => array(
         'description' => '',
+        'label' => 'above',
         'teaser' => array(
           'format' => 'fieldset',
           'exclude' => 0,
@@ -138,7 +139,6 @@ function sws_blog_fieldgroup_default_groups() {
           'format' => 'fieldset',
           'exclude' => 0,
         ),
-        'label' => 'above',
       ),
     ),
     'weight' => '-60',
@@ -148,19 +148,20 @@ function sws_blog_fieldgroup_default_groups() {
     ),
   );
 
-  // Exported group: group_video
-  $groups['blog-group_video'] = array(
+  // Exported group: group_blog_video
+  $groups['blog-group_blog_video'] = array(
     'group_type' => 'standard',
     'type_name' => 'blog',
-    'group_name' => 'group_video',
+    'group_name' => 'group_blog_video',
     'label' => 'Video',
     'settings' => array(
       'form' => array(
-        'style' => 'fieldset_collapsed',
+        'style' => 'fieldset',
         'description' => '',
       ),
       'display' => array(
         'description' => '',
+        'label' => 'above',
         'teaser' => array(
           'format' => 'fieldset',
           'exclude' => 0,
@@ -185,7 +186,6 @@ function sws_blog_fieldgroup_default_groups() {
           'format' => 'fieldset',
           'exclude' => 0,
         ),
-        'label' => 'above',
       ),
     ),
     'weight' => '-80',

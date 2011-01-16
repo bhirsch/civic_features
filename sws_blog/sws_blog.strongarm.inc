@@ -16,7 +16,6 @@ function sws_blog_strongarm() {
     'author' => '150',
     'options' => '1000',
     'menu' => '210',
-    'taxonomy' => '100',
     'path' => '220',
   );
 

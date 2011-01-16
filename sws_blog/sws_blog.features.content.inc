@@ -11,18 +11,22 @@ function sws_blog_content_default_fields() {
     'field_name' => 'field_blog_by',
     'type_name' => 'blog',
     'display_settings' => array(
-      'weight' => '-4',
+      'weight' => '-448',
       'parent' => '',
       'label' => array(
         'format' => 'hidden',
       ),
       'teaser' => array(
         'format' => 'default',
-        'exclude' => 0,
+        'exclude' => 1,
       ),
       'full' => array(
         'format' => 'plain',
         'exclude' => 1,
+      ),
+      'token' => array(
+        'format' => 'plain',
+        'exclude' => 0,
       ),
       '5' => array(
         'format' => 'default',
@@ -37,10 +41,6 @@ function sws_blog_content_default_fields() {
         'exclude' => 0,
       ),
       '3' => array(
-        'format' => 'default',
-        'exclude' => 0,
-      ),
-      'token' => array(
         'format' => 'default',
         'exclude' => 0,
       ),
@@ -71,7 +71,7 @@ function sws_blog_content_default_fields() {
       ),
       'default_value_php' => NULL,
       'label' => 'By',
-      'weight' => '-448',
+      'weight' => '-998',
       'description' => '',
       'type' => 'userreference_select',
       'module' => 'userreference',
@@ -83,18 +83,22 @@ function sws_blog_content_default_fields() {
     'field_name' => 'field_blog_date',
     'type_name' => 'blog',
     'display_settings' => array(
-      'weight' => '-3',
+      'weight' => '-548',
       'parent' => '',
       'label' => array(
         'format' => 'hidden',
       ),
       'teaser' => array(
         'format' => 'default',
-        'exclude' => 0,
+        'exclude' => 1,
       ),
       'full' => array(
         'format' => 'medium',
         'exclude' => 1,
+      ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
       ),
       '5' => array(
         'format' => 'default',
@@ -109,10 +113,6 @@ function sws_blog_content_default_fields() {
         'exclude' => 0,
       ),
       '3' => array(
-        'format' => 'default',
-        'exclude' => 0,
-      ),
-      'token' => array(
         'format' => 'default',
         'exclude' => 0,
       ),
@@ -146,7 +146,7 @@ function sws_blog_content_default_fields() {
       'year_range' => '-3:+3',
       'label_position' => 'above',
       'label' => 'Date',
-      'weight' => '-548',
+      'weight' => '-999',
       'description' => '',
       'type' => 'date_popup',
       'module' => 'date',
@@ -158,8 +158,8 @@ function sws_blog_content_default_fields() {
     'field_name' => 'field_map',
     'type_name' => 'blog',
     'display_settings' => array(
-      'weight' => '1',
-      'parent' => 'group_map',
+      'weight' => '-99',
+      'parent' => '',
       'label' => array(
         'format' => 'hidden',
       ),
@@ -168,6 +168,10 @@ function sws_blog_content_default_fields() {
         'exclude' => 0,
       ),
       'full' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'token' => array(
         'format' => 'default',
         'exclude' => 0,
       ),
@@ -180,10 +184,6 @@ function sws_blog_content_default_fields() {
         'exclude' => 0,
       ),
       '3' => array(
-        'format' => 'default',
-        'exclude' => 0,
-      ),
-      'token' => array(
         'format' => 'default',
         'exclude' => 0,
       ),
@@ -215,8 +215,8 @@ function sws_blog_content_default_fields() {
     'field_name' => 'field_map_position',
     'type_name' => 'blog',
     'display_settings' => array(
-      'weight' => '2',
-      'parent' => 'group_map',
+      'weight' => '-98',
+      'parent' => '',
       'label' => array(
         'format' => 'above',
       ),
@@ -228,6 +228,10 @@ function sws_blog_content_default_fields() {
         'format' => 'default',
         'exclude' => 1,
       ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
       '4' => array(
         'format' => 'default',
         'exclude' => 0,
@@ -237,10 +241,6 @@ function sws_blog_content_default_fields() {
         'exclude' => 0,
       ),
       '3' => array(
-        'format' => 'default',
-        'exclude' => 0,
-      ),
-      'token' => array(
         'format' => 'default',
         'exclude' => 0,
       ),
@@ -276,8 +276,8 @@ bottom',
     'field_name' => 'field_pic',
     'type_name' => 'blog',
     'display_settings' => array(
-      'weight' => '7',
-      'parent' => 'group_pictures',
+      'weight' => '-69',
+      'parent' => '',
       'label' => array(
         'format' => 'hidden',
       ),
@@ -289,6 +289,10 @@ bottom',
         'format' => 'sws_pic',
         'exclude' => 0,
       ),
+      'token' => array(
+        'format' => 'image_plain',
+        'exclude' => 0,
+      ),
       '4' => array(
         'format' => 'image_plain',
         'exclude' => 0,
@@ -298,10 +302,6 @@ bottom',
         'exclude' => 0,
       ),
       '3' => array(
-        'format' => 'image_plain',
-        'exclude' => 0,
-      ),
-      'token' => array(
         'format' => 'image_plain',
         'exclude' => 0,
       ),
@@ -343,8 +343,8 @@ bottom',
     'field_name' => 'field_pic_align',
     'type_name' => 'blog',
     'display_settings' => array(
-      'weight' => '9',
-      'parent' => 'group_pictures',
+      'weight' => '-67',
+      'parent' => '',
       'label' => array(
         'format' => 'above',
       ),
@@ -356,6 +356,10 @@ bottom',
         'format' => 'default',
         'exclude' => 1,
       ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
       '4' => array(
         'format' => 'default',
         'exclude' => 0,
@@ -365,10 +369,6 @@ bottom',
         'exclude' => 0,
       ),
       '3' => array(
-        'format' => 'default',
-        'exclude' => 0,
-      ),
-      'token' => array(
         'format' => 'default',
         'exclude' => 0,
       ),
@@ -405,8 +405,8 @@ alternate',
     'field_name' => 'field_pic_size',
     'type_name' => 'blog',
     'display_settings' => array(
-      'weight' => '8',
-      'parent' => 'group_pictures',
+      'weight' => '-68',
+      'parent' => '',
       'label' => array(
         'format' => 'above',
       ),
@@ -418,6 +418,10 @@ alternate',
         'format' => 'default',
         'exclude' => 1,
       ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
       '4' => array(
         'format' => 'default',
         'exclude' => 0,
@@ -427,10 +431,6 @@ alternate',
         'exclude' => 0,
       ),
       '3' => array(
-        'format' => 'default',
-        'exclude' => 0,
-      ),
-      'token' => array(
         'format' => 'default',
         'exclude' => 0,
       ),
@@ -474,7 +474,7 @@ return $size;',
     'field_name' => 'field_related_posts',
     'type_name' => 'blog',
     'display_settings' => array(
-      'weight' => '5',
+      'weight' => '125',
       'parent' => '',
       'label' => array(
         'format' => 'above',
@@ -487,6 +487,10 @@ return $size;',
         'format' => 'default',
         'exclude' => 1,
       ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
       '4' => array(
         'format' => 'default',
         'exclude' => 0,
@@ -496,10 +500,6 @@ return $size;',
         'exclude' => 0,
       ),
       '3' => array(
-        'format' => 'default',
-        'exclude' => 0,
-      ),
-      'token' => array(
         'format' => 'default',
         'exclude' => 0,
       ),
@@ -553,8 +553,8 @@ return $size;',
     'field_name' => 'field_teaser',
     'type_name' => 'blog',
     'display_settings' => array(
-      'weight' => '10',
-      'parent' => 'group_teaser',
+      'weight' => '-59',
+      'parent' => '',
       'label' => array(
         'format' => 'above',
       ),
@@ -563,6 +563,10 @@ return $size;',
         'exclude' => 0,
       ),
       'full' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'token' => array(
         'format' => 'default',
         'exclude' => 0,
       ),
@@ -575,10 +579,6 @@ return $size;',
         'exclude' => 0,
       ),
       '3' => array(
-        'format' => 'default',
-        'exclude' => 0,
-      ),
-      'token' => array(
         'format' => 'default',
         'exclude' => 0,
       ),
@@ -618,8 +618,8 @@ return $size;',
     'field_name' => 'field_teaser_auto',
     'type_name' => 'blog',
     'display_settings' => array(
-      'weight' => '11',
-      'parent' => 'group_teaser',
+      'weight' => '-58',
+      'parent' => '',
       'label' => array(
         'format' => 'above',
       ),
@@ -628,6 +628,10 @@ return $size;',
         'exclude' => 0,
       ),
       'full' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'token' => array(
         'format' => 'default',
         'exclude' => 0,
       ),
@@ -640,10 +644,6 @@ return $size;',
         'exclude' => 0,
       ),
       '3' => array(
-        'format' => 'default',
-        'exclude' => 0,
-      ),
-      'token' => array(
         'format' => 'default',
         'exclude' => 0,
       ),
@@ -681,8 +681,8 @@ return $size;',
     'field_name' => 'field_video_align',
     'type_name' => 'blog',
     'display_settings' => array(
-      'weight' => '5',
-      'parent' => 'group_video',
+      'weight' => '-77',
+      'parent' => '',
       'label' => array(
         'format' => 'above',
       ),
@@ -694,6 +694,10 @@ return $size;',
         'format' => 'default',
         'exclude' => 1,
       ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
       '4' => array(
         'format' => 'default',
         'exclude' => 0,
@@ -703,10 +707,6 @@ return $size;',
         'exclude' => 0,
       ),
       '3' => array(
-        'format' => 'default',
-        'exclude' => 0,
-      ),
-      'token' => array(
         'format' => 'default',
         'exclude' => 0,
       ),
@@ -743,8 +743,8 @@ right',
     'field_name' => 'field_video_autoplay',
     'type_name' => 'blog',
     'display_settings' => array(
-      'weight' => '6',
-      'parent' => 'group_video',
+      'weight' => '-76',
+      'parent' => '',
       'label' => array(
         'format' => 'above',
       ),
@@ -756,6 +756,10 @@ right',
         'format' => 'default',
         'exclude' => 1,
       ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
       '4' => array(
         'format' => 'default',
         'exclude' => 0,
@@ -765,10 +769,6 @@ right',
         'exclude' => 0,
       ),
       '3' => array(
-        'format' => 'default',
-        'exclude' => 0,
-      ),
-      'token' => array(
         'format' => 'default',
         'exclude' => 0,
       ),
@@ -806,8 +806,8 @@ right',
     'field_name' => 'field_video_size',
     'type_name' => 'blog',
     'display_settings' => array(
-      'weight' => '4',
-      'parent' => 'group_video',
+      'weight' => '-78',
+      'parent' => '',
       'label' => array(
         'format' => 'above',
       ),
@@ -819,6 +819,10 @@ right',
         'format' => 'default',
         'exclude' => 1,
       ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
       '4' => array(
         'format' => 'default',
         'exclude' => 0,
@@ -828,10 +832,6 @@ right',
         'exclude' => 0,
       ),
       '3' => array(
-        'format' => 'default',
-        'exclude' => 0,
-      ),
-      'token' => array(
         'format' => 'default',
         'exclude' => 0,
       ),
@@ -868,8 +868,8 @@ width:205 height:167',
     'field_name' => 'field_video_url',
     'type_name' => 'blog',
     'display_settings' => array(
-      'weight' => '3',
-      'parent' => 'group_video',
+      'weight' => '-79',
+      'parent' => '',
       'label' => array(
         'format' => 'hidden',
       ),
@@ -881,6 +881,10 @@ width:205 height:167',
         'format' => 'sws_video',
         'exclude' => 0,
       ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
       '4' => array(
         'format' => 'default',
         'exclude' => 0,
@@ -890,10 +894,6 @@ width:205 height:167',
         'exclude' => 0,
       ),
       '3' => array(
-        'format' => 'default',
-        'exclude' => 0,
-      ),
-      'token' => array(
         'format' => 'default',
         'exclude' => 0,
       ),
