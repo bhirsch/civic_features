@@ -19,7 +19,7 @@ function fcp_issues_default_fcontrolpanel_fcontrol() {
   $fcontrol->instructions_title = '';
   $fcontrol->instructions = '';
   $fcontrol->permission = '';
-  $fcontrol->weight = 0;
+  $fcontrol->weight = -1;
 
   $export['create_issue'] = $fcontrol;
   $fcontrol = new stdClass;

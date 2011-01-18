@@ -19,7 +19,7 @@ function fcp_blog_default_fcontrolpanel_fcontrol() {
   $fcontrol->instructions_title = '';
   $fcontrol->instructions = '';
   $fcontrol->permission = '';
-  $fcontrol->weight = 0;
+  $fcontrol->weight = -1;
 
   $export['create_blog'] = $fcontrol;
   $fcontrol = new stdClass;
