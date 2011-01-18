@@ -9,7 +9,7 @@ function fcp_issues_default_fcontrolpanel_fcontrol() {
   $fcontrol->disabled = FALSE; /* Edit this to true to make a default fcontrol disabled initially */
   $fcontrol->api_version = 1;
   $fcontrol->package = 'Issues';
-  $fcontrol->title = 'Create New Issue';
+  $fcontrol->title = 'New Issue';
   $fcontrol->name = 'create_issue';
   $fcontrol->path = 'node/add/issue';
   $fcontrol->query = '';
