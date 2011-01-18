@@ -9,7 +9,7 @@ function fcp_agenda_default_fcontrolpanel_fcontrol() {
   $fcontrol->disabled = FALSE; /* Edit this to true to make a default fcontrol disabled initially */
   $fcontrol->api_version = 1;
   $fcontrol->package = 'Agenda';
-  $fcontrol->title = 'Create New Agenda Item';
+  $fcontrol->title = 'New Agenda Item';
   $fcontrol->name = 'create_agenda_item';
   $fcontrol->path = 'node/add/agenda-item';
   $fcontrol->query = '';
@@ -28,9 +28,9 @@ function fcp_agenda_default_fcontrolpanel_fcontrol() {
   $fcontrol->package = 'Agenda';
   $fcontrol->title = 'Manage Agenda Items';
   $fcontrol->name = 'manage_agenda_items';
-  $fcontrol->path = 'manage_agenda_items';
+  $fcontrol->path = 'admin/content/manage';
   $fcontrol->query = 'type=agenda_item';
-  $fcontrol->description = 'View all agenda items. Edit, publish, unpublish and manage agenda items.';
+  $fcontrol->description = 'Review, edit, delete, publish and unpublish agenda items.';
   $fcontrol->video_title = '';
   $fcontrol->video = '';
   $fcontrol->instructions_title = '';

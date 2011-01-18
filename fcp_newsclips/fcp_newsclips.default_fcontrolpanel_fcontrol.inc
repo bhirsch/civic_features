@@ -9,9 +9,9 @@ function fcp_newsclips_default_fcontrolpanel_fcontrol() {
   $fcontrol->disabled = FALSE; /* Edit this to true to make a default fcontrol disabled initially */
   $fcontrol->api_version = 1;
   $fcontrol->package = 'News Clips';
-  $fcontrol->title = 'Create News Clip';
+  $fcontrol->title = 'New News Clip';
   $fcontrol->name = 'create_news_clip';
-  $fcontrol->path = 'clone_of_create_news_clips';
+  $fcontrol->path = 'node/add/news-clip';
   $fcontrol->query = '';
   $fcontrol->description = 'Create news clips';
   $fcontrol->video_title = '';
@@ -30,7 +30,7 @@ function fcp_newsclips_default_fcontrolpanel_fcontrol() {
   $fcontrol->name = 'manage_news_clips';
   $fcontrol->path = 'admin/content/manage';
   $fcontrol->query = 'type=news_clip';
-  $fcontrol->description = 'Edit, publish, unpublish, delete news clips';
+  $fcontrol->description = 'Review, edit, delete, publish and unpublish news clips.';
   $fcontrol->video_title = '';
   $fcontrol->video = '';
   $fcontrol->instructions_title = '';

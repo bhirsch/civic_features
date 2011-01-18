@@ -9,7 +9,7 @@ function fcp_pressreleases_default_fcontrolpanel_fcontrol() {
   $fcontrol->disabled = FALSE; /* Edit this to true to make a default fcontrol disabled initially */
   $fcontrol->api_version = 1;
   $fcontrol->package = 'Press Releases';
-  $fcontrol->title = 'Create New Press Release';
+  $fcontrol->title = 'New Press Release';
   $fcontrol->name = 'create_press_release';
   $fcontrol->path = 'node/add/press-release';
   $fcontrol->query = '';
@@ -30,7 +30,7 @@ function fcp_pressreleases_default_fcontrolpanel_fcontrol() {
   $fcontrol->name = 'manage_press_releases';
   $fcontrol->path = 'admin/content/manage';
   $fcontrol->query = 'type=press_release';
-  $fcontrol->description = 'Edit, publish, unpublish, delete press releases';
+  $fcontrol->description = 'Review, edit, delete, publish and unpublish press releases.';
   $fcontrol->video_title = '';
   $fcontrol->video = '';
   $fcontrol->instructions_title = '';

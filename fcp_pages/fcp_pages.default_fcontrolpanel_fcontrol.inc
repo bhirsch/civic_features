@@ -9,7 +9,7 @@ function fcp_pages_default_fcontrolpanel_fcontrol() {
   $fcontrol->disabled = FALSE; /* Edit this to true to make a default fcontrol disabled initially */
   $fcontrol->api_version = 1;
   $fcontrol->package = 'Page';
-  $fcontrol->title = 'Create New Page';
+  $fcontrol->title = 'New Page';
   $fcontrol->name = 'create_page';
   $fcontrol->path = 'node/add/page';
   $fcontrol->query = '';
@@ -30,7 +30,7 @@ function fcp_pages_default_fcontrolpanel_fcontrol() {
   $fcontrol->name = 'manage_pages';
   $fcontrol->path = 'admin/content/manage';
   $fcontrol->query = 'type=page';
-  $fcontrol->description = 'Edit, publish, unpublish, delete pages';
+  $fcontrol->description = 'Review, edit, delete, publish and unpublish pages.';
   $fcontrol->video_title = '';
   $fcontrol->video = '';
   $fcontrol->instructions_title = '';

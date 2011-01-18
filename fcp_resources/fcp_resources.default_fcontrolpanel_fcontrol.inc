@@ -9,7 +9,7 @@ function fcp_resources_default_fcontrolpanel_fcontrol() {
   $fcontrol->disabled = FALSE; /* Edit this to true to make a default fcontrol disabled initially */
   $fcontrol->api_version = 1;
   $fcontrol->package = 'Resources';
-  $fcontrol->title = 'Create New Resource';
+  $fcontrol->title = 'New Resource';
   $fcontrol->name = 'create_resource';
   $fcontrol->path = 'node/add/resource';
   $fcontrol->query = '';
@@ -30,7 +30,7 @@ function fcp_resources_default_fcontrolpanel_fcontrol() {
   $fcontrol->name = 'manage_resources';
   $fcontrol->path = 'admin/content/manage';
   $fcontrol->query = 'type=resource';
-  $fcontrol->description = 'Edit, publish, unpublish, delete resources';
+  $fcontrol->description = 'Review, edit, delete, publish and unpublish resources.';
   $fcontrol->video_title = '';
   $fcontrol->video = '';
   $fcontrol->instructions_title = '';

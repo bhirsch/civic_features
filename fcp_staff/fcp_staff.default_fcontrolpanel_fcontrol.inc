@@ -9,7 +9,7 @@ function fcp_staff_default_fcontrolpanel_fcontrol() {
   $fcontrol->disabled = FALSE; /* Edit this to true to make a default fcontrol disabled initially */
   $fcontrol->api_version = 1;
   $fcontrol->package = 'Staff';
-  $fcontrol->title = 'Create New Bio';
+  $fcontrol->title = 'New Bio';
   $fcontrol->name = 'create_bio';
   $fcontrol->path = 'node/add/bio';
   $fcontrol->query = '';
@@ -30,7 +30,7 @@ function fcp_staff_default_fcontrolpanel_fcontrol() {
   $fcontrol->name = 'manage_staff';
   $fcontrol->path = 'admin/content/manage';
   $fcontrol->query = 'type=bio';
-  $fcontrol->description = 'Edit, publish, unpublish, delete staff bios';
+  $fcontrol->description = 'Review, edit, delete, publish and unpublish staff bios.';
   $fcontrol->video_title = '';
   $fcontrol->video = '';
   $fcontrol->instructions_title = '';
