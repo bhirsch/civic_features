@@ -47,7 +47,7 @@ function fcp_pressreleases_default_fcontrolpanel_fcontrol() {
   $fcontrol->name = 'press_releases_settings';
   $fcontrol->path = 'admin/settings/press_releases';
   $fcontrol->query = '';
-  $fcontrol->description = 'Create/edit press release header, subhead, footer.';
+  $fcontrol->description = 'Create/edit standard header, subheader and footer for all press releases.';
   $fcontrol->video_title = '';
   $fcontrol->video = '';
   $fcontrol->instructions_title = '';

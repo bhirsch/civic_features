@@ -73,6 +73,5 @@ function fcp_newsclips_default_fcontrolpanel_fcontrol() {
   $fcontrol->weight = 3;
 
   $export['news_clips_settings'] = $fcontrol;
-
   return $export;
 }
