@@ -2,7 +2,6 @@
 
 include_once('press_releases.features.inc');
 
-
 /**
  * Implementation of hook_menu().
  */

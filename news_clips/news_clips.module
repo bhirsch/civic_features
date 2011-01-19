@@ -3,26 +3,21 @@
 include_once('news_clips.features.inc');
 
 /**
- * Custom code. Everything below here 
- * was added manually, not written by Features
- * module.
- */ 
-
-/**
- * TODO Move hook_nodeapi code from sws.module here.
+ * Implementation of hook_menu().
  */
-/*
-function news_clips_nodeapi(&$node, $op, $a3 = NULL, $a4 = NULL) {
-  if ($node->type == 'news_clip') {
-    switch($op) {
-      
-      case 'view':
-        // On page view and  newsclips/feed show themed fields
+function news_clips_menu() {
+  $items = array();
 
-        // On newsclips/feed/full show all fields, e.g. to allow campaign site to subscribe to SH site.
+  $items['admin/settings/news_clips'] = array(
+    'title' => t('News Clips Settings'), 
+    'description' => t('News Clip Settings'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('news_clips_admin_settings'),
+    'access arguments' => array('administer sws'), 
+    'type' => MENU_NORMAL_ITEM,
+    'file' => 'news_clips.admin.inc', 
+  );
 
-        break;
-    } 
-  }
+  return $items;
 }
-// */
+
