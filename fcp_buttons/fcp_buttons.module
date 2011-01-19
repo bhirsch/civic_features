@@ -1,0 +1,19 @@
+<?php
+
+include_once('fcp_buttons.features.inc');
+
+/**
+ * Implementation of hook_enable().
+ */
+function fcp_buttons_enable() {
+  // update admin toolbar
+  fcontrolpanel_admin_toolbar('enable');  
+}
+
+/**
+ * Implementation of hook_disable().
+ */
+function fcp_buttons_disable() {
+  // update admin toolbar
+  fcontrolpanel_admin_toolbar('disable');  
+}
