@@ -56,5 +56,23 @@ function fcp_newsclips_default_fcontrolpanel_fcontrol() {
   $fcontrol->weight = 2;
 
   $export['manage_news_clips'] = $fcontrol;
+  $fcontrol = new stdClass;
+  $fcontrol->disabled = FALSE; /* Edit this to true to make a default fcontrol disabled initially */
+  $fcontrol->api_version = 1;
+  $fcontrol->package = 'News Clips';
+  $fcontrol->title = 'News Clips Settings';
+  $fcontrol->name = 'news_clips_settings';
+  $fcontrol->path = 'admin/settings/news_clips';
+  $fcontrol->query = '';
+  $fcontrol->description = 'Create/edit a standard footer for all news clips.';
+  $fcontrol->video_title = '';
+  $fcontrol->video = '';
+  $fcontrol->instructions_title = '';
+  $fcontrol->instructions = '';
+  $fcontrol->permission = '';
+  $fcontrol->weight = 3;
+
+  $export['news_clips_settings'] = $fcontrol;
+
   return $export;
 }

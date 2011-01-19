@@ -19,7 +19,7 @@ function fcp_pressreleases_default_fcontrolpanel_fcontrol() {
   $fcontrol->instructions_title = '';
   $fcontrol->instructions = '';
   $fcontrol->permission = '';
-  $fcontrol->weight = -1;
+  $fcontrol->weight = 0;
 
   $export['create_press_release'] = $fcontrol;
   $fcontrol = new stdClass;
@@ -36,8 +36,25 @@ function fcp_pressreleases_default_fcontrolpanel_fcontrol() {
   $fcontrol->instructions_title = '';
   $fcontrol->instructions = '';
   $fcontrol->permission = '';
-  $fcontrol->weight = 0;
+  $fcontrol->weight = 1;
 
   $export['manage_press_releases'] = $fcontrol;
+  $fcontrol = new stdClass;
+  $fcontrol->disabled = FALSE; /* Edit this to true to make a default fcontrol disabled initially */
+  $fcontrol->api_version = 1;
+  $fcontrol->package = 'Press Releases';
+  $fcontrol->title = 'Press Releases Settings';
+  $fcontrol->name = 'press_releases_settings';
+  $fcontrol->path = 'admin/settings/press_releases';
+  $fcontrol->query = '';
+  $fcontrol->description = 'Create/edit press release header, subhead, footer.';
+  $fcontrol->video_title = '';
+  $fcontrol->video = '';
+  $fcontrol->instructions_title = '';
+  $fcontrol->instructions = '';
+  $fcontrol->permission = '';
+  $fcontrol->weight = 2;
+
+  $export['press_releases_settings'] = $fcontrol;
   return $export;
 }
