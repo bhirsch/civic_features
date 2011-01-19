@@ -19,9 +19,26 @@ function fcp_newsclips_default_fcontrolpanel_fcontrol() {
   $fcontrol->instructions_title = '';
   $fcontrol->instructions = '';
   $fcontrol->permission = '';
-  $fcontrol->weight = -1;
+  $fcontrol->weight = 0;
 
   $export['create_news_clip'] = $fcontrol;
+  $fcontrol = new stdClass;
+  $fcontrol->disabled = FALSE; /* Edit this to true to make a default fcontrol disabled initially */
+  $fcontrol->api_version = 1;
+  $fcontrol->package = 'News Clips';
+  $fcontrol->title = 'New News Organization';
+  $fcontrol->name = 'create_news_organization';
+  $fcontrol->path = 'node/add/news-organization';
+  $fcontrol->query = '';
+  $fcontrol->description = 'Add new news organization.';
+  $fcontrol->video_title = '';
+  $fcontrol->video = '';
+  $fcontrol->instructions_title = '';
+  $fcontrol->instructions = '';
+  $fcontrol->permission = '';
+  $fcontrol->weight = 1;
+
+  $export['create_news_organization'] = $fcontrol;
   $fcontrol = new stdClass;
   $fcontrol->disabled = FALSE; /* Edit this to true to make a default fcontrol disabled initially */
   $fcontrol->api_version = 1;
@@ -36,7 +53,7 @@ function fcp_newsclips_default_fcontrolpanel_fcontrol() {
   $fcontrol->instructions_title = '';
   $fcontrol->instructions = '';
   $fcontrol->permission = '';
-  $fcontrol->weight = 0;
+  $fcontrol->weight = 2;
 
   $export['manage_news_clips'] = $fcontrol;
   return $export;

@@ -36,7 +36,7 @@ function fcp_frontpage_disable() {
 function fcp_frontpage_title($queue, $subqueue = array()) {
   $output = nodequeue_admin_view($queue, $subqueue = array());
   $title = ($subqueue->title) ? $subqueue->title : $queue->title;
-  $title = t("Queue: ". $title);
+  $title = t($title ." Queue");
   drupal_set_title($title);
   
   return $output;  

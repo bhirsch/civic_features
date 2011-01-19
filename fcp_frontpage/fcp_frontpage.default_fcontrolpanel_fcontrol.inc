@@ -9,7 +9,7 @@ function fcp_frontpage_default_fcontrolpanel_fcontrol() {
   $fcontrol->disabled = FALSE; /* Edit this to true to make a default fcontrol disabled initially */
   $fcontrol->api_version = 1;
   $fcontrol->package = 'Front Page';
-  $fcontrol->title = 'Featured Posts';
+  $fcontrol->title = 'Featured Posts Queue';
   $fcontrol->name = 'frontpage_featuredposts';
   $fcontrol->path = 'admin/content/nodequeue/2';
   $fcontrol->query = '';
@@ -26,7 +26,7 @@ function fcp_frontpage_default_fcontrolpanel_fcontrol() {
   $fcontrol->disabled = FALSE; /* Edit this to true to make a default fcontrol disabled initially */
   $fcontrol->api_version = 1;
   $fcontrol->package = 'Front Page';
-  $fcontrol->title = 'Featured Video';
+  $fcontrol->title = 'Featured Video Queue';
   $fcontrol->name = 'frontpage_featuredvideo';
   $fcontrol->path = 'admin/content/nodequeue/3';
   $fcontrol->query = '';
@@ -43,7 +43,7 @@ function fcp_frontpage_default_fcontrolpanel_fcontrol() {
   $fcontrol->disabled = FALSE; /* Edit this to true to make a default fcontrol disabled initially */
   $fcontrol->api_version = 1;
   $fcontrol->package = 'Front Page';
-  $fcontrol->title = 'Front Page Slideshow';
+  $fcontrol->title = 'Front Page Slideshow Queue';
   $fcontrol->name = 'frontpage_slideshow';
   $fcontrol->path = 'admin/content/nodequeue/1';
   $fcontrol->query = '';
@@ -60,7 +60,7 @@ function fcp_frontpage_default_fcontrolpanel_fcontrol() {
   $fcontrol->disabled = FALSE; /* Edit this to true to make a default fcontrol disabled initially */
   $fcontrol->api_version = 1;
   $fcontrol->package = 'Front Page';
-  $fcontrol->title = 'Front Page Main';
+  $fcontrol->title = 'Front Page Main Queue';
   $fcontrol->name = 'queue_front_page_main';
   $fcontrol->path = 'admin/content/nodequeue/4';
   $fcontrol->query = '';
