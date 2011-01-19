@@ -33,6 +33,7 @@ function owh_default_settings_strongarm() {
   $strongarm->value = array(
     'layout' => 'vertical',
     'position' => 'nw',
+    'behavior' => 'ah',
     'blocks' => array(
       'sws_mgmt-0' => 'sws_mgmt-0',
       'sws_mgmt-1' => 'sws_mgmt-1',
