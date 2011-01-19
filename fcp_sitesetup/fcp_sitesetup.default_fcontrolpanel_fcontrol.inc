@@ -8,23 +8,6 @@ function fcp_sitesetup_default_fcontrolpanel_fcontrol() {
   $fcontrol = new stdClass;
   $fcontrol->disabled = FALSE; /* Edit this to true to make a default fcontrol disabled initially */
   $fcontrol->api_version = 1;
-  $fcontrol->package = 'Site Management';
-  $fcontrol->title = 'Manage Content';
-  $fcontrol->name = 'old_admin_content_manage';
-  $fcontrol->path = 'admin/content/manage';
-  $fcontrol->query = '';
-  $fcontrol->description = 'Go to content management page. Filter, edit, delete, publish, and unpublish content.';
-  $fcontrol->video_title = '';
-  $fcontrol->video = '';
-  $fcontrol->instructions_title = '';
-  $fcontrol->instructions = '';
-  $fcontrol->permission = 'manage content';
-  $fcontrol->weight = 1;
-
-  $export['old_admin_content_manage'] = $fcontrol;
-  $fcontrol = new stdClass;
-  $fcontrol->disabled = FALSE; /* Edit this to true to make a default fcontrol disabled initially */
-  $fcontrol->api_version = 1;
   $fcontrol->package = 'Site Set-Up';
   $fcontrol->title = 'Contact Us Settings';
   $fcontrol->name = 'old_contact_settings';
