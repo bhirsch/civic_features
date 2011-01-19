@@ -13,10 +13,11 @@
  * @see system_settings_form().
  */
 function news_clips_admin_settings() {
-  // News Clip settings
+  $fair_use = 'FAIR USE NOTICE This site contains copyrighted material the use of which has not always been specifically authorized by the copyright owner. In accordance with Title 17 U.S.C. Section 107, the material on this site is available without profit for research and educational purposes. If you wish to use copyrighted material from this site for purposes of your own that go beyond "fair use", you must obtain permission from the copyright owner.'; 
+
   $form['newsclip'] = array(
     '#type' => 'fieldset',
-    '#title' => 'News Clip Footer',
+    '#title' => 'News Clips Settings',
     //'#collapsible' => TRUE,
     //'#collapsed' => TRUE,
   );
@@ -31,9 +32,8 @@ function news_clips_admin_settings() {
                        .'footer text here. NOTE: This is '
                        .'not legal advise. Re-use copyrighted material '
                        .'at your own risk. Here is an example of a fair '
-                       .'use notice: <br/><br/>'
-                       .'FAIR USE NOTICE <br/> This site contains copyrighted material the use of which has not always been specifically authorized by the copyright owner. In accordance with Title 17 U.S.C. Section 107, the material on this site is available without profit for research and educational purposes. If you wish to use copyrighted material from this site for purposes of your own that go beyond "fair use", you must obtain permission from the copyright owner. '), 
-    '#default_value' => variable_get('news_clips_footer', NULL),
+                       .'use notice: <br/><br/>'. $fair_use),
+    '#default_value' => variable_get('news_clips_footer', $fair_use),
   ); 
 
   return system_settings_form($form);
