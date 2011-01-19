@@ -18,7 +18,7 @@ function fcp_administration_default_fcontrolpanel_fcontrol() {
   $fcontrol->video = '';
   $fcontrol->instructions_title = '';
   $fcontrol->instructions = '';
-  $fcontrol->permission = '';
+  $fcontrol->permission = 'manage content';
   $fcontrol->weight = 20;
 
   $export['admin_content_manage'] = $fcontrol;
@@ -35,7 +35,7 @@ function fcp_administration_default_fcontrolpanel_fcontrol() {
   $fcontrol->video = '';
   $fcontrol->instructions_title = '';
   $fcontrol->instructions = '';
-  $fcontrol->permission = '';
+  $fcontrol->permission = 'administer site-wide contact form';
   $fcontrol->weight = 70;
 
   $export['contact_settings'] = $fcontrol;
@@ -69,7 +69,7 @@ function fcp_administration_default_fcontrolpanel_fcontrol() {
   $fcontrol->video = '';
   $fcontrol->instructions_title = '';
   $fcontrol->instructions = '';
-  $fcontrol->permission = '';
+  $fcontrol->permission = 'clear cache';
   $fcontrol->weight = 30;
 
   $export['empty_cache'] = $fcontrol;
@@ -86,7 +86,7 @@ function fcp_administration_default_fcontrolpanel_fcontrol() {
   $fcontrol->video = '';
   $fcontrol->instructions_title = '';
   $fcontrol->instructions = '';
-  $fcontrol->permission = '';
+  $fcontrol->permission = 'administer google analytics';
   $fcontrol->weight = 40;
 
   $export['google_analytics'] = $fcontrol;
@@ -103,7 +103,7 @@ function fcp_administration_default_fcontrolpanel_fcontrol() {
   $fcontrol->video = '';
   $fcontrol->instructions_title = '';
   $fcontrol->instructions = '';
-  $fcontrol->permission = '';
+  $fcontrol->permission = 'manage features';
   $fcontrol->weight = 50;
 
   $export['manage_features'] = $fcontrol;
@@ -120,7 +120,7 @@ function fcp_administration_default_fcontrolpanel_fcontrol() {
   $fcontrol->video = '';
   $fcontrol->instructions_title = '';
   $fcontrol->instructions = '';
-  $fcontrol->permission = '';
+  $fcontrol->permission = 'administer taxonomy';
   $fcontrol->weight = 60;
 
   $export['manage_taxonomy'] = $fcontrol;
@@ -137,7 +137,7 @@ function fcp_administration_default_fcontrolpanel_fcontrol() {
   $fcontrol->video = '';
   $fcontrol->instructions_title = '';
   $fcontrol->instructions = '';
-  $fcontrol->permission = '';
+  $fcontrol->permission = 'administer users';
   $fcontrol->weight = 110;
 
   $export['manage_users'] = $fcontrol;
@@ -154,7 +154,7 @@ function fcp_administration_default_fcontrolpanel_fcontrol() {
   $fcontrol->video = '';
   $fcontrol->instructions_title = '';
   $fcontrol->instructions = '';
-  $fcontrol->permission = '';
+  $fcontrol->permission = 'administer menu';
   $fcontrol->weight = 80;
 
   $export['menu_settings'] = $fcontrol;
@@ -171,7 +171,7 @@ function fcp_administration_default_fcontrolpanel_fcontrol() {
   $fcontrol->video = '';
   $fcontrol->instructions_title = '';
   $fcontrol->instructions = '';
-  $fcontrol->permission = '';
+  $fcontrol->permission = 'administer site configuration';
   $fcontrol->weight = 90;
 
   $export['site_maintenance'] = $fcontrol;
@@ -188,7 +188,7 @@ function fcp_administration_default_fcontrolpanel_fcontrol() {
   $fcontrol->video = '';
   $fcontrol->instructions_title = '';
   $fcontrol->instructions = '';
-  $fcontrol->permission = '';
+  $fcontrol->permission = 'manage subtheme';
   $fcontrol->weight = 100;
 
   $export['subtheme_build'] = $fcontrol;
