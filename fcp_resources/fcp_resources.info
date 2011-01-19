@@ -1,6 +1,7 @@
 core = "6.x"
 dependencies[] = "ctools"
 dependencies[] = "fcontrolpanel"
+dependencies[] = "resources"
 description = "Add feature controls to control panel and administrative toolbar"
 features[ctools][] = "fcontrolpanel:default_fcontrolpanel_fcontrol:1"
 features[fcontrolpanel_fcontrol][] = "create_resource"

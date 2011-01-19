@@ -1,4 +1,5 @@
 core = "6.x"
+dependencies[] = "button_block"
 dependencies[] = "ctools"
 dependencies[] = "fcontrolpanel"
 description = "Add feature controls to control panel and administrative toolbar"
