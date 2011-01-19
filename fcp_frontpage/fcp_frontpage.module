@@ -17,3 +17,34 @@ function fcp_frontpage_disable() {
   // update admin toolbar
   fcontrolpanel_admin_toolbar('disable');  
 }
+
+/**
+ * This function is responsible for renaming 
+ * nodeque pages at admin/content/nodequeue/%nodequeue.
+ * 
+ * Nodequeue module uses drupal_set_title() to set these
+ * page titles inside the page callback. This function
+ * overrides nodequeue by implementing hook_menu_alter()
+ * to so we can call drupal_set_title() last.
+ *
+ * @params
+ *  see nodequeue_admin_view()
+ * 
+ * @return 
+ *  see nodequeue_admin_view()
+ */
+function fcp_frontpage_title($queue, $subqueue = array()) {
+  $output = nodequeue_admin_view($queue, $subqueue = array());
+  $title = ($subqueue->title) ? $subqueue->title : $queue->title;
+  $title = t("Queue: ". $title);
+  drupal_set_title($title);
+  
+  return $output;  
+}
+
+/**
+ * Implementation of hook_menu_alter().
+ */
+function fcp_frontpage_menu_alter(&$items) {
+  $items['admin/content/nodequeue/%nodequeue']['page callback'] = 'fcp_frontpage_title';
+}
