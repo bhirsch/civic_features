@@ -31,16 +31,18 @@ function owh_default_settings_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'admin_toolbar';
   $strongarm->value = array(
-    'layout' => 'vertical',
+    'layout' => 'horizontal',
     'position' => 'nw',
-    'behavior' => 'ah',
+    'behavior' => 'df',
     'blocks' => array(
-      'sws_mgmt-0' => 'sws_mgmt-0',
-      'sws_mgmt-1' => 'sws_mgmt-1',
-      'sws_mgmt-2' => 'sws_mgmt-2',
-      'admin-create' => 'admin-create',
-      'admin-menu' => 'admin-menu',
-      'admin-devel' => 'admin-devel',
+      'fcontrolpanel-0' => -1,
+      'fcontrolpanel-1' => -1,
+      'fcontrolpanel-2' => -1,
+      'fcontrolpanel-3' => -1,
+      'fcontrolpanel-4' => -1,
+      'fcontrolpanel-5' => -1,
+      'fcontrolpanel-6' => -1,
+      'fcontrolpanel-7' => -1,
     ),
   );
 
@@ -56,7 +58,7 @@ function owh_default_settings_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'clean_url';
-  $strongarm->value = TRUE;
+  $strongarm->value = '1';
 
   $export['clean_url'] = $strongarm;
   $strongarm = new stdClass;
@@ -357,7 +359,7 @@ function owh_default_settings_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'date_format_short';
-  $strongarm->value = 'M j Y - g:ia';
+  $strongarm->value = 'm/d/Y - g:ia';
 
   $export['date_format_short'] = $strongarm;
   $strongarm = new stdClass;
