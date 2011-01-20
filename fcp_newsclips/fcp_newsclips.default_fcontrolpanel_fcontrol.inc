@@ -60,6 +60,23 @@ function fcp_newsclips_default_fcontrolpanel_fcontrol() {
   $fcontrol->disabled = FALSE; /* Edit this to true to make a default fcontrol disabled initially */
   $fcontrol->api_version = 1;
   $fcontrol->package = 'News Clips';
+  $fcontrol->title = 'Manage News Organizations';
+  $fcontrol->name = 'manage_news_organizations';
+  $fcontrol->path = 'admin/content/manage';
+  $fcontrol->query = 'type=news_organization';
+  $fcontrol->description = 'Review, edit, delete news organizations.';
+  $fcontrol->video_title = '';
+  $fcontrol->video = '';
+  $fcontrol->instructions_title = '';
+  $fcontrol->instructions = '';
+  $fcontrol->permission = '';
+  $fcontrol->weight = 3;
+
+  $export['manage_news_organizations'] = $fcontrol;
+  $fcontrol = new stdClass;
+  $fcontrol->disabled = FALSE; /* Edit this to true to make a default fcontrol disabled initially */
+  $fcontrol->api_version = 1;
+  $fcontrol->package = 'News Clips';
   $fcontrol->title = 'News Clips Settings';
   $fcontrol->name = 'news_clips_settings';
   $fcontrol->path = 'admin/settings/news_clips';
@@ -70,7 +87,7 @@ function fcp_newsclips_default_fcontrolpanel_fcontrol() {
   $fcontrol->instructions_title = '';
   $fcontrol->instructions = '';
   $fcontrol->permission = '';
-  $fcontrol->weight = 3;
+  $fcontrol->weight = 4;
 
   $export['news_clips_settings'] = $fcontrol;
   return $export;
