@@ -12,10 +12,11 @@ function sws_blog_strongarm() {
   $strongarm->value = array(
     'title' => '-1000',
     'body_field' => '-2',
-    'revision_information' => '200',
-    'author' => '150',
-    'options' => '1000',
+    'revision_information' => '150 ',
+    'author' => '20',
+    'options' => '25',
     'menu' => '210',
+    'taxonomy' => '100',
     'path' => '220',
   );
 

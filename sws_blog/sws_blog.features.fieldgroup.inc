@@ -14,12 +14,11 @@ function sws_blog_fieldgroup_default_groups() {
     'label' => 'Map',
     'settings' => array(
       'form' => array(
-        'style' => 'fieldset',
+        'style' => 'fieldset_collapsed',
         'description' => '',
       ),
       'display' => array(
         'description' => '',
-        'label' => 'above',
         'teaser' => array(
           'format' => 'fieldset',
           'exclude' => 0,
@@ -44,9 +43,10 @@ function sws_blog_fieldgroup_default_groups() {
           'format' => 'fieldset',
           'exclude' => 0,
         ),
+        'label' => 'above',
       ),
     ),
-    'weight' => '-100',
+    'weight' => '-997',
     'fields' => array(
       '0' => 'field_map',
       '1' => 'field_map_position',
@@ -61,12 +61,11 @@ function sws_blog_fieldgroup_default_groups() {
     'label' => 'Pictures',
     'settings' => array(
       'form' => array(
-        'style' => 'fieldset',
+        'style' => 'fieldset_collapsed',
         'description' => '',
       ),
       'display' => array(
         'description' => '',
-        'label' => 'above',
         'teaser' => array(
           'format' => 'fieldset',
           'exclude' => 0,
@@ -91,9 +90,10 @@ function sws_blog_fieldgroup_default_groups() {
           'format' => 'fieldset',
           'exclude' => 0,
         ),
+        'label' => 'above',
       ),
     ),
-    'weight' => '-70',
+    'weight' => '-995',
     'fields' => array(
       '0' => 'field_pic',
       '1' => 'field_pic_size',
@@ -109,12 +109,11 @@ function sws_blog_fieldgroup_default_groups() {
     'label' => 'Teaser',
     'settings' => array(
       'form' => array(
-        'style' => 'fieldset',
+        'style' => 'fieldset_collapsed',
         'description' => '',
       ),
       'display' => array(
         'description' => '',
-        'label' => 'above',
         'teaser' => array(
           'format' => 'fieldset',
           'exclude' => 0,
@@ -139,9 +138,10 @@ function sws_blog_fieldgroup_default_groups() {
           'format' => 'fieldset',
           'exclude' => 0,
         ),
+        'label' => 'above',
       ),
     ),
-    'weight' => '-60',
+    'weight' => '-994',
     'fields' => array(
       '0' => 'field_teaser',
       '1' => 'field_teaser_auto',
@@ -156,12 +156,11 @@ function sws_blog_fieldgroup_default_groups() {
     'label' => 'Video',
     'settings' => array(
       'form' => array(
-        'style' => 'fieldset',
+        'style' => 'fieldset_collapsed',
         'description' => '',
       ),
       'display' => array(
         'description' => '',
-        'label' => 'above',
         'teaser' => array(
           'format' => 'fieldset',
           'exclude' => 0,
@@ -186,9 +185,10 @@ function sws_blog_fieldgroup_default_groups() {
           'format' => 'fieldset',
           'exclude' => 0,
         ),
+        'label' => 'above',
       ),
     ),
-    'weight' => '-80',
+    'weight' => '-996',
     'fields' => array(
       '0' => 'field_video_url',
       '1' => 'field_video_size',
