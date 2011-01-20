@@ -30,7 +30,7 @@ function twocolslideshow_frontpage_form_alter(&$form, &$form_state, $form_id) {
 function _twocolslideshow_frontpage_carousel1($form) {
   // Rotor (Slideshow/carousel1) background
   // div.carousel1 { background: }
-  $form['background']['carousel1'] = array(
+  $form['twocolslideshow'] = array(
     '#type' => 'fieldset',
     '#title' => t('Front Page Slideshow Background'),
     '#collapsible' => TRUE, 
@@ -43,69 +43,69 @@ function _twocolslideshow_frontpage_carousel1($form) {
   $image_filepath = ($bg) ? $bg : $path .'/theme/images/carousel1_background_3.jpg'; 
   $bg_image = theme('imagecache', $preset_namespace, $image_filepath, $alt, $title, $attributes);
   // Prompt user to upload own graphic for main background here
-  $form['background']['carousel1']['subtheme-carousel1-background'] = array(
+  $form['twocolslideshow']['subtheme-carousel1-background'] = array(
     '#type' => 'file',
     '#title' => t('Upload Graphic'),
     '#size' => 30,
     '#element_validate' => array('twocolslideshow_frontpage_save_file'),
   );
   // Display background image
-  $form['background']['carousel1']['subtheme-carousel1-display'] = array(
+  $form['twocolslideshow']['subtheme-carousel1-display'] = array(
     '#type' => 'item',
     '#title' => $bg_image,
   );
   // URL to the background image. (This cannot be modified directly.)
   $link = l("background image", $image_filepath);
-  $form['background']['carousel1']['subtheme-carousel1-url'] = array(
+  $form['twocolslideshow']['subtheme-carousel1-url'] = array(
     '#type' => 'item',
     '#title' => $link,
   );
   // Store the url along with other CSS settings here (show this one to the user)
-  $form['background']['carousel1']['subtheme_element--div---class--carousel1_background'] = array(
+  $form['twocolslideshow']['subtheme_element--div---class--carousel1_background'] = array(
     '#type' => 'textfield',
     '#title' => t('Front Page Slideshow Background CSS'),
     '#default_value' => variable_get('subtheme_element--div---class--carousel1_background', NULL),
   );
   // div.carousel1 span.accent
-  $form['background']['carousel1']['subtheme_element--div---class--carousel1----element--span---class--accent_color'] = array(
+  $form['twocolslideshow']['subtheme_element--div---class--carousel1----element--span---class--accent_color'] = array(
     '#type' => 'textfield',
     '#title' => t('Accent Color (for period and dashes around VIDEO)'),
     '#default_value' => variable_get('subtheme_element--div---class--carousel1----element--span---class--accent_color', NULL),
   );
   // .carousel1-teaser 
-  $form['background']['carousel1']['subtheme_class--carousel1-teaser_background'] = array(
+  $form['twocolslideshow']['subtheme_class--carousel1-teaser_background'] = array(
     '#type' => 'textfield',
     '#title' => t('Teaser Background Color'),
     '#default_value' => variable_get('subtheme_class--carousel1-teaser_background', NULL),
   );
   // .carousel1-teaser { color: X ; }
-  $form['background']['carousel1']['subtheme_class--carousel1-teaser_color'] = array(
+  $form['twocolslideshow']['subtheme_class--carousel1-teaser_color'] = array(
     '#type' => 'textfield',
     '#title' => t('Teaser Text Color'),
     '#default_value' => variable_get('subtheme_class--carousel1-teaser_color', NULL),
   );
   // .carousel1-teaser { text-align: X ; }
-  $form['background']['carousel1']['subtheme_class--carousel1-teaser_text-align'] = array(
+  $form['twocolslideshow']['subtheme_class--carousel1-teaser_text-align'] = array(
     '#type' => 'textfield',
     '#title' => t('Teaser Text Align'),
     '#default_value' => variable_get('subtheme_class--carousel1-teaser_text-align', NULL),
   );
   // .carousel1-teaser { width: X ; }
-  $form['background']['carousel1']['subtheme_class--carousel1-teaser_width'] = array(
+  $form['twocolslideshow']['subtheme_class--carousel1-teaser_width'] = array(
     '#type' => 'textfield',
     '#title' => t('Teaser Area Width'),
     '#default_value' => variable_get('subtheme_class--carousel1-teaser_width', '227px'),
     '#description'=> t('Default value: 227px'),
   );
   // .carousel1-teaser { padding: X ; }
-  $form['background']['carousel1']['subtheme_class--carousel1-teaser_padding'] = array(
+  $form['twocolslideshow']['subtheme_class--carousel1-teaser_padding'] = array(
     '#type' => 'textfield',
     '#title' => t('Teaser Area Padding'),
     '#default_value' => variable_get('subtheme_class--carousel1-teaser_padding', '0 0 0 5px'),
     '#description'=> t('Default value: 0 0 0 5px  (top, right, bottom, left)'),
   );
   // .carousel1-teaser { margin: X ; }
-  $form['background']['carousel1']['subtheme_class--carousel1-teaser_margin'] = array(
+  $form['twocolslideshow']['subtheme_class--carousel1-teaser_margin'] = array(
     '#type' => 'textfield',
     '#title' => t('Teaser Area Margin'),
     '#default_value' => variable_get('subtheme_class--carousel1-teaser_margin', '0 0 0 0'),
@@ -113,21 +113,21 @@ function _twocolslideshow_frontpage_carousel1($form) {
   );
   // div.carousel1-title a {color: X ; }
   $transform = 'subtheme_element--div---class--carousel1-title----element--a_color';
-  $form['background']['carousel1'][$transform] = array(
+  $form['twocolslideshow'][$transform] = array(
     '#type' => 'textfield',
     '#title' => t('Title Text Color'),
     '#default_value' => variable_get($transform, NULL),
   );
   // div.carousel1-title a {border-bottom: X ; }
   $borderbottom = 'subtheme_class--carousel1-title----element--a_border-bottom';
-  $form['background']['carousel1'][$borderbottom] = array(
+  $form['twocolslideshow'][$borderbottom] = array(
     '#type' => 'textfield',
     '#title' => t('Bottom Border of Title'),
     '#default_value' => variable_get($borderbottom, NULL),
   );
   // div.carousel1-title a {text-transform: X ; }
   $transform = 'subtheme_class--carousel1-title----element--a_text-transform';
-  $form['background']['carousel1'][$transform] = array(
+  $form['twocolslideshow'][$transform] = array(
     '#type' => 'textfield',
     '#title' => t('Text Transform Title'),
     '#default_value' => variable_get($transform, NULL),
