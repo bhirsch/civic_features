@@ -7,7 +7,9 @@ include_once('fcp_resources.features.inc');
  */
 function fcp_resources_enable() {
   // update admin toolbar
-  fcontrolpanel_admin_toolbar('enable');  
+  if(function_exists('fcontrolpanel_admin_toolbar')) {
+    fcontrolpanel_admin_toolbar('enable');  
+  }
 }
 
 /**
@@ -15,5 +17,7 @@ function fcp_resources_enable() {
  */
 function fcp_resources_disable() {
   // update admin toolbar
-  fcontrolpanel_admin_toolbar('disable');  
+  if(function_exists('fcontrolpanel_admin_toolbar')) {
+    fcontrolpanel_admin_toolbar('disable');  
+  }
 }

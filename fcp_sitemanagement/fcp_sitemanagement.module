@@ -7,7 +7,9 @@ include_once('fcp_sitemanagement.features.inc');
  */
 function fcp_sitemanagement_enable() {
   // update admin toolbar
-  fcontrolpanel_admin_toolbar('enable');  
+  if(function_exists('fcontrolpanel_admin_toolbar')) {
+    fcontrolpanel_admin_toolbar('enable');  
+  }
 }
 
 /**
@@ -15,5 +17,7 @@ function fcp_sitemanagement_enable() {
  */
 function fcp_sitemanagement_disable() {
   // update admin toolbar
-  fcontrolpanel_admin_toolbar('disable');  
+  if(function_exists('fcontrolpanel_admin_toolbar')) {
+    fcontrolpanel_admin_toolbar('disable');  
+  }
 }
