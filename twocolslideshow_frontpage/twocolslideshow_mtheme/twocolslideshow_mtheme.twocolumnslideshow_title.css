@@ -1,0 +1,7 @@
+/* Generated February 13, 2011, 7:50 am -- 1297601452 -- http://localhost/civic-1-0-alpha3 */ 
+ 
+  /*** Slideshow Title Link, twocolumnslideshow_title ***/ 
+  div.carousel1-title a
+  {
+    color: white;    /***  border-bottom: 3px solid red;  ***/    /***  text-transform: uppercase;  ***/
+  }
