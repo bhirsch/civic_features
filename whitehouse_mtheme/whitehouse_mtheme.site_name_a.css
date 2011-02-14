@@ -1,0 +1,7 @@
+/* Generated February 13, 2011, 11:53 am -- 1297615996 -- http://localhost/civic-1-0-alpha3 */ 
+ 
+  /*** Site Name Link, site_name_a ***/ 
+  #site-name a:link, #site-name a:visited
+  {
+    color: #000;    text-decoration: none;    
+  }

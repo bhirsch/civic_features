@@ -1,0 +1,7 @@
+/* Generated February 13, 2011, 11:54 am -- 1297616046 -- http://localhost/civic-1-0-alpha3 */ 
+ 
+  /*** Site Name Link (on hover), site_name_a_hover ***/ 
+  #site-name a:hover
+  {
+    text-decoration: underline;
+  }

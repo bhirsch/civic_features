@@ -1,0 +1,7 @@
+/* Generated February 13, 2011, 12:08 pm -- 1297616894 -- http://localhost/civic-1-0-alpha3 */ 
+ 
+  /*** A list of page numbers when more than 1 page of content is available, pager ***/ 
+  .pager
+  {
+    clear: both;    margin: 1em 0;    text-align: center;
+  }
