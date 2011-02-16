@@ -1,9 +1,0 @@
-/* Generated February 14, 2011, 12:55 pm -- 1297706132 -- http://localhost/civic-1-0-alpha3 */ 
- 
-  /*** Front Page Main links, front_page_main_title_content_links ***/ 
-  .view-front-page-main div.node-inner .content a:active,
-.view-front-page-main div.node-inner .content a:visited,
-.view-front-page-main div.node-inner .content a
-  {
-    color: #336699;     font-size: inherit;    text-transform: none;    text-decoration: none;    cursor: default;
-  }

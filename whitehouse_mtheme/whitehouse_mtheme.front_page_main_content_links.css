@@ -1,9 +1,0 @@
-/* Generated February 14, 2011, 12:56 pm -- 1297706202 -- http://localhost/civic-1-0-alpha3 */ 
- 
-  /*** Front Page Main links (active / hover), front_page_main_content_links ***/ 
-  .view-front-page-main div.node-inner .content a:hover,
-.view-front-page-main div.node-inner .content a:active
-
-  {
-    color: #336699;    font-size: inherit;    text-transform: none;    text-decoration: underline;    cursor: pointer;
-  }

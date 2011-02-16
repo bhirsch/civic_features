@@ -1,7 +1,0 @@
-/* Generated February 13, 2011, 11:56 am -- 1297616167 -- http://localhost/civic-1-0-alpha3 */ 
- 
-  /*** Wrapper for any blocks in header region, header_blocks_wrapper ***/ 
-  #header-blocks
-  {
-    z-index: 200; /** hdrwrpr's z-index is 100, which was breaking sign-up forms in header blocks **/    position: relative;    
-  }
