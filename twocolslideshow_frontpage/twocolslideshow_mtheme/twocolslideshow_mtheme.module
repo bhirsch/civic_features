@@ -1,0 +1,3 @@
+<?php
+
+include_once('twocolslideshow_mtheme.features.inc');
