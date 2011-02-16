@@ -1,0 +1,196 @@
+/* Generated February 15, 2011, 9:46 pm -- 1297824395 -- http://localhost/civic-1-0-alpha3 */ 
+ 
+
+/**
+ * Background =====================================================================
+ */
+
+  /*** Footer Background, footer_bg ***/ 
+  .ftrwrpr
+  {
+    background: #FFFFFF url('images/footer_bg/bg-footer.jpg') no-repeat scroll left top ;
+  }
+
+  /*** Main Background, mainbody ***/ 
+  .mainbody
+  {
+    background: #FAFAFA url('images/mainbody/bg-main-new.png') no-repeat scroll center top ;
+  }
+
+  /*** Faux Sidebar, grid_wrapper ***/ 
+  .gridwrpr
+  {
+    background: transparent url('images/grid_wrapper/main_back1.gif') repeat-y 100% 50% ;
+  }
+
+  /*** Right Sidebar, right_sidebar ***/ 
+  #right-col
+  {
+    background: transparent url('images/right_sidebar/right_top_back.gif') no-repeat scroll 0 0 ;
+  }
+
+  /*** Subfooter, subfooter ***/ 
+  .subftrwrpr
+  {
+    background: transparent url('images/subfooter/bg-subftr.jpg') no-repeat scroll left top;
+  }
+
+
+/**
+ * Front Page =====================================================================
+ */
+
+  /*** Slideshow Accent, twocolumnslideshow_accent ***/ 
+  div.carousel1 span.accent
+  {
+    color: white;
+  }
+
+  /*** Front Page Main links, front_page_main_title_content_links ***/ 
+  .view-front-page-main div.node-inner .content a:active,
+  .view-front-page-main div.node-inner .content a:visited,
+  .view-front-page-main div.node-inner .content a
+  {
+    color: #336699;     font-size: inherit;    text-transform: none;    text-decoration: none;    cursor: default;
+  }
+
+  /*** Slideshow Size, twocolumnslideshow_width_height ***/ 
+  .rotor-view-id-front_page_carousel-view-display-id-block_1
+  {
+    width: 680px;    height: 309px;
+  }
+
+  /*** Front Page Main Title , front_page_main_title ***/ 
+  .view-front-page-main div.node-inner a:active, 
+  .view-front-page-main div.node-inner a:visited, 
+  .view-front-page-main div.node-inner a,  
+  .view-front-page-main div.node-inner a:hover, 
+  .view-front-page-main div.node-inner a:link
+  {
+    color: #880000;    font-size: 14px;    text-transform: uppercase;    text-decoration: none;    cursor: default;
+  }
+
+  /*** Front Page Main links (active / hover), front_page_main_content_links ***/ 
+  .view-front-page-main div.node-inner .content a:hover,
+  .view-front-page-main div.node-inner .content a:active
+  
+  {
+    color: #336699;    font-size: inherit;    text-transform: none;    text-decoration: underline;    cursor: pointer;
+  }
+
+  /*** Slideshow Video Link, twocolumnslideshow_video_link ***/ 
+  .carousel1-video a,
+  .carousel1-video a:active,
+  .carousel1-video a:link,
+  .carousel1-video a:visited
+  {
+    float: left;    width: 220px;    color: #fff;    position: static;    font-size: 125%;    text-align: center;    margin-bottom: 15px;
+  }
+
+  /*** , twocolumnslideshow_pic ***/ 
+  .carousel1-pic
+  {
+    float: right;    padding: 20px 20px 20px 0px;    
+  }
+
+  /*** Slideshow Background , twocolumnslideshow_bg ***/ 
+  div.carousel1
+  {
+    width: 680px;    height: 309px;    background-image: url('images/twocolumnslideshow_bg/carousel1_background_3.jpg');    overflow: hidden;     
+  }
+
+  /*** , twocolumnslideshow_teaser_link ***/ 
+  .carousel1-teaser a,
+  .carousel1-teaser a:active,
+  .carousel1-teaser a:link,
+  .carousel1-teaser a:visited
+  {
+    color: #FFF;
+  }
+
+  /*** Slideshow Teaser , twocolumnslideshow_teaser ***/ 
+  .carousel1-teaser
+  {
+    background: none repeat scroll 0 0 #144273;    color: #FFF;    float: left;    font-size: 115%;    margin-left: 0px;    padding-left: 5px;    position: static;    width: 227px;
+  }
+
+  /*** Slideshow Teaser Margin, twocolumnslideshow_teaser_margin ***/ 
+  .rotor-content .views-field-field-teaser-value
+  {
+    margin-bottom: 0;    margin-top: 10px;    padding-bottom: 0;
+  }
+
+  /*** , twocolumnslideshow_title_link ***/ 
+  div.carousel1-title a
+  {
+    float: left;    width: 200px;    color: white;    margin: 0px 0px 15px 10px;    padding-top: 30px;    font-size: 150%;    text-align: center;    position: static;    top: 30px;    line-height: 30px;
+  }
+
+  /*** Slideshow Title Link, twocolumnslideshow_title ***/ 
+  div.carousel1-title a
+  {
+    color: white;    /***  border-bottom: 3px solid red;  ***/    /***  text-transform: uppercase;  ***/
+  }
+
+  /*** , twocolumnslideshow_teaser_text ***/ 
+  .carousel1-teaser p
+  {
+     margin: 1em 0 1em 0;
+  }
+
+
+/**
+ * Header =========================================================================
+ */
+
+  /*** Site Name, site_name ***/ 
+  .hdrttl
+  {
+    visibility: visible;
+  }
+
+  /*** Header Wrapper, header_wrapper ***/ 
+  .hdrwrpr
+  {
+    height: 108px;    
+  }
+
+
+/**
+ * Main Menu ======================================================================
+ */
+
+  /*** US Flag, us_flag ***/ 
+  .hdrflag
+  {
+    visibility: visible;    top: 83px; 
+  }
+
+
+/**
+ * Secondary Menu =================================================================
+ */
+
+  /*** Secondary Menu Color, secondary_menu_link ***/ 
+  #secondary a
+  {
+    color: #336699;
+  }
+
+  /*** Secondar Menu Position, secondary_menu_top ***/ 
+  .hdrupdtwrpr
+  {
+    top: 32px;
+  }
+
+
+/**
+ * Subheader ======================================================================
+ */
+
+  /*** Subheader Position, subheader ***/ 
+  #subheader .block
+  {
+    /*** margin-top: 20px; ***/    /*** margin-bottom: 20px; ***/    /*** margin-left: 20px; ***/    /*** margin-right: 20px; ***/
+  }
+
