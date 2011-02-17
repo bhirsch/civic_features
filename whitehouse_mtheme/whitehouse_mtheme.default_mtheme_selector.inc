@@ -130,6 +130,69 @@ cursor: default;';
   $selector = new stdClass;
   $selector->disabled = FALSE; /* Edit this to true to make a default selector disabled initially */
   $selector->api_version = 1;
+  $selector->name = 'main_menu_item';
+  $selector->title = 'Main Menu Item';
+  $selector->grp = 'Main Menu';
+  $selector->description = 'Set width and border for main menu items';
+  $selector->css_selector = '#topnav li';
+  $selector->css_properties = 'width: 14%;';
+  $selector->weight = 0;
+
+  $export['main_menu_item'] = $selector;
+  $selector = new stdClass;
+  $selector->disabled = FALSE; /* Edit this to true to make a default selector disabled initially */
+  $selector->api_version = 1;
+  $selector->name = 'main_menu_link';
+  $selector->title = 'Main Menu Item';
+  $selector->grp = 'Main Menu';
+  $selector->description = 'Set color and style of main menu items';
+  $selector->css_selector = '#navbar-inner a';
+  $selector->css_properties = 'text-transform: uppercase;
+font-family: Georgia,"Times New Roman",Times,serif;
+letter-spacing: 2px;
+text-align: center;
+padding-top: 8px;
+margin-left: 0;
+margin-right: 0;
+width: 100%;';
+  $selector->weight = 0;
+
+  $export['main_menu_link'] = $selector;
+  $selector = new stdClass;
+  $selector->disabled = FALSE; /* Edit this to true to make a default selector disabled initially */
+  $selector->api_version = 1;
+  $selector->name = 'main_menu_link_hover';
+  $selector->title = 'Main Menu Item (on mouse over)';
+  $selector->grp = 'Main Menu';
+  $selector->description = 'Set color and style of main menu items when hovering over a selected item with the mouse';
+  $selector->css_selector = '#navbar-inner a:hover';
+  $selector->css_properties = 'background-color: white;
+padding-top: 4px;
+padding-bottom: 10px;
+border-top: 3px solid #870100;
+color: #336699;
+text-align: center;';
+  $selector->weight = 0;
+
+  $export['main_menu_link_hover'] = $selector;
+  $selector = new stdClass;
+  $selector->disabled = FALSE; /* Edit this to true to make a default selector disabled initially */
+  $selector->api_version = 1;
+  $selector->name = 'main_menu_top';
+  $selector->title = 'Main Menu Top';
+  $selector->grp = 'Main Menu';
+  $selector->description = 'Distance from the top of the screen to the top of the Main Menu. Default: 67px. ';
+  $selector->css_selector = 'ul#topnav';
+  $selector->css_properties = 'top: 67px;
+width: 100%;
+margin-left: 10px;
+';
+  $selector->weight = 0;
+
+  $export['main_menu_top'] = $selector;
+  $selector = new stdClass;
+  $selector->disabled = FALSE; /* Edit this to true to make a default selector disabled initially */
+  $selector->api_version = 1;
   $selector->name = 'mainbody';
   $selector->title = 'Main Background';
   $selector->grp = 'Background';
@@ -139,6 +202,111 @@ cursor: default;';
   $selector->weight = 0;
 
   $export['mainbody'] = $selector;
+  $selector = new stdClass;
+  $selector->disabled = FALSE; /* Edit this to true to make a default selector disabled initially */
+  $selector->api_version = 1;
+  $selector->name = 'menu_item_about';
+  $selector->title = 'Main Menu Item: About';
+  $selector->grp = 'Main Menu';
+  $selector->description = '';
+  $selector->css_selector = '#topnav li#about';
+  $selector->css_properties = 'width: 14%;
+padding: 0;';
+  $selector->weight = 0;
+
+  $export['menu_item_about'] = $selector;
+  $selector = new stdClass;
+  $selector->disabled = FALSE; /* Edit this to true to make a default selector disabled initially */
+  $selector->api_version = 1;
+  $selector->name = 'menu_item_events';
+  $selector->title = 'Main Menu Item: Events';
+  $selector->grp = 'Main Menu';
+  $selector->description = '';
+  $selector->css_selector = '#topnav li#events';
+  $selector->css_properties = 'width: 14%;
+padding: 0;
+margin-left: 0px;';
+  $selector->weight = 0;
+
+  $export['menu_item_events'] = $selector;
+  $selector = new stdClass;
+  $selector->disabled = FALSE; /* Edit this to true to make a default selector disabled initially */
+  $selector->api_version = 1;
+  $selector->name = 'menu_item_home';
+  $selector->title = 'Main Menu Item: Home';
+  $selector->grp = 'Main Menu';
+  $selector->description = '';
+  $selector->css_selector = '#topnav li#home';
+  $selector->css_properties = 'width: 11%;
+padding: 0;';
+  $selector->weight = 0;
+
+  $export['menu_item_home'] = $selector;
+  $selector = new stdClass;
+  $selector->disabled = FALSE; /* Edit this to true to make a default selector disabled initially */
+  $selector->api_version = 1;
+  $selector->name = 'menu_item_issues';
+  $selector->title = 'Main Menu Item: Issues';
+  $selector->grp = 'Main Menu';
+  $selector->description = '';
+  $selector->css_selector = '#topnav li#issues';
+  $selector->css_properties = 'width: 14%;
+padding: 0;';
+  $selector->weight = 0;
+
+  $export['menu_item_issues'] = $selector;
+  $selector = new stdClass;
+  $selector->disabled = FALSE; /* Edit this to true to make a default selector disabled initially */
+  $selector->api_version = 1;
+  $selector->name = 'menu_item_legislation';
+  $selector->title = 'Main Menu Item: Legislation';
+  $selector->grp = 'Main Menu';
+  $selector->description = '';
+  $selector->css_selector = '#topnav li#legislation';
+  $selector->css_properties = 'width: 16%;
+padding: 0;';
+  $selector->weight = 0;
+
+  $export['menu_item_legislation'] = $selector;
+  $selector = new stdClass;
+  $selector->disabled = FALSE; /* Edit this to true to make a default selector disabled initially */
+  $selector->api_version = 1;
+  $selector->name = 'menu_item_newsclips';
+  $selector->title = 'Main Menu Item: News Clips';
+  $selector->grp = 'Main Menu';
+  $selector->description = '';
+  $selector->css_selector = '#topnav li#news-clips';
+  $selector->css_properties = 'width: 16%;
+padding: 0;';
+  $selector->weight = 0;
+
+  $export['menu_item_newsclips'] = $selector;
+  $selector = new stdClass;
+  $selector->disabled = FALSE; /* Edit this to true to make a default selector disabled initially */
+  $selector->api_version = 1;
+  $selector->name = 'menu_item_pressreleases';
+  $selector->title = 'Main Menu Item: Press Releases';
+  $selector->grp = 'Main Menu';
+  $selector->description = '';
+  $selector->css_selector = '#topnav li#press-releases';
+  $selector->css_properties = 'width: 18%;
+padding: 0;';
+  $selector->weight = 0;
+
+  $export['menu_item_pressreleases'] = $selector;
+  $selector = new stdClass;
+  $selector->disabled = FALSE; /* Edit this to true to make a default selector disabled initially */
+  $selector->api_version = 1;
+  $selector->name = 'menu_item_staff';
+  $selector->title = 'Main Menu Item: Staff';
+  $selector->grp = 'Main Menu';
+  $selector->description = '';
+  $selector->css_selector = '#topnav li#staff';
+  $selector->css_properties = 'width: 14%;
+padding: 0;';
+  $selector->weight = 0;
+
+  $export['menu_item_staff'] = $selector;
   $selector = new stdClass;
   $selector->disabled = FALSE; /* Edit this to true to make a default selector disabled initially */
   $selector->api_version = 1;
