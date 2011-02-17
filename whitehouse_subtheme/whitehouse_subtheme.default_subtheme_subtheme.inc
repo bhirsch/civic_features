@@ -707,13 +707,16 @@ top: 83px; ',
   'css_properties' => 'Save',
 ),
     'form_build_id' => (object) array(
-  'css_properties' => 'form-619db3e1fd6c9cddcf9ce6fc8b85e086',
+  'css_properties' => 'form-222b9d85d71d3189e3987e2aeace471c',
 ),
     'form_token' => (object) array(
   'css_properties' => '70f38ef9efb88680b193af5deaf55167',
 ),
     'form_id' => (object) array(
   'css_properties' => 'subtheme_form',
+),
+    'logo' => (object) array(
+  'css_properties' => '',
 ),
   );
   $subtheme->grps = array(
@@ -755,7 +758,7 @@ top: 83px; ',
     'subheader' => 'Site-wide',
     'us_flag' => 'Site-wide',
   );
-  $subtheme->is_active = 0;
+  $subtheme->is_active = 1;
 
   $export['whitehouse'] = $subtheme;
   return $export;
