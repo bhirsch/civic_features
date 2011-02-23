@@ -1,9 +1,21 @@
-/* Generated February 17, 2011, 4:34 pm -- 1297978474 -- http://localhost/civic-1-0-alpha3 */ 
+/* Generated February 20, 2011, 11:17 pm -- 1298261846 -- http://localhost/civic-1-0-alpha3 */ 
  
 
 /**
  * Front Page =====================================================================
  */
+
+  /*** twocolumnslideshow_title_link ***/ 
+  div.carousel1-title a
+  {
+    float: left;    width: 200px;    color: white;    margin: 0px 0px 15px 10px;    padding-top: 30px;    font-size: 150%;    text-align: center;    position: static;    top: 30px;    line-height: 30px;
+  }
+
+  /*** Slideshow Title Link, twocolumnslideshow_title ***/ 
+  div.carousel1-title a
+  {
+    color: white;    /***  border-bottom: 3px solid red;  ***/    /***  text-transform: uppercase;  ***/
+  }
 
   /*** Slideshow Video Link, twocolumnslideshow_video_link ***/ 
   .carousel1-video a,
@@ -14,30 +26,10 @@
     float: left;    width: 220px;    color: #fff;    position: static;    font-size: 125%;    text-align: center;    margin-bottom: 15px;
   }
 
-  /*** twocolumnslideshow_title_link ***/ 
-  div.carousel1-title a
-  {
-    float: left;    width: 200px;    color: white;    margin: 0px 0px 15px 10px;    padding-top: 30px;    font-size: 150%;    text-align: center;    position: static;    top: 30px;    line-height: 30px;
-  }
-
   /*** Slideshow Size, twocolumnslideshow_width_height ***/ 
   .rotor-view-id-front_page_carousel-view-display-id-block_1
   {
     width: 680px;    height: 309px;
-  }
-
-  /*** Front Page Main links (active / hover), front_page_main_content_links ***/ 
-  .view-front-page-main div.node-inner .content a:hover,
-  .view-front-page-main div.node-inner .content a:active
-  
-  {
-    color: #336699;    font-size: inherit;    text-transform: none;    text-decoration: underline;    cursor: pointer;
-  }
-
-  /*** Slideshow Accent, twocolumnslideshow_accent ***/ 
-  div.carousel1 span.accent
-  {
-    color: white;
   }
 
   /*** Front Page Main Title , front_page_main_title ***/ 
@@ -50,10 +42,18 @@
     color: #880000;    font-size: 14px;    text-transform: uppercase;    text-decoration: none;    cursor: default;
   }
 
-  /*** Slideshow Title Link, twocolumnslideshow_title ***/ 
-  div.carousel1-title a
+  /*** Front Page Main links (active / hover), front_page_main_content_links ***/ 
+  .view-front-page-main div.node-inner .content a:hover,
+  .view-front-page-main div.node-inner .content a:active
+  
   {
-    color: white;    /***  border-bottom: 3px solid red;  ***/    /***  text-transform: uppercase;  ***/
+    color: #336699;    font-size: inherit;    text-transform: none;    text-decoration: underline;    cursor: pointer;
+  }
+
+  /*** twocolumnslideshow_teaser_text ***/ 
+  .carousel1-teaser p
+  {
+     margin: 1em 0 1em 0;
   }
 
   /*** Front Page Main links, front_page_main_title_content_links ***/ 
@@ -64,22 +64,22 @@
     color: #336699;     font-size: inherit;    text-transform: none;    text-decoration: none;    cursor: default;
   }
 
+  /*** Slideshow Teaser Margin, twocolumnslideshow_teaser_margin ***/ 
+  .rotor-content .views-field-field-teaser-value
+  {
+    margin-bottom: 0;    margin-top: 10px;    padding-bottom: 0;
+  }
+
+  /*** Slideshow Accent, twocolumnslideshow_accent ***/ 
+  div.carousel1 span.accent
+  {
+    color: white;
+  }
+
   /*** twocolumnslideshow_pic ***/ 
   .carousel1-pic
   {
     float: right;    padding: 20px 20px 20px 0px;    
-  }
-
-  /*** twocolumnslideshow_teaser_text ***/ 
-  .carousel1-teaser p
-  {
-     margin: 1em 0 1em 0;
-  }
-
-  /*** Slideshow Teaser , twocolumnslideshow_teaser ***/ 
-  .carousel1-teaser
-  {
-    background: none repeat scroll 0 0 #144273;    color: #FFF;    float: left;    font-size: 115%;    margin-left: 0px;    padding-left: 5px;    position: static;    width: 227px;
   }
 
   /*** Slideshow Background , twocolumnslideshow_bg ***/ 
@@ -88,10 +88,10 @@
     width: 680px;    height: 309px;    background-image: url('images/slideshow-bg.jpg');    overflow: hidden;     
   }
 
-  /*** Slideshow Teaser Margin, twocolumnslideshow_teaser_margin ***/ 
-  .rotor-content .views-field-field-teaser-value
+  /*** Slideshow Teaser , twocolumnslideshow_teaser ***/ 
+  .carousel1-teaser
   {
-    margin-bottom: 0;    margin-top: 10px;    padding-bottom: 0;
+    background: none repeat scroll 0 0 #144273;    color: #FFF;    float: left;    font-size: 115%;    margin-left: 0px;    padding-left: 5px;    position: static;    width: 227px;
   }
 
   /*** twocolumnslideshow_teaser_link ***/ 
@@ -126,14 +126,14 @@
     width: 11%;    padding: 0;    border-left: none;    
   }
 
-  /*** Main Menu Item: News Clips, menu_item_newsclips ***/ 
-  #topnav li#news-clips
-  {
-    width: 16%;    padding: 0;    border-left: 1px solid #012B5B;    
-  }
-
   /*** Main Menu Item: Staff, menu_item_staff ***/ 
   #topnav li#staff
+  {
+    width: 14%;    padding: 0;    border-left: 1px solid #012B5B;    
+  }
+
+  /*** Main Menu Item: About, menu_item_about ***/ 
+  #topnav li#about
   {
     width: 14%;    padding: 0;    border-left: 1px solid #012B5B;    
   }
@@ -144,10 +144,10 @@
     width: 18%;    padding: 0;    border-left: 1px solid #012B5B;
   }
 
-  /*** Main Menu Item: About, menu_item_about ***/ 
-  #topnav li#about
+  /*** Main Menu Item: News Clips, menu_item_newsclips ***/ 
+  #topnav li#news-clips
   {
-    width: 14%;    padding: 0;    border-left: 1px solid #012B5B;    
+    width: 16%;    padding: 0;    border-left: 1px solid #012B5B;    
   }
 
   /*** Main Menu Item: Legislation, menu_item_legislation ***/ 
@@ -161,40 +161,16 @@
  * Site-wide ======================================================================
  */
 
-  /*** Secondary Menu Color, secondary_menu_link ***/ 
-  #secondary a
-  {
-    color: #336699;
-  }
-
   /*** Subfooter, subfooter ***/ 
   .subftrwrpr
   {
     background: transparent url('images/subfooter.jpg') no-repeat scroll left top;
   }
 
-  /*** Subheader Position, subheader ***/ 
-  #subheader .block
+  /***  ***/ 
+  
   {
-    /*** margin-top: 20px; ***/    /*** margin-bottom: 20px; ***/    /*** margin-left: 20px; ***/    /*** margin-right: 20px; ***/
-  }
-
-  /*** Site Name, site_name ***/ 
-  .hdrttl
-  {
-    visibility: visible;
-  }
-
-  /*** Secondar Menu Position, secondary_menu_top ***/ 
-  .hdrupdtwrpr
-  {
-    top: 32px;
-  }
-
-  /*** US Flag, us_flag ***/ 
-  .hdrflag
-  {
-    visibility: visible;    top: 83px; 
+    
   }
 
   /*** Right Sidebar, right_sidebar ***/ 
@@ -203,22 +179,40 @@
     background: transparent url('images/right-sidebar-top.gif') no-repeat scroll 0 0 ;
   }
 
+  /*** US Flag, us_flag ***/ 
+  .hdrflag
+  {
+    visibility: visible;    top: 83px; 
+  }
+
+  /*** Subheader Position, subheader ***/ 
+  #subheader .block
+  {
+    /*** margin-top: 20px; ***/    /*** margin-bottom: 20px; ***/    /*** margin-left: 20px; ***/    /*** margin-right: 20px; ***/
+  }
+
+  /*** Secondar Menu Position, secondary_menu_top ***/ 
+  .hdrupdtwrpr
+  {
+    top: 32px;
+  }
+
+  /*** Site Name, site_name ***/ 
+  .hdrttl
+  {
+    visibility: visible;
+  }
+
+  /*** Secondary Menu Color, secondary_menu_link ***/ 
+  #secondary a
+  {
+    color: #336699;
+  }
+
   /*** Main Menu Item, main_menu_link ***/ 
   #navbar-inner a
   {
     text-transform: uppercase;    font-family: Georgia,"Times New Roman",Times,serif;    letter-spacing: 2px;    text-align: center;    padding-top: 8px;    margin-left: 0;    margin-right: 0;    width: 100%;
-  }
-
-  /*** Faux Sidebar, grid_wrapper ***/ 
-  .gridwrpr
-  {
-    background: transparent url('images/faux-right-sidebar-bottom.gif') repeat-y 100% 50% ;
-  }
-
-  /*** Footer Background, footer_bg ***/ 
-  .ftrwrpr
-  {
-    background: #FFFFFF url('images/footer-background.jpg') no-repeat scroll left top ;
   }
 
   /*** Header Wrapper, header_wrapper ***/ 
@@ -227,10 +221,22 @@
     height: 108px;    
   }
 
+  /*** Faux Sidebar, grid_wrapper ***/ 
+  .gridwrpr
+  {
+    background: transparent url('images/faux-right-sidebar-bottom.gif') repeat-y 100% 50% ;
+  }
+
   /*** Main Menu Item, main_menu_item ***/ 
   #topnav li
   {
     width: 14%;
+  }
+
+  /*** Footer Background, footer_bg ***/ 
+  .ftrwrpr
+  {
+    background: #FFFFFF url('images/footer-background.jpg') no-repeat scroll left top ;
   }
 
   /*** Main Menu Top, main_menu_top ***/ 

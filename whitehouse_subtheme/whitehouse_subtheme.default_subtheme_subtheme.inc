@@ -12,6 +12,22 @@ function whitehouse_subtheme_default_subtheme_subtheme() {
   $subtheme->title = 'White House';
   $subtheme->description = 'Design based on the Obama White House website, whitehouse.gov';
   $subtheme->selectors = array(
+    'footer_bg' => (object) array(
+  'disabled' => FALSE,
+  'api_version' => 1,
+  'name' => 'footer_bg',
+  'title' => 'Footer Background',
+  'grp' => 'Background',
+  'description' => 'Footer background image',
+  'css_selector' => '.ftrwrpr',
+  'css_properties' => 'background: #FFFFFF url(\'images/footer-background.jpg\') no-repeat scroll left top ;',
+  'weight' => 0,
+  'export_module' => 'whitehouse_mtheme',
+  'type' => 'Default',
+  'export_type' => 2,
+  'in_code_only' => TRUE,
+  'table' => 'mtheme_selector',
+),
     'twocolumnslideshow_accent' => (object) array(
   'disabled' => FALSE,
   'api_version' => 1,
@@ -222,22 +238,6 @@ margin-bottom: 15px;',
 height: 309px;',
   'weight' => 0,
   'export_module' => 'twocolslideshow_mtheme',
-  'type' => 'Default',
-  'export_type' => 2,
-  'in_code_only' => TRUE,
-  'table' => 'mtheme_selector',
-),
-    'footer_bg' => (object) array(
-  'disabled' => FALSE,
-  'api_version' => 1,
-  'name' => 'footer_bg',
-  'title' => 'Footer Background',
-  'grp' => 'Background',
-  'description' => 'Footer background image',
-  'css_selector' => '.ftrwrpr',
-  'css_properties' => 'background: #FFFFFF url(\'images/footer-background.jpg\') no-repeat scroll left top ;',
-  'weight' => 0,
-  'export_module' => 'whitehouse_mtheme',
   'type' => 'Default',
   'export_type' => 2,
   'in_code_only' => TRUE,
@@ -694,32 +694,12 @@ top: 83px; ',
   'in_code_only' => TRUE,
   'table' => 'mtheme_selector',
 ),
-    'file' => (object) array(
-  'css_properties' => '',
-),
-    'in_code_only' => (object) array(
-  'css_properties' => NULL,
-),
-    'op' => (object) array(
-  'css_properties' => 'Save',
-),
-    'submit' => (object) array(
-  'css_properties' => 'Save',
-),
-    'form_build_id' => (object) array(
-  'css_properties' => 'form-222b9d85d71d3189e3987e2aeace471c',
-),
-    'form_token' => (object) array(
-  'css_properties' => '70f38ef9efb88680b193af5deaf55167',
-),
-    'form_id' => (object) array(
-  'css_properties' => 'subtheme_form',
-),
     'logo' => (object) array(
   'css_properties' => '',
 ),
   );
   $subtheme->grps = array(
+    'footer_bg' => 'Site-wide',
     'twocolumnslideshow_accent' => 'Front Page',
     'twocolumnslideshow_bg' => 'Front Page',
     'twocolumnslideshow_pic' => 'Front Page',
@@ -731,7 +711,6 @@ top: 83px; ',
     'twocolumnslideshow_title_link' => 'Front Page',
     'twocolumnslideshow_video_link' => 'Front Page',
     'twocolumnslideshow_width_height' => 'Front Page',
-    'footer_bg' => 'Site-wide',
     'front_page_main_content_links' => 'Front Page',
     'front_page_main_title' => 'Front Page',
     'front_page_main_title_content_links' => 'Front Page',
@@ -757,8 +736,10 @@ top: 83px; ',
     'subfooter' => 'Site-wide',
     'subheader' => 'Site-wide',
     'us_flag' => 'Site-wide',
+    'logo' => 'Site-wide',
   );
-  $subtheme->is_active = 1;
+  $subtheme->custom_css = '';
+  $subtheme->is_active = 0;
 
   $export['whitehouse'] = $subtheme;
   return $export;
