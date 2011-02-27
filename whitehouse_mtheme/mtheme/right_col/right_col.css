@@ -1,0 +1,8 @@
+/* Generated February 27, 2011, 2:16 pm -- 1298834168 -- http://localhost/civic-1-0-alpha3 */ 
+ 
+  /*** Right Sidebar, right_col ***/ 
+  #right-col
+  {
+    float: right;    width: 272px;    margin: 0 0 0 40px;    padding: 15px;    background:transparent url(css/assets/templates/right_top_back.gif) no-repeat;    min-height: 400px;    line-height: 1.5em;    margin-left: 20px;
+  }
+

@@ -1,0 +1,8 @@
+/* Generated February 27, 2011, 2:04 pm -- 1298833473 -- http://localhost/civic-1-0-alpha3 */ 
+ 
+  /*** CRM NGP, swsngp_modttlblue ***/ 
+  .region-header .block-crmngp h3.modttlblue 
+  {
+    /* This is for swsngp module, to make Subject line look consistent.         On front page it gets .modttlred. On other pages it's .modttlblue. */    font-size: 14px;
+  }
+

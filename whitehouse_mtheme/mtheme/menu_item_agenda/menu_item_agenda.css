@@ -1,0 +1,8 @@
+/* Generated February 27, 2011, 1:44 pm -- 1298832251 -- http://localhost/civic-1-0-alpha3 */ 
+ 
+  /*** Main Menu Item: Agenda, menu_item_agenda ***/ 
+  #topnav li#agenda
+  {
+    width: 100px;    padding: 0;      border-left: 1px solid #012B5B;
+  }
+
