@@ -10,7 +10,7 @@ function slideshow_panoramic_4_context_default_contexts() {
   $context->api_version = 3;
   $context->name = 'slideshow_panoramic_4';
   $context->description = 'Panoramic photo only';
-  $context->tag = 'Front Page (Note: This is not a page node. It\'s really a view.)';
+  $context->tag = 'Front Page';
   $context->conditions = array(
     'path' => array(
       'values' => array(
@@ -24,7 +24,7 @@ function slideshow_panoramic_4_context_default_contexts() {
         'views-slideshow_panoramic_4-block_4' => array(
           'module' => 'views',
           'delta' => 'slideshow_panoramic_4-block_4',
-          'region' => 'subheader',
+          'region' => 'content_top',
           'weight' => 0,
         ),
       ),
@@ -34,7 +34,7 @@ function slideshow_panoramic_4_context_default_contexts() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Front Page (Note: This is not a page node. It\'s really a view.)');
+  t('Front Page');
   t('Panoramic photo only');
 
   $export['slideshow_panoramic_4'] = $context;

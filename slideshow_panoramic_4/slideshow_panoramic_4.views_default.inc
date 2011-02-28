@@ -63,7 +63,7 @@ function slideshow_panoramic_4_views_default_views() {
       'label' => '',
       'alter' => array(
         'alter_text' => 1,
-        'text' => '<div style="height:240px;">[field_slide_pic_fid]</div>',
+        'text' => '<div style="height:427px;">[field_slide_pic_fid]</div>',
         'make_link' => 1,
         'path' => '[field_slide_link_value_1]',
         'link_class' => '',
@@ -84,7 +84,7 @@ function slideshow_panoramic_4_views_default_views() {
       'empty_zero' => 0,
       'link_to_node' => 0,
       'label_type' => 'none',
-      'format' => 'scale_and_crop_720x240_default',
+      'format' => 'scale_684x427_default',
       'multiple' => array(
         'group' => TRUE,
         'multiple_number' => '',
@@ -118,6 +118,20 @@ function slideshow_panoramic_4_views_default_views() {
       'field' => 'type',
       'relationship' => 'none',
     ),
+    'status' => array(
+      'operator' => '=',
+      'value' => '1',
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'id' => 'status',
+      'table' => 'node',
+      'field' => 'status',
+      'relationship' => 'none',
+    ),
   ));
   $handler->override_option('access', array(
     'type' => 'none',
@@ -131,7 +145,7 @@ function slideshow_panoramic_4_views_default_views() {
     'mode' => 'views_slideshow_singleframe',
     'views_slideshow_singleframe-prefix' => '',
     'views_slideshow_singleframe' => array(
-      'timeout' => '5000',
+      'timeout' => '4000',
       'delay' => '0',
       'speed' => '700',
       'start_paused' => 0,
