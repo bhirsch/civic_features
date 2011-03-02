@@ -1,0 +1,74 @@
+<?php
+/**
+ * @file
+ *   Generate Related Posts block.`
+ */
+ 
+/**
+ * Implementation of hook_help()
+ */
+function headerpic_help($path, $arg) {
+  if ($path == 'admin/help#headerpic') {
+    $txt = 'Generate header picture block for nodes with header_picture fields.';
+    $output = t($txt);
+    return $output;
+  }
+}
+
+/**
+ * Implementation of hook_block().
+ */
+function headerpic_block($op = 'list', $delta = 0, $edit = array()) {
+  if ($op == 'list') {
+    $blocks[0]['info'] = t('Header Picture');
+    return $blocks;
+  } else if ($op == 'view') {
+    if (arg(0) == 'node') {
+      $nid = arg(1);
+      $node = node_load($nid);
+      // check for header picture
+      if ($node->field_header_picture[0]) { 
+        switch($delta) {
+          case 0:
+            $header_picture = $node->field_header_picture[0]; 
+            $content = theme('headerpic_block', $header_picture);
+            $block['subject'] = '';
+            $block['content'] = $content;
+          break;
+        }
+      }
+    }
+  return $block;
+  }
+}
+ 
+/**
+ * Implementation of hook_theme().
+ */
+function headerpic_theme() {
+  return array(
+    'headerpic_block' => array(
+      'arguments' => array('header_picture' => NULL),
+    )
+  );
+}
+ 
+/**
+ * Implementation of theme function.
+ * 
+ * @header_picture
+ *  CCK field $node->field_header_picture[0]
+ */
+function theme_headerpic_block($header_picture) {
+  $preset_namespace = 'scale_680x100percent'; 
+  $alt = $header_picture['data']['alt']; 
+  $title = $header_picture['data']['title'];
+  $attributes = ''; // TODO handle attributes
+  $image_filepath = $header_picture['filepath'];
+  //$img = theme('imagecache', $preset_namespace, $image_filepath, $alt, $title, $attributes);
+  $img = '<img src="/'. $image_filepath .'" title="'. $title .'" alt="'. $alt .'" />';
+
+  $output = '<div class="header-picture">'. $img .'</div>';
+
+  return $output;
+}

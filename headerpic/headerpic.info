@@ -1,0 +1,8 @@
+core = "6.x"
+dependencies[] = "context"
+description = "Add a picture to the 'header' of a page."
+features[context][] = "picture_header"
+features[ctools][] = "context:context:3"
+name = "Header Picture"
+project = "Stars with Stripes"
+version = "6.x-1.0"
