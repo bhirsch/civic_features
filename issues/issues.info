@@ -1,5 +1,5 @@
 core = "6.x"
-dependencies[] = "headerpic"
+dependencies[] = "header_picture"
 dependencies[] = "imagecache"
 dependencies[] = "menu"
 dependencies[] = "owh_views"

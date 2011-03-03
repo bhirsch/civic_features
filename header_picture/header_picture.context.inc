@@ -3,7 +3,7 @@
 /**
  * Implementation of hook_context_default_contexts().
  */
-function headerpic_context_default_contexts() {
+function header_picture_context_default_contexts() {
   $export = array();
   $context = new stdClass;
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
@@ -11,12 +11,18 @@ function headerpic_context_default_contexts() {
   $context->name = 'picture_header';
   $context->description = 'Display picture header above related posts';
   $context->tag = 'Site-wide';
-  $context->conditions = array();
+  $context->conditions = array(
+    'sitewide' => array(
+      'values' => array(
+        1 => 1,
+      ),
+    ),
+  );
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'headerpic-0' => array(
-          'module' => 'headerpic',
+        'header_picture-0' => array(
+          'module' => 'header_picture',
           'delta' => 0,
           'region' => 'subheader2',
           'weight' => 0,

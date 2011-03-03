@@ -7,6 +7,6 @@
  * Issues update 6001: Enable Header Picture module.
  */
 function issues_update_6001() {
-  $module_list = array('headerpic');
+  $module_list = array('header_picture');
   module_enable($module_list);
 }

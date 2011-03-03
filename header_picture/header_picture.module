@@ -1,14 +1,12 @@
 <?php
-/**
- * @file
- *   Generate Related Posts block.`
- */
- 
+
+include_once('header_picture.features.inc');
+
 /**
  * Implementation of hook_help()
  */
-function headerpic_help($path, $arg) {
-  if ($path == 'admin/help#headerpic') {
+function header_picture_help($path, $arg) {
+  if ($path == 'admin/help#header_picture') {
     $txt = 'Generate header picture block for nodes with header_picture fields.';
     $output = t($txt);
     return $output;
@@ -18,7 +16,7 @@ function headerpic_help($path, $arg) {
 /**
  * Implementation of hook_block().
  */
-function headerpic_block($op = 'list', $delta = 0, $edit = array()) {
+function header_picture_block($op = 'list', $delta = 0, $edit = array()) {
   if ($op == 'list') {
     $blocks[0]['info'] = t('Header Picture');
     return $blocks;
@@ -31,7 +29,7 @@ function headerpic_block($op = 'list', $delta = 0, $edit = array()) {
         switch($delta) {
           case 0:
             $header_picture = $node->field_header_picture[0]; 
-            $content = theme('headerpic_block', $header_picture);
+            $content = theme('header_picture_block', $header_picture);
             $block['subject'] = '';
             $block['content'] = $content;
           break;
@@ -45,9 +43,9 @@ function headerpic_block($op = 'list', $delta = 0, $edit = array()) {
 /**
  * Implementation of hook_theme().
  */
-function headerpic_theme() {
+function header_picture_theme() {
   return array(
-    'headerpic_block' => array(
+    'header_picture_block' => array(
       'arguments' => array('header_picture' => NULL),
     )
   );
@@ -59,7 +57,7 @@ function headerpic_theme() {
  * @header_picture
  *  CCK field $node->field_header_picture[0]
  */
-function theme_headerpic_block($header_picture) {
+function theme_header_picture_block($header_picture) {
   $preset_namespace = 'scale_680x100percent'; 
   $alt = $header_picture['data']['alt']; 
   $title = $header_picture['data']['title'];
