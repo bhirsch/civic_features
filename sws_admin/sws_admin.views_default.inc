@@ -324,9 +324,9 @@ function sws_admin_views_default_views() {
       'relationship' => 'none',
     ),
     'type' => array(
-      'operator' => 'not in',
+      'operator' => 'in',
       'value' => array(
-        'rotor_item' => 'rotor_item',
+        'button' => 'button',
       ),
       'group' => '0',
       'exposed' => TRUE,
