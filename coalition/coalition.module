@@ -1,3 +1,19 @@
 <?php
 
 include_once('coalition.features.inc');
+
+/**
+ * Implementation of hook_enable().
+ */
+function coalition_enable() {
+  // update admin toolbar
+  fcontrolpanel_admin_toolbar('enable');  
+}
+
+/**
+ * Implementation of hook_disable().
+ */
+function coalition_disable() {
+  // update admin toolbar
+  fcontrolpanel_admin_toolbar('disable');  
+}

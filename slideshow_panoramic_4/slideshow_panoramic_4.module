@@ -1,3 +1,19 @@
 <?php
 
 include_once('slideshow_panoramic_4.features.inc');
+
+/**
+ * Implementation of hook_enable().
+ */
+function slideshow_panoramic_4_enable() {
+  // update admin toolbar
+  fcontrolpanel_admin_toolbar('enable');  
+}
+
+/**
+ * Implementation of hook_disable().
+ */
+function slideshow_panoramic_4_disable() {
+  // update admin toolbar
+  fcontrolpanel_admin_toolbar('disable');  
+}
