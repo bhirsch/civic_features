@@ -36,7 +36,7 @@ function slideshow_panoramic_4_default_fcontrolpanel_fcontrol() {
   $fcontrol->instructions_title = '';
   $fcontrol->instructions = '';
   $fcontrol->permission = '';
-  $fcontrol->weight = 0;
+  $fcontrol->weight = 1;
 
   $export['manage_slides'] = $fcontrol;
   return $export;
