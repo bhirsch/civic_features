@@ -8,29 +8,9 @@ function slideshow_panoramic_4_ctools_plugin_api() {
   if ($module == "context" && $api == "context") {
     return array("version" => 3);
   }
-}
-
-/**
- * Implementation of hook_imagecache_default_presets().
- */
-function slideshow_panoramic_4_imagecache_default_presets() {
-  $items = array(
-    'scale_684x427' => array(
-      'presetname' => 'scale_684x427',
-      'actions' => array(
-        '0' => array(
-          'weight' => '0',
-          'module' => 'imagecache',
-          'action' => 'imagecache_scale_and_crop',
-          'data' => array(
-            'width' => '684',
-            'height' => '427',
-          ),
-        ),
-      ),
-    ),
-  );
-  return $items;
+  elseif ($module == "fcontrolpanel" && $api == "default_fcontrolpanel_fcontrol") {
+    return array("version" => 1);
+  }
 }
 
 /**
