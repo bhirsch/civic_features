@@ -739,7 +739,7 @@ top: 83px; ',
     'logo' => 'Site-wide',
   );
   $subtheme->custom_css = '';
-  $subtheme->is_active = 0;
+  $subtheme->is_active = 1;
 
   $export['whitehouse'] = $subtheme;
   return $export;
