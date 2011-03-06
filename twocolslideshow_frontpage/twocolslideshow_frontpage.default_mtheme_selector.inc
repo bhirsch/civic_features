@@ -3,7 +3,7 @@
 /**
  * Implementation of hook_default_mtheme_selector().
  */
-function twocolslideshow_mtheme_default_mtheme_selector() {
+function twocolslideshow_frontpage_default_mtheme_selector() {
   $export = array();
   $selector = new stdClass;
   $selector->disabled = FALSE; /* Edit this to true to make a default selector disabled initially */
@@ -27,7 +27,7 @@ function twocolslideshow_mtheme_default_mtheme_selector() {
   $selector->css_selector = 'div.carousel1';
   $selector->css_properties = 'width: 680px;
 height: 309px;
-background-image: url(\'images/carousel1_background_3.jpg\');
+background-image: url(\'images/bg-page-splash-green.jpg\');
 overflow: hidden; 
 ';
   $selector->weight = 0;
