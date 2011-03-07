@@ -1,0 +1,8 @@
+/* Generated March 6, 2011, 9:15 pm -- 1299464142 -- http://localhost/civic-1-0-alpha3-A */ 
+ 
+  /*** Slide Show Title, carousel1_title ***/ 
+  div.carousel1-title a
+  {
+    float: left;    width: 255px;    color: white;    margin-left: 40px;    padding-top: 30px;    font-size: 240%;    text-align: center;    position: relative;    top: 30px;    line-height: 40px;
+  }
+

@@ -1,0 +1,11 @@
+/* Generated March 6, 2011, 9:16 pm -- 1299464192 -- http://localhost/civic-1-0-alpha3-A */ 
+ 
+  /*** Slide Show Video Link, carousel1_video_link ***/ 
+  .carousel1-video a,
+  .carousel2-video a:active,
+  .carousel1-video a:link,
+  .carousel1-video a:visited
+  {
+    float: left;    width: 255px;    color: #FFF;    padding-left: 35px;    position: relative;    top: 60px;    font-size: 125%;    text-align: center;
+  }
+

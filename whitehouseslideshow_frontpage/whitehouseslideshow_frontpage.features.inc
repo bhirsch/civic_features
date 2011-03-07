@@ -8,6 +8,9 @@ function whitehouseslideshow_frontpage_ctools_plugin_api() {
   if ($module == "context" && $api == "context") {
     return array("version" => 3);
   }
+  elseif ($module == "mtheme" && $api == "default_mtheme_selector") {
+    return array("version" => 1);
+  }
 }
 
 /**
