@@ -1,3 +1,17 @@
 <?php
 
 include_once('whitehouse_mtheme.features.inc');
+
+/**
+ * Implementation of hook_enable().
+ */
+function whitehouse_mtheme_enable(){
+  mtheme_please_enable('whitehouse_mtheme');
+}
+
+/**
+ * Implementation of hook_disable().
+ */
+function whitehouse_mtheme_disable(){
+  mtheme_please_disable('whitehouse_mtheme');
+}

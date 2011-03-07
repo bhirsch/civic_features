@@ -1,3 +1,17 @@
 <?php
 
 include_once('whitehouseslideshow_frontpage.features.inc');
+
+/**
+ * Implementation of hook_enable().
+ */
+function whitehouseslideshow_frontpage_enable(){
+  mtheme_please_enable('whitehouseslideshow_frontpage');
+}
+
+/**
+ * Implementation of hook_disable().
+ */
+function whitehouseslideshow_frontpage_disable(){
+  mtheme_please_disable('whitehouseslideshow_frontpage');
+}

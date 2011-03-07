@@ -1,3 +1,17 @@
 <?php
 
 include_once('twocolslideshow_frontpage.features.inc');
+
+/**
+ * Implementation of hook_enable().
+ */
+function twocolslideshow_frontpage_enable(){
+  mtheme_please_enable('twocolslideshow_frontpage');
+}
+
+/**
+ * Implementation of hook_disable().
+ */
+function twocolslideshow_frontpage_disable(){
+  mtheme_please_disable('twocolslideshow_frontpage');
+}
