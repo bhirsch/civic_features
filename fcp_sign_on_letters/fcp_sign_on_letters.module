@@ -1,0 +1,3 @@
+<?php
+
+include_once('fcp_sign_on_letters.features.inc');
