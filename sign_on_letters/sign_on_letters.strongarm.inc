@@ -8,6 +8,13 @@ function sign_on_letters_strongarm() {
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'ant_pattern_signatory';
+  $strongarm->value = '[field_signatory_fname-formatted] [field_signatory_lname-formatted]';
+
+  $export['ant_pattern_signatory'] = $strongarm;
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'content_extra_weights_signatory';
   $strongarm->value = array(
     'title' => '11',
