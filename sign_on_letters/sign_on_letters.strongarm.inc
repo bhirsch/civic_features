@@ -15,6 +15,13 @@ function sign_on_letters_strongarm() {
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'ant_signatory';
+  $strongarm->value = '1';
+
+  $export['ant_signatory'] = $strongarm;
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'content_extra_weights_signatory';
   $strongarm->value = array(
     'title' => '11',
