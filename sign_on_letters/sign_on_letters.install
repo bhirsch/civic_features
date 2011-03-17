@@ -7,8 +7,8 @@
  */
 function sign_on_letters_install() {
   // Set up captcha for signatory content type forms.  
-  db_query("INSERT INTO {captcha_points} (form_id) "
-    ."VALUES ('signatory_node_form') ");
+  db_query("INSERT INTO {captcha_points} (form_id, captcha_type) "
+    ."VALUES ('signatory_node_form', 'default') ");
 }
 
 /**
