@@ -7,96 +7,82 @@
  * Implements hook_preprocess_node().
  */
 function civic_news_clips_preprocess_node(&$vars) {
-  dsm('hook_preprocess_node');
+dsm('hook_preprocess_node');
   $node = $vars['node'];
   if ($node->type == 'news_clip') {
 dsm($node);
-   
-  // BANNER
-  // Get banner and related variables from news organization node
-  //
-  // There should only be one $node->field_news_org,
-  // but it could be:
-  //   $node->field_news_org['und'][0]
-  // or 
-  //   $node->field_news_org['en'][0]
-  //   (presumably 'en' could be any language)
-  // depending on whether translation is enabled or not.
-  foreach ($node->field_news_org as $array) {
-     $nid = $array[0]['nid'];
-     $org_node = node_load($nid);
-  }
-dsm($org_node, 'org_node');
-  $vars['banner'] = _civic_news_clips_banner($org_node);
-  $vars['banner_link'] = _civic_news_clips_banner_link($org_node);
-/*
-  $vars['size'] = $b->size; 
-  $vars['website'] = $b->website; 
+     
+    // There should only be one $node->field_news_org,
+    // but it could be:
+    //   $node->field_news_org['und'][0]
+    // or 
+    //   $node->field_news_org['en'][0]
+    //   (presumably 'en' could be any language)
+    // depending on whether translation is enabled or not.
 
-  // HEADER
-  // org info
-  $org_node = node_load($node->field_news_org[0]['nid']);
-  $b = sws_news_org_info($org_node);
-  $org_name = $b->org_name; 
-  $org_name_link = $b->org_name_link;
-  $org_type = $b->org_type;
-  // use image with link to org's website if available
-  $banner = $b->banner;  
-  $banner_link = $b->banner_link;  
-  $display_banner = $b->display_banner;
-  $org_website = $b->website; 
-  // news clip info
-  // Format date from unix timestamp
-  $d = getdate($node->field_newsclip_date[0]['value']);
-  $date = $d['weekday'] .', '. $d['month'] .' '. $d['mday'] .', '. $d['year'];
-  // headline + subhead
-  $headline = check_plain($node->title);
-  $subhead = $node->field_news_subhead[0]['safe'];
-  // external links
-  $clip_website = $node->field_newsclip_url[0]['safe'];
-  if ($clip_website) {
-    $clip_website = url($clip_website, array('external' => TRUE));
-    $options = array(
-      'attributes' => array(
-        'class' => 'news-headline-link',
-        'target' => '_blank',
-      ),
-    );
-    $headline_link = l($headline, $clip_website, $options);
-    $subhead_link = l($subhead, $clip_website, $options);
-  }
-  // News Contact 
-  foreach ($node->field_news_contact as $author_nid) {
-    $author_node = node_load($author_nid);
-    $author[] = check_plain($author_node->title);
-  }
-  // By Line
-  $by = $node->field_news_by[0]['safe'];
-  // vars
-  $vars['org_name'] = $org_name; 
-  $vars['org_name_link'] = $org_name_link; 
-  $vars['org_type'] = $org_type;
-  $vars['banner'] = $banner; 
-  $vars['banner_link'] = $banner_link; 
-  $vars['display_banner'] = $display_banner; 
-  $vars['org_website'] = $org_website; 
-  $vars['clip_website'] = $clip_website; 
-  $vars['date'] = $date; 
-  $vars['headline'] = $headline; 
-  $vars['headline_link'] = $headline_link; 
-  $vars['subhead'] = $subhead; 
-  $vars['subhead_link'] = $subhead_link; 
-  $vars['author'] = $author; 
-  $vars['by'] = $by; 
+/**
+ * CONTINUE HERE
+ * TODO: 
+ * - theme News Organization. Include it at the top of news clips as a rendered node.
+ * - add special handling for title/headline 
+ *   @todo Revisit. Maybe it would be better to make title/headline its own field and use auto_nodetitle for title field.
+ * - theme the rest of the fields as fields, don't theme the whole node here + .tpl.php
+ */
 
-  // FOOTER
-  $variables['footer'] = check_markup(variable_get('news_clips_footer', NULL));
-
-    // TODO Use Render API #attached here to attach CSS?
-    if (isset($vars['type']) && $vars['type'] === 'news_clip') {
-      drupal_add_css(drupal_get_path('module', 'news_clip') . '/theme/civic_news_clips.css');
+    // Get get variables from related news organization.
+    foreach ($node->field_news_org as $array) {
+       $nid = $array[0]['nid'];
+       $org_node = node_load($nid);
     }
-  // */
+//dsm($org_node, 'org_node');
+    $vars['org_name'] = _civic_news_clips_org_name($org_node);
+    $vars['banner'] = _civic_news_clips_banner($org_node);
+    $vars['org_website'] = _civic_news_clips_org_website($org_node);
+    $vars['org_type'] = _civic_news_clips_org_type($org_node);
+
+    // Get variables from the news clip.
+    $vars['date'] = _civic_news_clips_date($node); 
+    $vars['headline'] = $headline; 
+    //$vars['by'] = _civic_news_clips_by($node); 
+    /*
+    // headline + subhead
+    $headline = check_plain($node->title);
+    $subhead = $node->field_news_subhead[0]['safe'];
+    // external links
+    $clip_website = $node->field_newsclip_url[0]['safe'];
+    if ($clip_website) {
+      $clip_website = url($clip_website, array('external' => TRUE));
+      $options = array(
+        'attributes' => array(
+          'class' => 'news-headline-link',
+          'target' => '_blank',
+        ),
+      );
+      $headline_link = l($headline, $clip_website, $options);
+      $subhead_link = l($subhead, $clip_website, $options);
+    }
+    // News Contact 
+    foreach ($node->field_news_contact as $author_nid) {
+      $author_node = node_load($author_nid);
+      $author[] = check_plain($author_node->title);
+    }
+    // By Line
+    $by = $node->field_news_by[0]['safe'];
+    // vars
+    $vars['clip_website'] = $clip_website; 
+    $vars['headline_link'] = $headline_link; 
+    $vars['subhead'] = $subhead; 
+    $vars['subhead_link'] = $subhead_link; 
+    $vars['author'] = $author; 
+
+    // FOOTER
+    $variables['footer'] = check_markup(variable_get('news_clips_footer', NULL));
+
+      // TODO Use Render API #attached here to attach CSS?
+      if (isset($vars['type']) && $vars['type'] === 'news_clip') {
+        drupal_add_css(drupal_get_path('module', 'news_clip') . '/theme/civic_news_clips.css');
+      }
+    // */
   }
 }
 
@@ -181,25 +167,27 @@ function theme_civic_news_clips_test(&$vars) {
 
 /**
  * @param $node
- *  A news_organization node.
+ *  Object. News organization node.
+ *
+ * @param $link
+ *  Boolean. Return <a> tag, linking to organization
+ *  website if available.
  * 
- * TODO Handle banner sizing here somehow.
- * @return $banner
- *  HTML, <img /> element to be used as banner or newspaper masthead.
+ * @return string 
+ *  Name of the news organization.
  */
-function _civic_news_clips_banner($node) {
-  // Use foreach to handle language here: $node->field_example['lang'][0].
-  foreach ($node->field_news_org_logo as $array) {
-     $uri = $array[0]['uri'];
-  }
-  $url = file_create_url($uri);
-  $alt = check_plain($node->title);
-  $img = '<img src="' . $url . '" alt="' . $title . '" />';
-    
-  return $img;
+function _civic_news_clips_org_name($node, $link = TRUE) {
+  $org_name = check_plain($node->title);
+  $url = _civic_news_clips_org_website($node);
+  $output = ($url) ? "<a href='$url'>$org_name</a>" : $org_name;
+
+  return $output;
 }
 
 /**
+ * Return image to be displayed as newsclip banner in the header
+ * of the news clip.
+ * 
  * @param $node
  *  A news_organization node.
  * 
@@ -207,7 +195,110 @@ function _civic_news_clips_banner($node) {
  * @return $banner
  *  HTML, <img /> element to be used as banner or newspaper masthead.
  */
-function _civic_news_clips_banner_link($node) {
+function _civic_news_clips_banner($node) {
+  // Find out if the news clip banner is supposed to be displayed (true / false).
+  foreach ($node->field_news_display_banner as $array) {
+    $display_banner = $array[0]['value'];
+  }
+  if (isset($node->field_news_org_logo) && $display_banner) { 
+    // Use foreach to handle language here: $node->field_example['lang'][0].
+    foreach ($node->field_news_org_logo as $array) {
+       $uri = $array[0]['uri'];
+    }
+    // Get image element. 
+    $url = file_create_url($uri);
+    $alt = check_plain($node->title);
+    $img = '<img src="' . $url . '" alt="' . $alt . '" />';
+  } else {
+    // Either $display_banner was set to false or no image was uploaded.
+    return FALSE; 
+  }
+  // Get link to news organization's website.
+  $url = _civic_news_clips_org_website($node);
+  // Create $output.
+  $output = ($url) ? "<a href='$url' target='_blank'>$img</a>" : $img;
+    
+  return $output;
+}
+
+/**
+ * @param $node
+ *  Object. News organization node.
+ * 
+ * @return string
+ *  URL to news organization's website.
+ */
+function _civic_news_clips_org_website($node) {
+  if (isset($node->field_news_org_website)) {
+    foreach ($node->field_news_org_website as $array) {
+      $url = url($array[0]['safe_value'], array('external' => TRUE));
+    }
+  }
+  if (isset($url)) {
+    return $url;
+  } else {
+    return FALSE;
+  }
+}
+
+/**
+ * @param $node
+ *  A news_organization node.
+ * 
+ * @return $org_type.
+ *  String, type of news organization (e.g. newspaper).
+ */
+function _civic_news_clips_org_type($node){
+  if (isset($node->field_news_org_type)) {
+    foreach ($node->field_news_org_type as $array) {
+     $org_type = check_plain($array[0]['value']);
+    }
+    return $org_type; 
+  } else {
+    return FALSE;
+  }
+}
+
+/**
+ * @param $node
+ *  A news_organization node.
+ * 
+ * @return $date
+ *  String. Formatted date from datestamp. 
+ */
+function _civic_news_clips_date($node) {
+  if (isset($node->field_newsclip_date)) {
+    foreach ($node->field_newsclip_date as $array) {
+      $datestamp = $array[0]['value'];
+    }
+    // Format date from unix timestamp
+    $d = getdate($datestamp);
+    $date = $d['weekday'] .', '. $d['month'] .' '. $d['mday'] .', '. $d['year'];
+  } else {
+    $date = FALSE;
+  }
+
+  return $date;
+}
+
+/**
+ * @param $node
+ *  A news_organization node.
+ * 
+ * @return $by.
+ *  String, type of news organization (e.g. newspaper).
+ */
+/*
+function _civic_news_clips_by($node){
+  if (isset($node->field_news_org_type)) {
+    foreach ($node->field_news_org_type as $array) {
+     $org_type = check_plain($array[0]['value']);
+    }
+    return $org_type; 
+  } else {
+    return FALSE;
+  }
+}
 // TODO break this up into smaller functions.
 /*
 function _civic_news_clips_tbd() {
@@ -225,32 +316,6 @@ function _civic_news_clips_tbd() {
 
     $banner = theme('imagecache', $preset_namespace, $image_filepath, $alt, $title, $attributes);
   } 
-
-    // website
-    $website = $node->field_news_org_website[0]['value'];
-    if ($website) {
-      $options = array(
-        'external' => TRUE, 
-       );
-      $website = url($website, $options);
-      // create link on banner
-      $options = array('html' => TRUE, 'attributes' => array('target' => '_blank'));
-      if ($website && $banner) {
-        $banner_link = l($banner, $website, $options);
-      }
-    }
-  $org_name = check_plain($node->title);
-
-  $b->banner = $banner;
-  $b->banner_link = $banner_link;
-  $b->website = $website; 
-  $b->size = $preset_namespace;
-  $b->display_banner = $node->field_news_display_banner[0]['value'];
-  $b->org_name = $org_name;
-  $b->org_name_link = ($website) ? l($org_name, $website, $options) : '' ;
-  $b->org_type = check_plain($node->field_news_org_type[0]['value']);
-
-  return $b;
 }
 // */
 
