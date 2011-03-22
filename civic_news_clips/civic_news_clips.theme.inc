@@ -5,13 +5,13 @@
 
 /**
  * Implements hook_preprocess_node().
+ * 
+ * TODO Theme news_organization node like this.
  */
 function civic_news_clips_preprocess_node(&$vars) {
-dsm('hook_preprocess_node');
   $node = $vars['node'];
   if ($node->type == 'news_clip') {
-dsm($node);
-     
+
     // There should only be one $node->field_news_org,
     // but it could be:
     //   $node->field_news_org['und'][0]
@@ -20,31 +20,23 @@ dsm($node);
     //   (presumably 'en' could be any language)
     // depending on whether translation is enabled or not.
 
-/**
- * CONTINUE HERE
- * TODO: 
- * - theme News Organization. Include it at the top of news clips as a rendered node.
- * - add special handling for title/headline 
- *   @todo Revisit. Maybe it would be better to make title/headline its own field and use auto_nodetitle for title field.
- * - theme the rest of the fields as fields, don't theme the whole node here + .tpl.php
- */
-
     // Get get variables from related news organization.
     foreach ($node->field_news_org as $array) {
        $nid = $array[0]['nid'];
        $org_node = node_load($nid);
     }
+    $vars['organization_type'] = _civic_news_clips_org_type($org_node);
+  }
+    /*
 //dsm($org_node, 'org_node');
     $vars['org_name'] = _civic_news_clips_org_name($org_node);
     $vars['banner'] = _civic_news_clips_banner($org_node);
     $vars['org_website'] = _civic_news_clips_org_website($org_node);
-    $vars['org_type'] = _civic_news_clips_org_type($org_node);
 
     // Get variables from the news clip.
     $vars['date'] = _civic_news_clips_date($node); 
     $vars['headline'] = $headline; 
     //$vars['by'] = _civic_news_clips_by($node); 
-    /*
     // headline + subhead
     $headline = check_plain($node->title);
     $subhead = $node->field_news_subhead[0]['safe'];
@@ -82,21 +74,53 @@ dsm($node);
       if (isset($vars['type']) && $vars['type'] === 'news_clip') {
         drupal_add_css(drupal_get_path('module', 'news_clip') . '/theme/civic_news_clips.css');
       }
-    // */
-  }
+// */
 }
+
+/**
+ *   @todo Revisit. Maybe it would be better to make title/headline its own field and use auto_nodetitle for title field.
+ */
 
 /**
  * Implements hook_node_view().
  */
-/*
 function civic_news_clips_node_view($node, $view_mode, $langcode){
-  dsm('hook_node_view');
-  dsm($node, 'node');
-  dsm($view_mode, 'view mode');
+  if ($node->type == 'news_clip' && $view_mode == 'full') {
+// dsm($node);
+    // Create news clip headline.
+    $safe_headline = t(check_plain($node->title));
+    $node->content['headline'] = array (
+      '#theme' => 'civic_news_clips_headline',
+      '#weight' => -1,
+      '#items' => array(
+        'headline' => $node->title,
+        'safe_headline' => $safe_headline,
+      ),
+    );
+    // TODO Add 'By' to by-line. This doesn't work...
+    /*
+    $by = $node->content['field_news_by']['#items'][0]['safe_value'];
+    $node->content['field_news_by']['#items'][0]['safe_value'] = t('By') . " $by";
+
+    $by = $node->content['field_news_by']['#items'][0]['value'];
+    $node->content['field_news_by']['#items'][0]['value'] = t('By') . " $by";
+    // */
+  }
 }
 // */
 
+function theme_civic_news_clips_headline($variables) {
+//dsm($variables, 'variables');
+  $headline = $variables['element']['#items']['safe_headline'];
+//dsm($headline, 'headline');
+  $output = '<div class="news-clip-headline">' . $headline . '</div>';
+
+  return $output;
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
 function civic_news_clips_preprocess_page(&$vars) {
   // If it's a news clip, set title to empty string.
   // Give node--news-clip.tpl.php control of the title.
@@ -117,22 +141,46 @@ function civic_news_clips_preprocess_page(&$vars) {
   }
 }
 
+function civic_news_clips_init() {
+  // @todo Seems like this stylesheet should get added
+  //   to a renderable array as an #attached element somewhere,
+  //   but it doesn't seem to work to do it in 
+  //   hook_preprocess_node or hook_node_view.
+  $path = drupal_get_path('module', 'civic_news_clips') ."/theme";
+  $css = $path ."/civic_news_clips.css";
+  drupal_add_css($css);
+}
+
 /**
  * Impliments hook_theme().
  */
 function civic_news_clips_theme($existing, $type, $theme, $path) {
+
   // Note: Open Public features do this here: 
   //  $item = $existing['node'];
   // But I'm not sure this is really necessary.
   // Civic features get called after node module. If this (above) line
   // is necessary, increase module weight to 1, otherwise 
   // $existing['node'] will be empty.
-  $item = array();
-  $item['render element'] = 'elements';
-  $item['path'] = drupal_get_path('module', 'civic_news_clips') ."/theme";
-  $item['template'] = 'node--news-clip';
+  $items = array(
+    'civic_news_clips_headline' => array(
+      'render element' => 'element',
+    ),
+    'node__news_clip' => array(
+      'render element' => 'elements',
+      'path' => drupal_get_path('module', 'civic_news_clips') ."/theme",
+      'template' => 'node--news-clip',
+    ),
+    /*
+    'field__field_news_org_logo' => array(
+      'render element' => 'elements',
+      'path' => drupal_get_path('module', 'civic_news_clips') ."/theme",
+      'template' => 'field--field-news-org-logo',
+    ),
+    // */
+  );
 
-  return array("node__news_clip" => $item);
+  return $items;
 }
 
 /*

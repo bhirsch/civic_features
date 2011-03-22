@@ -1,0 +1,89 @@
+/** node type: news_organization **/
+
+  div.field-name-field-news-org-logo
+  {
+    text-align: center;
+  }
+
+/** node type: news_clip  **/
+  .news-clip-headline 
+  {
+    font-size: 200%;
+    margin-bottom: 10px;
+    line-height: 30px;
+  }
+  
+  .field-name-field-newsclip-date
+  {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border-bottom: 1px solid;
+  }
+  
+  .organization-type-newspaper .field-name-field-newsclip-date
+  {
+    font-style: italic;
+    text-transform: uppercase;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+  }
+  
+  .field-name-field-news-subhead
+  {
+    margin-bottom: 10px;
+    font-size: 160%;
+  }
+  
+  .field-name-field-news-by
+  {
+    margin-bottom: 10px;
+  }
+
+  /** newspaper news clip styles **/
+  .organization-type-newspaper .field-name-field-newsclip-date,
+  .organization-type-newspaper .field-name-field-news-subhead,
+  .organization-type-newspaper .field-name-field-news-by, 
+  .organization-type-newspaper .news-clip-headline
+  {
+    font-family: Georgia,"Times New Roman",Times,serif;
+  }
+
+  .organization-type-newspaper .news-clip-headline
+  {
+    font-weight: bold;
+  }  
+
+  .organization-type-newspaper .field-name-field-news-by
+  {
+    font-variant: small-caps;
+  }
+
+/** TODO REPLACE **/
+/** sws-newsclip-header **/
+
+  .news-org-name
+  {
+    font-size: 220%;
+  }
+ 
+  a.news-headline-link
+  {
+    color: black;
+  }
+
+
+  
+  .news-clip-author
+  {
+    float: left;
+  }
+
+/** news clip footer **/
+  .news-clip-footer
+  {
+    font-style: italic; 
+    font-size: 90%; 
+  }
