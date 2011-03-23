@@ -6,6 +6,12 @@
   }
 
 /** node type: news_clip  **/
+  .news-organization-name
+  {
+    font-size: 400%;
+    text-align: center;
+  }
+
   .news-clip-headline 
   {
     font-size: 200%;
@@ -46,7 +52,8 @@
   .organization-type-newspaper .field-name-field-newsclip-date,
   .organization-type-newspaper .field-name-field-news-subhead,
   .organization-type-newspaper .field-name-field-news-by, 
-  .organization-type-newspaper .news-clip-headline
+  .organization-type-newspaper .news-clip-headline,
+  .organization-type-newspaper .news-organization-name
   {
     font-family: Georgia,"Times New Roman",Times,serif;
   }
@@ -64,10 +71,6 @@
 /** TODO REPLACE **/
 /** sws-newsclip-header **/
 
-  .news-org-name
-  {
-    font-size: 220%;
-  }
  
   a.news-headline-link
   {
