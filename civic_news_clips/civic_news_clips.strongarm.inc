@@ -66,7 +66,7 @@ function civic_news_clips_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_news_clip';
-  $strongarm->value = '2';
+  $strongarm->value = '1';
   $export['comment_news_clip'] = $strongarm;
 
   $strongarm = new stdClass;

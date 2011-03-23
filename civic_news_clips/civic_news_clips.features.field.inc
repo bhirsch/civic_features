@@ -409,7 +409,11 @@ function civic_news_clips_field_default_fields() {
     ),
     'field_instance' => array(
       'bundle' => 'news_organization',
-      'default_value' => NULL,
+      'default_value' => array(
+        '0' => array(
+          'value' => 1,
+        ),
+      ),
       'deleted' => '0',
       'description' => '',
       'display' => array(
@@ -429,11 +433,12 @@ function civic_news_clips_field_default_fields() {
       'entity_type' => 'node',
       'field_name' => 'field_news_display_banner',
       'label' => 'Display Banner',
-      'required' => FALSE,
+      'required' => 0,
       'settings' => array(
         'user_register_form' => FALSE,
       ),
       'widget' => array(
+        'active' => 1,
         'module' => 'options',
         'settings' => array(
           'display_label' => 0,
