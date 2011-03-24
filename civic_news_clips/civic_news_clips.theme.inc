@@ -34,9 +34,17 @@ function civic_news_clips_preprocess_node(&$vars) {
  * Implements hook_preprocess_field().
  */
 function civic_news_clips_preprocess_field(&$variables) {
+  // Add "By" in front of author's name in news clip byline.
   if ($variables['element']['#field_name'] == 'field_news_by') {
     $author = $variables['items'][0]['#markup']; 
     $variables['items'][0]['#markup'] = t('By') . ' ' . $author;
+  }
+  // Add http:// for link to external website, if user didn't include this.
+  else if ($variables['element']['#field_name'] == 'field_newsclip_url') {
+    $url = $variables['items'][0]['#markup']; 
+    $url = (substr($url, 0, 7) != 'http://') ? "http://$url" : $url;
+    $url =  url($url, array('external' => TRUE));
+    $variables['items'][0]['#markup'] = l($url, $url); 
   }
 }
 
