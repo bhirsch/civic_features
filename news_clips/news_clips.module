@@ -1,0 +1,5 @@
+<?php
+
+include_once('news_clips.features.inc');
+include_once('news_clips.theme.inc');
+

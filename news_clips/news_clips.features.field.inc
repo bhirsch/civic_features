@@ -3,7 +3,7 @@
 /**
  * Implementation of hook_field_default_fields().
  */
-function civic_news_clips_field_default_fields() {
+function news_clips_field_default_fields() {
   $fields = array();
 
   // Exported field: 'node-news_clip-body'

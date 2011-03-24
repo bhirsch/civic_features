@@ -3,7 +3,7 @@
 /**
  * Implementation of hook_strongarm().
  */
-function civic_news_clips_strongarm() {
+function news_clips_strongarm() {
   $export = array();
 
   $strongarm = new stdClass;

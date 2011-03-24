@@ -3,7 +3,7 @@
 /**
  * Implementation of hook_ctools_plugin_api().
  */
-function civic_news_clips_ctools_plugin_api() {
+function news_clips_ctools_plugin_api() {
   list($module, $api) = func_get_args();
   if ($module == "strongarm" && $api == "strongarm") {
     return array("version" => 1);
@@ -13,7 +13,7 @@ function civic_news_clips_ctools_plugin_api() {
 /**
  * Implementation of hook_node_info().
  */
-function civic_news_clips_node_info() {
+function news_clips_node_info() {
   $items = array(
     'news_clip' => array(
       'name' => t('News Clip'),

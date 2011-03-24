@@ -1,12 +1,12 @@
 <?php 
 /**
- * @file civic_news_clips.theme.inc
+ * @file news_clips.theme.inc
  */
 
 /**
  * Implements hook_preprocess_node().
  */
-function civic_news_clips_preprocess_node(&$vars) {
+function news_clips_preprocess_node(&$vars) {
   $node = $vars['node'];
   if ($node->type == 'news_clip') {
     // Get get variables from related news organization.
@@ -14,10 +14,10 @@ function civic_news_clips_preprocess_node(&$vars) {
        $nid = $array[0]['nid'];
        $org_node = node_load($nid);
     }
-    $vars['organization_type'] = _civic_news_clips_org_type($org_node);
+    $vars['organization_type'] = _news_clips_org_type($org_node);
   }
   else if ($node->type == 'news_organization') {
-    $vars['banner'] = _civic_news_clips_banner($node);
+    $vars['banner'] = _news_clips_banner($node);
   }
   /*
     // FOOTER
@@ -25,7 +25,7 @@ function civic_news_clips_preprocess_node(&$vars) {
 
       // TODO Use Render API #attached here to attach CSS?
       if (isset($vars['type']) && $vars['type'] === 'news_clip') {
-        drupal_add_css(drupal_get_path('module', 'news_clip') . '/theme/civic_news_clips.css');
+        drupal_add_css(drupal_get_path('module', 'news_clip') . '/theme/news_clips.css');
       }
 // */
 }
@@ -33,7 +33,7 @@ function civic_news_clips_preprocess_node(&$vars) {
 /**
  * Implements hook_preprocess_field().
  */
-function civic_news_clips_preprocess_field(&$variables) {
+function news_clips_preprocess_field(&$variables) {
   // Add "By" in front of author's name in news clip byline.
   if ($variables['element']['#field_name'] == 'field_news_by') {
     $author = $variables['items'][0]['#markup']; 
@@ -51,12 +51,12 @@ function civic_news_clips_preprocess_field(&$variables) {
 /**
  * Implements hook_node_view().
  */
-function civic_news_clips_node_view($node, $view_mode, $langcode){
+function news_clips_node_view($node, $view_mode, $langcode){
   if ($node->type == 'news_clip' && $view_mode == 'full') {
     // Create news clip headline.
     $safe_headline = t(check_plain($node->title));
     $node->content['headline'] = array (
-      '#theme' => 'civic_news_clips_headline',
+      '#theme' => 'news_clips_headline',
       '#weight' => -1,
       '#items' => array(
         'headline' => $node->title,
@@ -67,9 +67,9 @@ function civic_news_clips_node_view($node, $view_mode, $langcode){
 }
 
 /**
- * Callback for theme_civic_news_clips_headline().
+ * Callback for theme_news_clips_headline().
  */
-function theme_civic_news_clips_headline($variables) {
+function theme_news_clips_headline($variables) {
   $headline = $variables['element']['#items']['safe_headline'];
   $output = '<div class="news-clip-headline">' . $headline . '</div>';
 
@@ -79,7 +79,7 @@ function theme_civic_news_clips_headline($variables) {
 /**
  * Implements hook_preprocess_page().
  */
-function civic_news_clips_preprocess_page(&$vars) {
+function news_clips_preprocess_page(&$vars) {
   // If it's a news clip, set title to empty string.
   // Give node--news-clip.tpl.php control of the title.
   if (isset($vars['page']['content']['system_main']['nodes'])) {
@@ -107,16 +107,16 @@ function civic_news_clips_preprocess_page(&$vars) {
  *   but it doesn't seem to work to do it in 
  *   hook_preprocess_node or hook_node_view.
  */
-function civic_news_clips_init() {
-  $path = drupal_get_path('module', 'civic_news_clips') ."/theme";
-  $css = $path ."/civic_news_clips.css";
+function news_clips_init() {
+  $path = drupal_get_path('module', 'news_clips') ."/theme";
+  $css = $path ."/news_clips.css";
   drupal_add_css($css);
 }
 
 /**
  * Impliments hook_theme().
  */
-function civic_news_clips_theme($existing, $type, $theme, $path) {
+function news_clips_theme($existing, $type, $theme, $path) {
 
   // Note: Open Public features do this here: 
   //  $item = $existing['node'];
@@ -125,23 +125,23 @@ function civic_news_clips_theme($existing, $type, $theme, $path) {
   // is necessary, increase module weight to 1, otherwise 
   // $existing['node'] will be empty.
   $items = array(
-    'civic_news_clips_headline' => array(
+    'news_clips_headline' => array(
       'render element' => 'element',
     ),
     'node__news_clip' => array(
       'render element' => 'elements',
-      'path' => drupal_get_path('module', 'civic_news_clips') ."/theme",
+      'path' => drupal_get_path('module', 'news_clips') ."/theme",
       'template' => 'node--news-clip',
     ),
     'node__news_organization' => array(
       'render element' => 'elements',
-      'path' => drupal_get_path('module', 'civic_news_clips') ."/theme",
+      'path' => drupal_get_path('module', 'news_clips') ."/theme",
       'template' => 'node--news-organization',  
     ),
     /*
     'field__field_news_by' => array(
       'render element' => 'elements',
-      'path' => drupal_get_path('module', 'civic_news_clips') ."/theme",
+      'path' => drupal_get_path('module', 'news_clips') ."/theme",
       'template' => 'field--field-news-by',
     ),
     // */
@@ -166,7 +166,7 @@ function civic_news_clips_theme($existing, $type, $theme, $path) {
  *
  * @todo Replace $output with render array.
  */
-function _civic_news_clips_banner($node) {
+function _news_clips_banner($node) {
   // Find out if the news clip banner is supposed to be displayed (true / false).
   foreach ($node->field_news_display_banner as $array) {
     $display_banner = $array[0]['value'];
@@ -181,14 +181,14 @@ function _civic_news_clips_banner($node) {
     $alt = check_plain($node->title);
     $img = '<img src="' . $url . '" alt="' . $alt . '" />';
     // Get link to news organization's website.
-    $url = _civic_news_clips_org_website($node);
+    $url = _news_clips_org_website($node);
     // Create $output.
     $output = ($url) ? "<a href='$url' target='_blank'>$img</a>" : $img;
   }
   else {
     // Either $display_banner was set to false or no image was uploaded.
     // Get link to news organization's website.
-    $url = _civic_news_clips_org_website($node);
+    $url = _news_clips_org_website($node);
     // Create $output.
     $output = ($url) ? "<a href='$url' target='_blank'>$$node->title</a>" : $node->title;
   }
@@ -203,7 +203,7 @@ return $output;
  * @return string
  *  URL to news organization's website.
  */
-function _civic_news_clips_org_website($node) {
+function _news_clips_org_website($node) {
   if (isset($node->field_news_org_website)) {
     foreach ($node->field_news_org_website as $array) {
       $url = url($array[0]['safe_value'], array('external' => TRUE));
@@ -223,7 +223,7 @@ function _civic_news_clips_org_website($node) {
  * @return $org_type.
  *  String, type of news organization (e.g. newspaper).
  */
-function _civic_news_clips_org_type($node){
+function _news_clips_org_type($node){
   if (isset($node->field_news_org_type)) {
     foreach ($node->field_news_org_type as $array) {
      $org_type = check_plain($array[0]['value']);
