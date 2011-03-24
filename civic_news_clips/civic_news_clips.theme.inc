@@ -66,6 +66,9 @@ function civic_news_clips_node_view($node, $view_mode, $langcode){
   }
 }
 
+/**
+ * Callback for theme_civic_news_clips_headline().
+ */
 function theme_civic_news_clips_headline($variables) {
   $headline = $variables['element']['#items']['safe_headline'];
   $output = '<div class="news-clip-headline">' . $headline . '</div>';
