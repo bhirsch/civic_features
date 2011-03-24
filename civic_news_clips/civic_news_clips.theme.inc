@@ -15,6 +15,7 @@ function civic_news_clips_preprocess_node(&$vars) {
        $org_node = node_load($nid);
     }
     $vars['organization_type'] = _civic_news_clips_org_type($org_node);
+    $vars['by'] = t('By');
   }
   else if ($node->type == 'news_organization') {
     $vars['banner'] = _civic_news_clips_banner($node);
