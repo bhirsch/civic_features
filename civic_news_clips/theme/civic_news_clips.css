@@ -19,7 +19,7 @@
     line-height: 30px;
   }
   
-  .field-name-field-newsclip-date
+  .content .field-name-field-newsclip-date
   {
     margin-top: 10px;
     margin-bottom: 20px;
@@ -66,22 +66,6 @@
   .organization-type-newspaper .field-name-field-news-by
   {
     font-variant: small-caps;
-  }
-
-/** TODO REPLACE **/
-/** sws-newsclip-header **/
-
- 
-  a.news-headline-link
-  {
-    color: black;
-  }
-
-
-  
-  .news-clip-author
-  {
-    float: left;
   }
 
 /** news clip footer **/
