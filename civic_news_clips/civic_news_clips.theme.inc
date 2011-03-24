@@ -15,7 +15,6 @@ function civic_news_clips_preprocess_node(&$vars) {
        $org_node = node_load($nid);
     }
     $vars['organization_type'] = _civic_news_clips_org_type($org_node);
-    $vars['by'] = t('By');
   }
   else if ($node->type == 'news_organization') {
     $vars['banner'] = _civic_news_clips_banner($node);
@@ -29,6 +28,16 @@ function civic_news_clips_preprocess_node(&$vars) {
         drupal_add_css(drupal_get_path('module', 'news_clip') . '/theme/civic_news_clips.css');
       }
 // */
+}
+
+/**
+ * Implements hook_preprocess_field().
+ */
+function civic_news_clips_preprocess_field(&$variables) {
+  if ($variables['element']['#field_name'] == 'field_news_by') {
+    $author = $variables['items'][0]['#markup']; 
+    $variables['items'][0]['#markup'] = t('By') . ' ' . $author;
+  }
 }
 
 /**
@@ -119,10 +128,10 @@ function civic_news_clips_theme($existing, $type, $theme, $path) {
       'template' => 'node--news-organization',  
     ),
     /*
-    'field__field_news_org_logo' => array(
+    'field__field_news_by' => array(
       'render element' => 'elements',
       'path' => drupal_get_path('module', 'civic_news_clips') ."/theme",
-      'template' => 'field--field-news-org-logo',
+      'template' => 'field--field-news-by',
     ),
     // */
   );

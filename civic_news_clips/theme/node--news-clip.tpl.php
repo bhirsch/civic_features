@@ -102,15 +102,11 @@
       hide($content['field_news_org']);
       hide($content['field_newsclip_date']);
       hide($content['headline']);
-      hide($content['field_news_subhead']);
-      hide($content['field_news_by']);
       // News organization (logo/banner) goes at the top of the header.
       print render($content['field_news_org']);
       print render($content['field_newsclip_date']);
       // Headline next.
       print render($content['headline']);
-      print render($content['field_news_subhead']);
-      print   $by . ' ' . render($content['field_news_by']);
       print render($content);
     ?>
   </div>
