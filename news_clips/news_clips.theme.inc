@@ -14,7 +14,7 @@ function news_clips_preprocess_node(&$vars) {
        $nid = $array[0]['nid'];
        $org_node = node_load($nid);
     }
-    $vars['organization_type'] = _news_clips_org_type($org_node);
+    $vars['organization_type'] = (isset($org_node)) ? _news_clips_org_type($org_node) : '';
   }
   else if ($node->type == 'news_organization') {
     $vars['banner'] = _news_clips_banner($node);

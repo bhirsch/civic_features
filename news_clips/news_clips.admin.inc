@@ -13,7 +13,8 @@
  * @see system_settings_form().
  */
 function news_clips_admin_settings() {
-  $fair_use = '<p>FAIR USE NOTICE</p><p>This site contains copyrighted material the use of which has not always been specifically authorized by the copyright owner. In accordance with Title 17 U.S.C. Section 107, the material on this site is available without profit for research and educational purposes. If you wish to use copyrighted material from this site for purposes of your own that go beyond "fair use", you must obtain permission from the copyright owner.</p>';
+  $fair_use = 'FAIR USE NOTICE
+This site contains copyrighted material the use of which has not always been specifically authorized by the copyright owner. In accordance with Title 17 U.S.C. Section 107, the material on this site is available without profit for research and educational purposes. If you wish to use copyrighted material from this site for purposes of your own that go beyond "fair use", you must obtain permission from the copyright owner.';
 
   $form['newsclip'] = array(
     '#type' => 'fieldset',
