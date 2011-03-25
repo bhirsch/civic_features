@@ -44,6 +44,10 @@ function news_clips_preprocess_field(&$variables) {
  */
 function news_clips_node_view($node, $view_mode, $langcode){
   if ($node->type == 'news_clip' && $view_mode == 'full') {
+    // Attach CSS.
+    $path = drupal_get_path('module', 'news_clips') ."/theme";
+    $css = $path ."/news_clips.css";
+    $node->content['#attached']['css'][] = $css;
     // Create news clip headline.
     $safe_headline = t(check_plain($node->title));
     $node->content['headline'] = array (
@@ -106,20 +110,6 @@ function news_clips_preprocess_page(&$vars) {
       $vars['title'] = '';
     }
   }
-}
-
-/**
- * Implements hook_init().
- * 
- * @todo Seems like this stylesheet should get added
- *   to a renderable array as an #attached element somewhere,
- *   but it doesn't seem to work to do it in 
- *   hook_preprocess_node or hook_node_view.
- */
-function news_clips_init() {
-  $path = drupal_get_path('module', 'news_clips') ."/theme";
-  $css = $path ."/news_clips.css";
-  drupal_add_css($css);
 }
 
 /**
