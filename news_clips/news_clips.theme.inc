@@ -19,15 +19,6 @@ function news_clips_preprocess_node(&$vars) {
   else if ($node->type == 'news_organization') {
     $vars['banner'] = _news_clips_banner($node);
   }
-  /*
-    // FOOTER
-    $variables['footer'] = check_markup(variable_get('news_clips_footer', NULL));
-
-      // TODO Use Render API #attached here to attach CSS?
-      if (isset($vars['type']) && $vars['type'] === 'news_clip') {
-        drupal_add_css(drupal_get_path('module', 'news_clip') . '/theme/news_clips.css');
-      }
-// */
 }
 
 /**
@@ -63,6 +54,14 @@ function news_clips_node_view($node, $view_mode, $langcode){
         'safe_headline' => $safe_headline,
       ),
     );
+    $footer = variable_get('news_clips_footer', NULL);
+    $node->content['footer'] = array(
+      '#theme' => 'news_clips_footer',
+      '#items' => array(
+        'value' => $footer,
+        'safe_value' => check_markup($footer),
+      ),
+    );
   }
 }
 
@@ -72,6 +71,16 @@ function news_clips_node_view($node, $view_mode, $langcode){
 function theme_news_clips_headline($variables) {
   $headline = $variables['element']['#items']['safe_headline'];
   $output = '<div class="news-clip-headline">' . $headline . '</div>';
+
+  return $output;
+}
+
+/**
+ * Callback for theme_news_clips_footer().
+ */
+function theme_news_clips_footer($variables) {
+  $footer = $variables['element']['#items']['safe_value'];
+  $output = '<div class="news-clip-footer">' . $footer . '</div>';
 
   return $output;
 }
@@ -126,6 +135,9 @@ function news_clips_theme($existing, $type, $theme, $path) {
   // $existing['node'] will be empty.
   $items = array(
     'news_clips_headline' => array(
+      'render element' => 'element',
+    ),
+    'news_clips_footer' => array(
       'render element' => 'element',
     ),
     'node__news_clip' => array(

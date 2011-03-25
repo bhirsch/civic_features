@@ -3,3 +3,22 @@
 include_once('news_clips.features.inc');
 include_once('news_clips.theme.inc');
 
+/**
+ * Implements hook_menu().
+ */
+function news_clips_menu() {
+  $items = array();
+
+  $items['admin/config/news_clips'] = array(
+    'title' => t('News Clips Settings'), 
+    'description' => t('News Clip Settings'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('news_clips_admin_settings'),
+    'access arguments' => array('administer sws'), 
+    'type' => MENU_NORMAL_ITEM,
+    'file' => 'news_clips.admin.inc', 
+  );
+
+  return $items;
+}
+

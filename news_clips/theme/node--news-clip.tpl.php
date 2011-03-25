@@ -5,7 +5,7 @@
  * Slightly modified default theme implementation to display a node.
  * News clip-specific variables:
  * - $organization_type
- * - $by, t('By') for by-line
+ * - $footer (defined by user)
  *
  * Available variables:
  * - $title: the (sanitized) title of the node.
@@ -102,6 +102,7 @@
       hide($content['field_news_org']);
       hide($content['field_newsclip_date']);
       hide($content['headline']);
+      hide($content['footer']);
       // News organization (logo/banner) goes at the top of the header.
       print render($content['field_news_org']);
       print render($content['field_newsclip_date']);
@@ -112,21 +113,8 @@
   </div>
 
   <?php print render($content['links']); ?>
-
   <?php print render($content['comments']); ?>
+  <?php print render($content['footer']); ?>
+
 
 </div>
-<?
-/**
- * @file sws-newsclip-footer.tpl.php
- * Default theme implementation to display news clip footer.
- *
- * Available variables:
- * - $footer (defined by user)
- * 
- * @see template_preprocess_sws_newsclip_footer()
- */
-?>
-<?php if ($footer) : ?>
-  <div class="news-clip-footer"><?php print $footer ;?></div>
-<?php endif; ?>
