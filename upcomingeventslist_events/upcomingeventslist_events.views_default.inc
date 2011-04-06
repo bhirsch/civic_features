@@ -885,15 +885,15 @@ function upcomingeventslist_events_views_default_views() {
   $handler = $view->new_display('default', 'Defaults', 'default');
   $handler->override_option('relationships', array(
     'nodequeue_rel' => array(
+      'label' => 'queue',
+      'required' => 1,
+      'limit' => 1,
+      'qids' => array(
+        '7' => 7,
+      ),
       'id' => 'nodequeue_rel',
       'table' => 'node',
       'field' => 'nodequeue_rel',
-      'label' => 'queue',
-      'required' => 1,
-      'limit' => TRUE,
-      'qids' => array(
-        '5' => '5',
-      ),
       'relationship' => 'none',
     ),
   ));
