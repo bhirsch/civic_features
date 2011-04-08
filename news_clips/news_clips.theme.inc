@@ -105,9 +105,11 @@ function news_clips_preprocess_page(&$vars) {
       }
     }
     // If there's only 1 node, assume it's a full node page.
-    $type = $nodes[$node_id]['body']['#object']->type;
-    if ($count == 1 && $type == 'news_clip') {
-      $vars['title'] = '';
+    if ($count == 1) {
+      $type = $nodes[$node_id]['body']['#object']->type;
+      if ($type == 'news_clip') {
+        $vars['title'] = '';
+      }
     }
   }
 }
