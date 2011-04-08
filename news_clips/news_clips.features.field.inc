@@ -73,7 +73,7 @@ function news_clips_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '6',
+        'weight' => '-2',
       ),
       'widget_type' => 'text_textarea_with_summary',
     ),
@@ -142,7 +142,7 @@ function news_clips_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '3',
+        'weight' => '-448',
       ),
     ),
   );
@@ -228,7 +228,7 @@ function news_clips_field_default_fields() {
           'size' => 60,
         ),
         'type' => 'node_reference_autocomplete',
-        'weight' => '2',
+        'weight' => '-449',
       ),
     ),
   );
@@ -296,7 +296,7 @@ function news_clips_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '1',
+        'weight' => '-450',
       ),
     ),
   );
@@ -377,7 +377,7 @@ function news_clips_field_default_fields() {
           'year_range' => '-9:+1',
         ),
         'type' => 'date_select',
-        'weight' => '4',
+        'weight' => '-446',
       ),
     ),
   );
@@ -445,7 +445,94 @@ function news_clips_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '5',
+        'weight' => '-445',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-news_clip-field_related_posts'
+  $fields['node-news_clip-field_related_posts'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '-1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_related_posts',
+      'foreign keys' => array(
+        'nid' => array(
+          'columns' => array(
+            'nid' => 'nid',
+          ),
+          'table' => 'node',
+        ),
+      ),
+      'indexes' => array(
+        'nid' => array(
+          '0' => 'nid',
+        ),
+      ),
+      'module' => 'node_reference',
+      'settings' => array(
+        'referenceable_types' => array(
+          'blog_entry' => 'blog_entry',
+          'document' => 'document',
+          'editors_choice' => 'editors_choice',
+          'event' => 'event',
+          'home_page_feature' => 'home_page_feature',
+          'issue' => 'issue',
+          'legislation' => 'legislation',
+          'media_gallery' => 'media_gallery',
+          'news_clip' => 'news_clip',
+          'news_organization' => 'news_organization',
+          'photo' => 'photo',
+          'press_release' => 'press_release',
+          'profile' => 'profile',
+          'resource' => 'resource',
+          'services' => 'services',
+          'site_page' => 'site_page',
+          'webform' => 'webform',
+        ),
+      ),
+      'translatable' => '1',
+      'type' => 'node_reference',
+    ),
+    'field_instance' => array(
+      'bundle' => 'news_clip',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => 'Enter the title of any post on the website. Related posts will appear in the "Related Posts" block in the sidebar alongside this post. If the related post includes video, the video will appear in the sidebar.',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'node_reference',
+          'settings' => array(),
+          'type' => 'node_reference_default',
+          'weight' => 7,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_related_posts',
+      'label' => 'Related Posts',
+      'required' => 0,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'node_reference',
+        'settings' => array(
+          'autocomplete_match' => 'contains',
+          'autocomplete_path' => 'node_reference/autocomplete',
+          'size' => '60',
+        ),
+        'type' => 'node_reference_autocomplete',
+        'weight' => '125',
       ),
     ),
   );
@@ -734,11 +821,13 @@ function news_clips_field_default_fields() {
   t('By');
   t('Date');
   t('Display Banner');
+  t('Enter the title of any post on the website. Related posts will appear in the "Related Posts" block in the sidebar alongside this post. If the related post includes video, the video will appear in the sidebar.');
   t('Example: http://nytimes.com/12345');
   t('Link to news clip (URL)');
   t('Logo/Banner');
   t('News Organization');
   t('Organization Type');
+  t('Related Posts');
   t('Subhead');
   t('This setting determines how news clips from this organization will be displayed. For example, "newspaper" clips are made to look newspaper-like. "Other" looks more generic.');
   t('URL');
