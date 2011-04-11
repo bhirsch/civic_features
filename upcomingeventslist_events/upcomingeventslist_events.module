@@ -28,3 +28,11 @@ function upcomingeventslist_events_preprocess_views_view_fields__recent_events__
     unset($variables['fields']['field_teaser_value']);
   }
 }
+
+/**
+ * Implementation of hook_init().
+ */
+function upcomingeventslist_events_init() {
+  $css = drupal_get_path('module', 'upcomingeventslist_events') . '/upcomingeventslist_events.css';
+  drupal_add_css($css);
+}
