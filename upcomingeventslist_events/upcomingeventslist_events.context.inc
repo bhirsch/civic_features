@@ -12,8 +12,17 @@ function upcomingeventslist_events_context_default_contexts() {
   $context->description = 'Recent events posts alongside Upcoming Events and Past Events pages';
   $context->tag = 'Events';
   $context->conditions = array(
+    'node' => array(
+      'values' => array(
+        'event' => 'event',
+      ),
+      'options' => array(
+        'node_form' => '1',
+      ),
+    ),
     'views' => array(
       'values' => array(
+        'events_past_list:page_3' => 'events_past_list:page_3',
         'events_upcoming_list:page_3' => 'events_upcoming_list:page_3',
       ),
     ),
