@@ -1,0 +1,3 @@
+<?php
+
+include_once('pager_events.features.inc');
