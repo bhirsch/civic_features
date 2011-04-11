@@ -73,7 +73,7 @@ function legislation_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '-2',
+        'weight' => '3',
       ),
       'widget_type' => 'text_textarea_with_summary',
     ),
@@ -147,7 +147,7 @@ function legislation_field_default_fields() {
           'size' => 60,
         ),
         'type' => 'taxonomy_autocomplete',
-        'weight' => '100',
+        'weight' => '4',
       ),
     ),
   );
@@ -316,7 +316,7 @@ function legislation_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'node_reference_autocomplete',
-        'weight' => '125',
+        'weight' => '5',
       ),
     ),
   );

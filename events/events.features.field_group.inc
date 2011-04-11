@@ -14,7 +14,7 @@ function events_field_group_default_field_groups() {
     'mode' => 'form',
     'parent_name' => '',
     'label' => 'Map',
-    'weight' => '-100',
+    'weight' => '3',
     'children' => array(
       '0' => 'field_map',
     ),
@@ -36,16 +36,17 @@ function events_field_group_default_field_groups() {
     'mode' => 'form',
     'parent_name' => '',
     'label' => 'Pictures',
-    'weight' => '-70',
+    'weight' => '2',
     'children' => array(
       '0' => 'field_pic',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'formatter' => 'collapsible',
+      'label' => 'Pictures',
       'instance_settings' => array(
         'classes' => '',
       ),
+      'formatter' => 'collapsed',
     ),
   );
 
@@ -57,16 +58,17 @@ function events_field_group_default_field_groups() {
     'mode' => 'form',
     'parent_name' => '',
     'label' => 'Video',
-    'weight' => '-80',
+    'weight' => '1',
     'children' => array(
       '0' => 'field_video_url',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'formatter' => 'collapsible',
+      'label' => 'Video',
       'instance_settings' => array(
         'classes' => '',
       ),
+      'formatter' => 'collapsed',
     ),
   );
 

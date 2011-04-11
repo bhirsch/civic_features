@@ -73,7 +73,7 @@ function news_clips_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '-2',
+        'weight' => '6',
       ),
       'widget_type' => 'text_textarea_with_summary',
     ),
@@ -142,7 +142,7 @@ function news_clips_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '-448',
+        'weight' => '3',
       ),
     ),
   );
@@ -228,7 +228,7 @@ function news_clips_field_default_fields() {
           'size' => 60,
         ),
         'type' => 'node_reference_autocomplete',
-        'weight' => '-449',
+        'weight' => '2',
       ),
     ),
   );
@@ -296,7 +296,7 @@ function news_clips_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '-450',
+        'weight' => '1',
       ),
     ),
   );
@@ -377,7 +377,7 @@ function news_clips_field_default_fields() {
           'year_range' => '-9:+1',
         ),
         'type' => 'date_select',
-        'weight' => '-446',
+        'weight' => '4',
       ),
     ),
   );
@@ -445,7 +445,7 @@ function news_clips_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '-445',
+        'weight' => '5',
       ),
     ),
   );
@@ -536,7 +536,7 @@ function news_clips_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'node_reference_autocomplete',
-        'weight' => '125',
+        'weight' => '7',
       ),
     ),
   );
