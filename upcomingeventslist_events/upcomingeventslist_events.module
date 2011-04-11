@@ -1,3 +1,30 @@
 <?php
 
 include_once('upcomingeventslist_events.features.inc');
+
+
+/**
+ * Implements hook_theme_registry_alter().
+ */
+function upcomingeventslist_events_theme_registry_alter(&$theme_registry) {
+  $theme_registry['views_view_fields__recent_events__block']['preprocess functions'][] = 'upcomingeventslist_events_preprocess_views_view_fields__recent_events__block';
+}
+
+/**
+ * Implements template_preprocess_hook().
+ * 
+ * Preprocess fields for recent events block, use one of the following teasers
+ * in this priority order: 
+ * - video
+ * - picture
+ * - text
+ */
+function upcomingeventslist_events_preprocess_views_view_fields__recent_events__block(&$variables) {
+  if (!empty($variables['fields']['field_video_url_value']->content)) {
+    unset($variables['fields']['field_pic_fid']);
+    unset($variables['fields']['field_teaser_value']);
+  }
+  else if (!empty($variables['fields']['field_pic_fid']->content)) {
+    unset($variables['fields']['field_teaser_value']);
+  }
+}
