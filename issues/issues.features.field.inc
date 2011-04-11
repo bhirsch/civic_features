@@ -83,7 +83,7 @@ function issues_field_default_fields() {
   $fields['node-issue-field_attachment'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => '1',
+      'cardinality' => '-1',
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_attachment',
@@ -253,6 +253,7 @@ function issues_field_default_fields() {
       'module' => 'node_reference',
       'settings' => array(
         'referenceable_types' => array(
+          'agenda_item' => 'agenda_item',
           'blog_entry' => 'blog_entry',
           'document' => 'document',
           'editors_choice' => 'editors_choice',
@@ -269,6 +270,9 @@ function issues_field_default_fields() {
           'resource' => 'resource',
           'services' => 'services',
           'site_page' => 'site_page',
+          'tweet' => 0,
+          'twitter_feed' => 0,
+          'video' => 'video',
           'webform' => 'webform',
         ),
       ),
