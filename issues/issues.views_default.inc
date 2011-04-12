@@ -195,7 +195,7 @@ function issues_views_default_views() {
   $handler->override_option('cache', array(
     'type' => 'none',
   ));
-  $handler->override_option('title', 'The Issues');
+  $handler->override_option('title', 'Issues');
   $handler->override_option('empty', '<h1>Coming soon...</h1>');
   $handler->override_option('empty_format', '2');
   $handler->override_option('use_pager', '1');

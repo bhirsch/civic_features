@@ -13,8 +13,6 @@ function issues_strongarm() {
     'title' => '-1000',
     'body_field' => '-2',
     'revision_information' => '150 ',
-    'author' => '20',
-    'options' => '25',
     'menu' => '210',
     'taxonomy' => '1',
     'path' => '200',

@@ -18,8 +18,7 @@ function issues_fieldgroup_default_groups() {
         'description' => '',
       ),
       'display' => array(
-        'weight' => '-540',
-        'label' => 'above',
+        'description' => '',
         'teaser' => array(
           'format' => 'fieldset',
           'exclude' => 0,
@@ -28,7 +27,6 @@ function issues_fieldgroup_default_groups() {
           'format' => 'fieldset',
           'exclude' => 0,
         ),
-        'description' => '',
         '4' => array(
           'format' => 'fieldset',
           'exclude' => 0,
@@ -45,58 +43,12 @@ function issues_fieldgroup_default_groups() {
           'format' => 'fieldset',
           'exclude' => 0,
         ),
+        'label' => 'above',
       ),
     ),
     'weight' => '-540',
     'fields' => array(
       '0' => 'field_attachment',
-    ),
-  );
-
-  // Exported group: group_header_picture
-  $groups['issue-group_header_picture'] = array(
-    'group_type' => 'standard',
-    'type_name' => 'issue',
-    'group_name' => 'group_header_picture',
-    'label' => 'Header Picture',
-    'settings' => array(
-      'form' => array(
-        'style' => 'fieldset_collapsed',
-        'description' => '',
-      ),
-      'display' => array(
-        'weight' => '-999',
-        'label' => 'above',
-        'teaser' => array(
-          'format' => 'fieldset',
-          'exclude' => 0,
-        ),
-        'full' => array(
-          'format' => 'hidden',
-          'exclude' => 0,
-        ),
-        'description' => '',
-        '4' => array(
-          'format' => 'fieldset',
-          'exclude' => 0,
-        ),
-        '2' => array(
-          'format' => 'fieldset',
-          'exclude' => 0,
-        ),
-        '3' => array(
-          'format' => 'fieldset',
-          'exclude' => 0,
-        ),
-        'token' => array(
-          'format' => 'fieldset',
-          'exclude' => 0,
-        ),
-      ),
-    ),
-    'weight' => '-999',
-    'fields' => array(
-      '0' => 'field_header_picture',
     ),
   );
 
@@ -112,8 +64,7 @@ function issues_fieldgroup_default_groups() {
         'description' => '',
       ),
       'display' => array(
-        'weight' => '-70',
-        'label' => 'above',
+        'description' => '',
         'teaser' => array(
           'format' => 'fieldset',
           'exclude' => 0,
@@ -122,7 +73,6 @@ function issues_fieldgroup_default_groups() {
           'format' => 'fieldset',
           'exclude' => 0,
         ),
-        'description' => '',
         '4' => array(
           'format' => 'fieldset',
           'exclude' => 0,
@@ -139,6 +89,7 @@ function issues_fieldgroup_default_groups() {
           'format' => 'fieldset',
           'exclude' => 0,
         ),
+        'label' => 'above',
       ),
     ),
     'weight' => '-70',
@@ -161,8 +112,7 @@ function issues_fieldgroup_default_groups() {
         'description' => '',
       ),
       'display' => array(
-        'weight' => '-60',
-        'label' => 'above',
+        'description' => '',
         'teaser' => array(
           'format' => 'fieldset',
           'exclude' => 0,
@@ -171,7 +121,6 @@ function issues_fieldgroup_default_groups() {
           'format' => 'fieldset',
           'exclude' => 0,
         ),
-        'description' => '',
         '4' => array(
           'format' => 'fieldset',
           'exclude' => 0,
@@ -188,6 +137,7 @@ function issues_fieldgroup_default_groups() {
           'format' => 'fieldset',
           'exclude' => 0,
         ),
+        'label' => 'above',
       ),
     ),
     'weight' => '-60',
@@ -209,8 +159,7 @@ function issues_fieldgroup_default_groups() {
         'description' => '',
       ),
       'display' => array(
-        'weight' => '-80',
-        'label' => 'above',
+        'description' => '',
         'teaser' => array(
           'format' => 'fieldset',
           'exclude' => 0,
@@ -219,7 +168,6 @@ function issues_fieldgroup_default_groups() {
           'format' => 'fieldset',
           'exclude' => 0,
         ),
-        'description' => '',
         '4' => array(
           'format' => 'fieldset',
           'exclude' => 0,
@@ -236,6 +184,7 @@ function issues_fieldgroup_default_groups() {
           'format' => 'fieldset',
           'exclude' => 0,
         ),
+        'label' => 'above',
       ),
     ),
     'weight' => '-80',
@@ -250,7 +199,6 @@ function issues_fieldgroup_default_groups() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Attachments');
-  t('Header Picture');
   t('Pictures');
   t('Teaser');
   t('Video');

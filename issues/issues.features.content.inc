@@ -11,10 +11,9 @@ function issues_content_default_fields() {
     'field_name' => 'field_attachment',
     'type_name' => 'issue',
     'display_settings' => array(
-      'weight' => '-539',
-      'parent' => 'group_attachments',
       'label' => array(
         'format' => 'above',
+        'exclude' => 0,
       ),
       'teaser' => array(
         'format' => 'default',
@@ -51,7 +50,7 @@ function issues_content_default_fields() {
     'list_default' => 1,
     'description_field' => '1',
     'widget' => array(
-      'file_extensions' => 'txt doc docx odt xls xlsx ods pdf jpg png jpeg tiff gif',
+      'file_extensions' => 'txt doc docx odt xls xlsx ods pdf jpg png jpeg tiff gif ',
       'file_path' => '',
       'progress_indicator' => 'bar',
       'max_filesize_per_file' => '',
@@ -64,80 +63,13 @@ function issues_content_default_fields() {
     ),
   );
 
-  // Exported field: field_header_picture
-  $fields['issue-field_header_picture'] = array(
-    'field_name' => 'field_header_picture',
-    'type_name' => 'issue',
-    'display_settings' => array(
-      'weight' => '-998',
-      'parent' => 'group_header_picture',
-      'label' => array(
-        'format' => 'above',
-      ),
-      'teaser' => array(
-        'format' => 'image_plain',
-        'exclude' => 0,
-      ),
-      'full' => array(
-        'format' => 'hidden',
-        'exclude' => 0,
-      ),
-      '4' => array(
-        'format' => 'image_plain',
-        'exclude' => 0,
-      ),
-      '2' => array(
-        'format' => 'image_plain',
-        'exclude' => 0,
-      ),
-      '3' => array(
-        'format' => 'image_plain',
-        'exclude' => 0,
-      ),
-      'token' => array(
-        'format' => 'image_plain',
-        'exclude' => 0,
-      ),
-    ),
-    'widget_active' => '1',
-    'type' => 'filefield',
-    'required' => '0',
-    'multiple' => '0',
-    'module' => 'filefield',
-    'active' => '1',
-    'list_field' => '0',
-    'list_default' => 1,
-    'description_field' => '0',
-    'widget' => array(
-      'file_extensions' => 'png gif jpg jpeg',
-      'file_path' => '',
-      'progress_indicator' => 'bar',
-      'max_filesize_per_file' => '',
-      'max_filesize_per_node' => '',
-      'max_resolution' => '0',
-      'min_resolution' => '0',
-      'alt' => '',
-      'custom_alt' => 0,
-      'title' => '',
-      'custom_title' => 0,
-      'title_type' => 'textfield',
-      'default_image' => NULL,
-      'use_default_image' => 0,
-      'label' => 'Header Picture',
-      'weight' => '-998',
-      'description' => '',
-      'type' => 'imagefield_widget',
-      'module' => 'imagefield',
-    ),
-  );
-
   // Exported field: field_pic
   $fields['issue-field_pic'] = array(
     'field_name' => 'field_pic',
     'type_name' => 'issue',
     'display_settings' => array(
-      'weight' => '-69',
-      'parent' => 'group_pics',
+      'weight' => '6',
+      'parent' => 'group_multimedia',
       'label' => array(
         'format' => 'above',
       ),
@@ -203,8 +135,8 @@ function issues_content_default_fields() {
     'field_name' => 'field_pic_align',
     'type_name' => 'issue',
     'display_settings' => array(
-      'weight' => '-67',
-      'parent' => 'group_pics',
+      'weight' => '8',
+      'parent' => 'group_multimedia',
       'label' => array(
         'format' => 'above',
       ),
@@ -265,8 +197,8 @@ alternate',
     'field_name' => 'field_pic_size',
     'type_name' => 'issue',
     'display_settings' => array(
-      'weight' => '-68',
-      'parent' => 'group_pics',
+      'weight' => '7',
+      'parent' => 'group_multimedia',
       'label' => array(
         'format' => 'above',
       ),
@@ -334,10 +266,9 @@ return $size;',
     'field_name' => 'field_related_posts',
     'type_name' => 'issue',
     'display_settings' => array(
-      'weight' => '125',
-      'parent' => '',
       'label' => array(
         'format' => 'above',
+        'exclude' => 0,
       ),
       'teaser' => array(
         'format' => 'default',
@@ -413,10 +344,9 @@ return $size;',
     'field_name' => 'field_teaser',
     'type_name' => 'issue',
     'display_settings' => array(
-      'weight' => '-59',
-      'parent' => 'group_teaser',
       'label' => array(
         'format' => 'above',
+        'exclude' => 0,
       ),
       'teaser' => array(
         'format' => 'default',
@@ -477,10 +407,9 @@ return $size;',
     'field_name' => 'field_teaser_auto',
     'type_name' => 'issue',
     'display_settings' => array(
-      'weight' => '-58',
-      'parent' => 'group_teaser',
       'label' => array(
         'format' => 'above',
+        'exclude' => 0,
       ),
       'teaser' => array(
         'format' => 'default',
@@ -540,10 +469,9 @@ return $size;',
     'field_name' => 'field_video_align',
     'type_name' => 'issue',
     'display_settings' => array(
-      'weight' => '-77',
-      'parent' => 'group_video',
       'label' => array(
         'format' => 'above',
+        'exclude' => 0,
       ),
       'teaser' => array(
         'format' => 'default',
@@ -602,10 +530,9 @@ right',
     'field_name' => 'field_video_autoplay',
     'type_name' => 'issue',
     'display_settings' => array(
-      'weight' => '-76',
-      'parent' => 'group_video',
       'label' => array(
         'format' => 'above',
+        'exclude' => 0,
       ),
       'teaser' => array(
         'format' => 'default',
@@ -665,10 +592,9 @@ right',
     'field_name' => 'field_video_size',
     'type_name' => 'issue',
     'display_settings' => array(
-      'weight' => '-78',
-      'parent' => 'group_video',
       'label' => array(
         'format' => 'above',
+        'exclude' => 0,
       ),
       'teaser' => array(
         'format' => 'default',
@@ -727,10 +653,9 @@ width:205 height:167',
     'field_name' => 'field_video_url',
     'type_name' => 'issue',
     'display_settings' => array(
-      'weight' => '-79',
-      'parent' => 'group_video',
       'label' => array(
         'format' => 'above',
+        'exclude' => 0,
       ),
       'teaser' => array(
         'format' => 'default',
@@ -789,7 +714,6 @@ width:205 height:167',
   // Included for use with string extractors like potx.
   t('Attachment');
   t('Auto-generate Teaser');
-  t('Header Picture');
   t('Picture');
   t('Picture Alignment');
   t('Picture Size');
