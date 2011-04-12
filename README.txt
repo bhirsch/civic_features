@@ -15,6 +15,7 @@ Block Weights
 25    Featured Video
 30    Related Posts
 40    Upcoming Events
+41    Recent Events
 50    Featured Posts
 60    Blog Posts
 70    Twitter 

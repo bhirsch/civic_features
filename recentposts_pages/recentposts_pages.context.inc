@@ -17,7 +17,7 @@ function recentposts_pages_context_default_contexts() {
         'page' => 'page',
       ),
       'options' => array(
-        'node_form' => '1',
+        'node_form' => '0',
       ),
     ),
   );

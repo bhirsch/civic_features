@@ -17,7 +17,7 @@ function upcomingeventslist_events_context_default_contexts() {
         'event' => 'event',
       ),
       'options' => array(
-        'node_form' => '1',
+        'node_form' => '0',
       ),
     ),
     'views' => array(
@@ -34,7 +34,7 @@ function upcomingeventslist_events_context_default_contexts() {
           'module' => 'views',
           'delta' => 'recent_events-block',
           'region' => 'right',
-          'weight' => 0,
+          'weight' => 41,
         ),
       ),
     ),

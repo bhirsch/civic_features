@@ -17,7 +17,7 @@ function buttonblock_events_context_default_contexts() {
         'event' => 'event',
       ),
       'options' => array(
-        'node_form' => '1',
+        'node_form' => '0',
       ),
     ),
     'views' => array(

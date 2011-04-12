@@ -17,7 +17,7 @@ function recentposts_pressreleases_context_default_contexts() {
         'press_release' => 'press_release',
       ),
       'options' => array(
-        'node_form' => '1',
+        'node_form' => '0',
       ),
     ),
     'views' => array(
