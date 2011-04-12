@@ -11,16 +11,17 @@ function issues_logo_content_default_fields() {
     'field_name' => 'field_issue_logo',
     'type_name' => 'issue',
     'display_settings' => array(
+      'weight' => '-996',
+      'parent' => 'group_logo',
       'label' => array(
         'format' => 'above',
-        'exclude' => 0,
       ),
       'teaser' => array(
         'format' => 'image_plain',
         'exclude' => 0,
       ),
       'full' => array(
-        'format' => 'image_plain',
+        'format' => 'hidden',
         'exclude' => 0,
       ),
       '4' => array(

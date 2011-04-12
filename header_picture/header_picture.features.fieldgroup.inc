@@ -18,7 +18,7 @@ function header_picture_fieldgroup_default_groups() {
         'description' => '',
       ),
       'display' => array(
-        'weight' => '-999',
+        'weight' => '-995',
         'label' => 'above',
         'teaser' => array(
           'format' => 'fieldset',
