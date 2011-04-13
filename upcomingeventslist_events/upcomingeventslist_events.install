@@ -1,0 +1,79 @@
+<?php
+/** 
+ * @file upcomingeventslist_events.install
+ */
+
+/**
+ * Implementation of hook_install().
+ */
+function upcomingeventslist_events_install() {
+  // Nodequeue
+  // Set $qid and $title.
+  // @see /profiles/civic/NODEQUEUE.txt
+  $title = 'Recent Events';
+  $qid = 7;
+  // Check for nodequeue with conflicting ID number.
+  $queue = nodequeue_load($qid);
+  if (!empty($queue)) {
+    // Error. Some rogue queue has hijacked qid 7.  
+    $txt = t('The queue named, !queue_title, is using qid !qid. Please contact an '
+          ."administrator. The !title queue will not work "
+          ."properly until this is resolved.", 
+            array(
+              '!queue_title' => $queue->title,
+              '!qid' => $qid,
+              '!title' => $title,
+            )
+          );
+    drupal_set_message($txt, 'error');
+  } 
+  else {
+    // Create "Recent Events" queue.
+    _upcomingeventslist_events_install_nodequeue();
+  } 
+}
+
+/**
+ * Implementation of hook_uninstall(). 
+ */
+function upcomingeventslist_events_uninstall() {
+  // Nodequeue
+  // Delete "Recent Events" queue.
+  _upcomingeventslist_events_uninstall_nodequeue();
+}
+
+//------------------------
+// Internal functions
+//------------------------
+
+/**
+ * Create Recent Events nodequeue.
+ * 
+ * Note: This has to be done by querying the database directly
+ * rather than call nodequeue_save() until there is a stable
+ * faux exportable.
+ * @see /profiles/civic/NODEQUEUE.txt
+ */
+function _upcomingeventslist_events_install_nodequeue() {
+  // nodequeue_queue
+  db_query("INSERT INTO {nodequeue_queue} "
+          ."VALUES "
+          ."(7,'Recent Events','',3,'','','nodequeue',1,1,0,'0',0,1)" );
+  // nodequeue_types
+  db_query("INSERT INTO {nodequeue_types} "
+          ."VALUES "
+          ."(7,'event') " );
+  // nodequeue_subqueue
+  db_query("INSERT INTO {nodequeue_subqueue} "
+          ."VALUES "
+          ."(7,7,'7','Recent Events') ");
+}
+
+/**
+ * Delete nodequeue.
+ */
+function _upcomingeventslist_events_uninstall_nodequeue() {
+  // Delete nodequeue.
+  $qid = 7; // @see /profiles/civic/NODEQUEUE.txt
+  nodequeue_delete($qid);  
+}
