@@ -173,6 +173,19 @@ function coalition_views_default_views() {
       ),
     ),
   ));
+  $handler->override_option('sorts', array(
+    'field_coalition_weight_value' => array(
+      'order' => 'ASC',
+      'delta' => -1,
+      'id' => 'field_coalition_weight_value',
+      'table' => 'node_data_field_coalition_weight',
+      'field' => 'field_coalition_weight_value',
+      'override' => array(
+        'button' => 'Override',
+      ),
+      'relationship' => 'none',
+    ),
+  ));
   $handler->override_option('filters', array(
     'status' => array(
       'operator' => '=',
@@ -218,6 +231,8 @@ Our first goal: retaining the “Millionaires Tax” in this year’s state budg
 We are made up of New York’s most engaged and effective unions and community organizations:');
   $handler->override_option('header_format', '1');
   $handler->override_option('header_empty', 0);
+  $handler->override_option('items_per_page', 15);
+  $handler->override_option('use_pager', '1');
   $handler = $view->new_display('page', 'Page', 'page_1');
   $handler->override_option('path', 'coalition');
   $handler->override_option('menu', array(
