@@ -17,7 +17,7 @@ function featuredposts_newsclips_context_default_contexts() {
         'news_clip' => 'news_clip',
       ),
       'options' => array(
-        'node_form' => '1',
+        'node_form' => '0',
       ),
     ),
     'views' => array(

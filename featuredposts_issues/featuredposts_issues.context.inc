@@ -17,7 +17,7 @@ function featuredposts_issues_context_default_contexts() {
         'issue' => 'issue',
       ),
       'options' => array(
-        'node_form' => '1',
+        'node_form' => '0',
       ),
     ),
     'views' => array(
