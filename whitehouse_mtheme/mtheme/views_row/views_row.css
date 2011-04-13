@@ -1,0 +1,8 @@
+/* Generated February 27, 2011, 2:28 pm -- 1298834891 -- http://localhost/civic-1-0-alpha3 */ 
+ 
+  /*** Views Row, views_row ***/ 
+  .views-row
+  {
+    float: left;  /** this breaks in IE7 */    clear: left; 
+  }
+

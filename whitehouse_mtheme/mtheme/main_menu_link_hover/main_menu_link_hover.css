@@ -1,0 +1,8 @@
+/* Generated February 16, 2011, 5:52 pm -- 1297896765 -- http://localhost/civic-1-0-alpha3 */ 
+ 
+  /*** Main Menu Item (on mouse over), main_menu_link_hover ***/ 
+  #navbar-inner a:hover
+  {
+    background-color: white;    padding-top: 4px;    padding-bottom: 10px;    border-top: 3px solid #870100;    color: #336699;    text-align: center;
+  }
+

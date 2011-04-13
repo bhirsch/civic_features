@@ -20,3 +20,4 @@ Block Weights
 60    Blog Posts
 70    Twitter 
 80    Recent Posts
+

@@ -1,0 +1,8 @@
+/* Generated February 27, 2011, 2:34 pm -- 1298835272 -- http://localhost/civic-1-0-alpha3 */ 
+ 
+  /*** views_list_grp_2 ***/ 
+  .list-grp-2
+  {
+    width: 500px; /** This was originally 540px, but it breaks in IE7 above 500. **/    margin-left: 95px;    
+  }
+

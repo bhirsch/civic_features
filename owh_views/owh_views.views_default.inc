@@ -291,10 +291,10 @@ function owh_views_views_default_views() {
   ));
   $handler->override_option('sorts', array(
     'position' => array(
+      'order' => 'DESC',
       'id' => 'position',
       'table' => 'nodequeue_nodes',
       'field' => 'position',
-      'order' => 'ASC',
       'relationship' => 'nodequeue_rel',
     ),
   ));
@@ -505,6 +505,7 @@ function owh_views_views_default_views() {
     'title' => '',
     'description' => '',
     'weight' => 0,
+    'name' => 'navigation',
   ));
   $handler = $view->new_display('block', 'Block: Featured Video', 'block');
   $handler->override_option('items_per_page', 5);
@@ -638,6 +639,7 @@ function owh_views_views_default_views() {
     'title' => '',
     'description' => '',
     'weight' => 0,
+    'name' => 'navigation',
   ));
   $handler = $view->new_display('block', 'Block', 'block');
   $handler->override_option('items_per_page', 5);

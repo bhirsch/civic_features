@@ -1,0 +1,8 @@
+/* Generated March 6, 2011, 9:18 pm -- 1299464303 -- http://localhost/civic-1-0-alpha3-A */ 
+ 
+  /*** Slide Show Teaser, carousel1_teaser ***/ 
+  .carousel1-teaser
+  {
+    float: left;    width: 255px;    color: #FFF;    padding-left: 45px;    position: relative;    top: 80px;    font-size: 115%;
+  }
+

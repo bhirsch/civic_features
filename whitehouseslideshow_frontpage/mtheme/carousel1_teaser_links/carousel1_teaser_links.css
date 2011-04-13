@@ -1,0 +1,11 @@
+/* Generated March 6, 2011, 9:17 pm -- 1299464257 -- http://localhost/civic-1-0-alpha3-A */ 
+ 
+  /*** Slide Show Teaser Links, carousel1_teaser_links ***/ 
+  .carousel1-teaser a,
+  .carousel1-teaser a:active,
+  .carousel1-teaser a:link,
+  .carousel1-teaser a:visited
+  {
+    color: #FFF;
+  }
+
