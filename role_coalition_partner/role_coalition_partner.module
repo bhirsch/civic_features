@@ -1,0 +1,78 @@
+<?php
+
+// Drupal needs this blank file.
+
+/**
+ * Implmentation of hook_enable().
+ * 
+ * @todo 
+ *  Note: Here's a use case where faux exportables for roles/permissions
+ *  doesn't work. Create/edit/delete permissions for blog posts and events 
+ *  are stored in the blog and event modules respectively. Now we want to create
+ *  a new role called "coalition partner" (which ships with this feature module),
+ *  but we can't give the coalition partners these perms with Features exportables
+ *  because they're already assigned to another module.
+ *    For now, use this _update_perm(). Since
+ *  this role is being newly created, this is okay here. Looking ahead though, 
+ *  it would be nice to come up with a more elegant solution that works better with 
+ *  Features. (Bryan Hirsch, 4/14/11)
+ */
+function role_coalition_partner_enable() {
+  $role = 'coalition partner';
+  $perm = array(
+    // Blog
+    'create blog content', 
+    'delete own blog content',
+    'edit own blog content',
+    // Events
+    'create event content', 
+    'delete own event content',
+    'edit own event content',
+  );
+  foreach ($perm as $new_perm) {
+    _role_coalition_partner_update_perm($role, $new_perm);
+  }
+}
+
+/**
+ * Add permissions to roles.
+ * 
+ * @param $role
+ *  role name
+ * 
+ * @param $new_perm
+ *  comma separated list of new permissions
+ */
+function _role_coalition_partner_update_perm($role, $new_perm) {
+  // get current permissions
+  $sql = 'SELECT perm FROM {permission} p '
+        .'JOIN {role} r ON r.rid = p.rid '
+        ."WHERE r.name = '%s'";
+  $arg = $role;
+  $perm = db_result(db_query($sql, $arg));
+  // Check if permission already exists. If it does, we're done.
+  if (!strpos($new_perm, $perm)) {
+    // Update permissions.
+    if (empty($perm)) {
+      // This role has no permissions yet.
+      // Get role id.
+      $sql = 'SELECT rid FROM {role} r '
+            ."WHERE r.name = '%s'";
+      $rid = db_result(db_query($sql, $role));
+      // Grant role it's first permission.
+      $sql = "INSERT INTO {permission} (rid, perm) "
+            ."VALUES (%d, '%s') ";
+      $args = array($rid, $new_perm);
+      db_query($sql, $args);
+    } 
+    else {
+      $perm .= ", $new_perm";
+      $sql = "UPDATE {permission} p "
+            ."JOIN {role} r ON r.rid = p.rid "
+            ."SET perm = '%s' "
+            ."WHERE r.name = '%s'";
+      $args = array($perm, $role);
+      db_query($sql, $args);
+    } 
+  } 
+}

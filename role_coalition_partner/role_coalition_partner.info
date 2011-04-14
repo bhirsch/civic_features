@@ -1,0 +1,8 @@
+core = "6.x"
+dependencies[] = "features"
+description = "Create a new role called Coalition Partner. Coalition partners can create blogs and events and edit/delete their own posts."
+features[user_role][] = "coalition partner"
+name = "Coalition Partner Role"
+package = "Features"
+project = "role_coalition_partner"
+version = "6.x-1.0"
