@@ -11,7 +11,7 @@ function sws_blog_fieldgroup_default_groups() {
     'group_type' => 'standard',
     'type_name' => 'blog',
     'group_name' => 'group_attachment',
-    'label' => 'Attachment',
+    'label' => 'Attachments',
     'settings' => array(
       'form' => array(
         'style' => 'fieldset_collapsed',
