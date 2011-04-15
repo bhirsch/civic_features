@@ -65,16 +65,19 @@ function _role_coalition_partner_update_perm($role, $new_perm) {
     $args = array($rid, $new_perm);
     db_query($sql, $args);
   } 
-  // TODO CONTINUE HERE. CREATING DUPES.
-  else if (strpos($new_perm, $perm) == FALSE) {
-    // Check if permission already exists. If it doesn't, add it.
-    $perm .= ", $new_perm";
-    $sql = "UPDATE {permission} p "
-          ."JOIN {role} r ON r.rid = p.rid "
-          ."SET perm = '%s' "
-          ."WHERE r.name = '%s'";
-    $args = array($perm, $role);
-    db_query($sql, $args);
+  else {
+    $perm_exists = strpos($perm, $new_perm);
+//dsm($perm_exists, 'perm_exists');
+    if (!$perm_exists) {
+      // Check if permission already exists. If it doesn't, add it.
+      $perm .= ", $new_perm";
+      $sql = "UPDATE {permission} p "
+            ."JOIN {role} r ON r.rid = p.rid "
+            ."SET perm = '%s' "
+            ."WHERE r.name = '%s'";
+      $args = array($perm, $role);
+      db_query($sql, $args);
+    }
   } 
 }
 
