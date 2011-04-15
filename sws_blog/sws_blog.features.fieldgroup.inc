@@ -6,6 +6,52 @@
 function sws_blog_fieldgroup_default_groups() {
   $groups = array();
 
+  // Exported group: group_attachment
+  $groups['blog-group_attachment'] = array(
+    'group_type' => 'standard',
+    'type_name' => 'blog',
+    'group_name' => 'group_attachment',
+    'label' => 'Attachment',
+    'settings' => array(
+      'form' => array(
+        'style' => 'fieldset_collapsed',
+        'description' => '',
+      ),
+      'display' => array(
+        'description' => '',
+        'teaser' => array(
+          'format' => 'fieldset',
+          'exclude' => 0,
+        ),
+        'full' => array(
+          'format' => 'fieldset',
+          'exclude' => 0,
+        ),
+        '4' => array(
+          'format' => 'fieldset',
+          'exclude' => 0,
+        ),
+        '2' => array(
+          'format' => 'fieldset',
+          'exclude' => 0,
+        ),
+        '3' => array(
+          'format' => 'fieldset',
+          'exclude' => 0,
+        ),
+        'token' => array(
+          'format' => 'fieldset',
+          'exclude' => 0,
+        ),
+        'label' => 'above',
+      ),
+    ),
+    'weight' => '-540',
+    'fields' => array(
+      '0' => 'field_attachment',
+    ),
+  );
+
   // Exported group: group_blog_map
   $groups['blog-group_blog_map'] = array(
     'group_type' => 'standard',
@@ -93,7 +139,7 @@ function sws_blog_fieldgroup_default_groups() {
         'label' => 'above',
       ),
     ),
-    'weight' => '-995',
+    'weight' => '-70',
     'fields' => array(
       '0' => 'field_pic',
       '1' => 'field_pic_size',
@@ -141,7 +187,7 @@ function sws_blog_fieldgroup_default_groups() {
         'label' => 'above',
       ),
     ),
-    'weight' => '-994',
+    'weight' => '-60',
     'fields' => array(
       '0' => 'field_teaser',
       '1' => 'field_teaser_auto',
@@ -199,6 +245,7 @@ function sws_blog_fieldgroup_default_groups() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Attachment');
   t('Map');
   t('Pictures');
   t('Teaser');

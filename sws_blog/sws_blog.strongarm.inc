@@ -16,8 +16,8 @@ function sws_blog_strongarm() {
     'author' => '20',
     'options' => '25',
     'menu' => '210',
-    'taxonomy' => '100',
-    'path' => '220',
+    'taxonomy' => '1',
+    'path' => '200',
   );
 
   $export['content_extra_weights_blog'] = $strongarm;

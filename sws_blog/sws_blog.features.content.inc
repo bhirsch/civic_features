@@ -6,6 +6,63 @@
 function sws_blog_content_default_fields() {
   $fields = array();
 
+  // Exported field: field_attachment
+  $fields['blog-field_attachment'] = array(
+    'field_name' => 'field_attachment',
+    'type_name' => 'blog',
+    'display_settings' => array(
+      'label' => array(
+        'format' => 'above',
+        'exclude' => 0,
+      ),
+      'teaser' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '2' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '3' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'filefield',
+    'required' => '0',
+    'multiple' => '1',
+    'module' => 'filefield',
+    'active' => '1',
+    'list_field' => '0',
+    'list_default' => 1,
+    'description_field' => '1',
+    'widget' => array(
+      'file_extensions' => 'txt doc docx odt xls xlsx ods pdf jpg png jpeg tiff gif',
+      'file_path' => '',
+      'progress_indicator' => 'bar',
+      'max_filesize_per_file' => '',
+      'max_filesize_per_node' => '',
+      'label' => 'Attachment',
+      'weight' => '-539',
+      'description' => 'Upload file attachments (e.g. fact sheets, handouts, etc.)',
+      'type' => 'filefield_widget',
+      'module' => 'filefield',
+    ),
+  );
+
   // Exported field: field_blog_by
   $fields['blog-field_blog_by'] = array(
     'field_name' => 'field_blog_by',
@@ -928,6 +985,7 @@ width:205 height:167',
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Attachment');
   t('Auto-generate Teaser');
   t('By');
   t('Date');
