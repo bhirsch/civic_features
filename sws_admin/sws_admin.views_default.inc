@@ -341,6 +341,7 @@ function sws_admin_views_default_views() {
         'tweet' => 'tweet',
         'twitter_feed' => 'twitter_feed',
         'video' => 'video',
+        'webform' => 'webform',
       ),
       'group' => '0',
       'exposed' => TRUE,
